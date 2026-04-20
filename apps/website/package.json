@@ -13,7 +13,7 @@
 		"clean": "rimraf dist .nuxt/cache node_modules/.cache"
 	},
 	"dependencies": {
-		"nuxt": "npm:nuxt-nightly@5x"
+		"nuxt": "npm:nuxt-nightly@5.0.0-29610312.e798cbf6"
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
