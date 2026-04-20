@@ -1,0 +1,17 @@
+#utils {
+	#radius {
+		/** 光学对齐圆角（椭圆形，视觉柔和） */
+		.smooth(@size: 16px) {
+			@h: round(@size * 1.2, 2);
+			@v: round(@size * 0.75, 2);
+			border-radius: @h / @v;
+		}
+
+		/** 嵌套光学对齐 */
+		.nested(@inner-size: 8px, @padding: 12px) {
+			@outer-h: round((@inner-size + @padding) * 1.2, 2);
+			@outer-v: round((@inner-size + @padding) * 0.75, 2);
+			border-radius: @outer-h / @outer-v;
+		}
+	}
+}

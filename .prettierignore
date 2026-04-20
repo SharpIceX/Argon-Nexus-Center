@@ -1,0 +1,9 @@
+# Node
+/node_modules
+
+# pnpm
+/pnpm-lock.yaml
+
+# build
+**/dist
+**/.nuxt

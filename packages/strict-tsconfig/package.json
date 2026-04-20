@@ -1,0 +1,5 @@
+{
+	"name": "@anc/strict-tsconfig",
+	"private": true,
+	"description": "严格的 TSConfig 配置"
+}

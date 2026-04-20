@@ -1,0 +1,15 @@
+shellEmulator: true
+shamefullyHoist: true
+disallowWorkspaceCycles: true
+ignoreWorkspaceRootCheck: true
+
+packages:
+  - apps/**
+  - packages/**
+
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - sharp
+  - workerd
+  - unrs-resolver

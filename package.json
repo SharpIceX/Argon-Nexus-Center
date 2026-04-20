@@ -1,0 +1,45 @@
+{
+	"name": "argon-nexus-center",
+	"private": true,
+	"type": "module",
+	"description": "个人网站整合体，Argon Nexus 中心——ANC",
+	"repository": "github:SharpIceX/Argon-Nexus-Center",
+	"homepage": "https://github.com/SharpIceX/Argon-Nexus-Center",
+	"bugs": {
+		"email": "SharpIce@SharpIce.top",
+		"url": "https://github.com/SharpIceX/Argon-Nexus-Center/issues"
+	},
+	"author": {
+		"name": "SharpIce",
+		"url": "https://SharpIce.top",
+		"email": "SharpIce@SharpIce.top"
+	},
+	"engines": {
+		"node": ">=24.14",
+		"pnpm": ">=10.33"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"onFail": "error"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"onFail": "error"
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"format": "prettier . --write"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^8.2.0",
+		"@types/node": "^25.6.0",
+		"eslint": "^10.2.1",
+		"eslint-config-prettier": "^10.1.8",
+		"jiti": "^2.6.1",
+		"prettier": "^3.8.3",
+		"typescript": "^6.0.3",
+		"wrangler": "^4.83.0"
+	}
+}

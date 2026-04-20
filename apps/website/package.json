@@ -1,0 +1,28 @@
+{
+	"name": "@anc/website",
+	"private": true,
+	"type": "module",
+	"description": "个人网站——整个网站",
+	"scripts": {
+		"dev": "nuxt dev",
+		"build": "nuxt build",
+		"preview": "nuxt preview",
+		"generate": "nuxt generate",
+		"postinstall": "nuxt prepare",
+		"analyze": "ANALYZE=true nuxt generate",
+		"clean": "rimraf dist .nuxt/cache node_modules/.cache"
+	},
+	"dependencies": {
+		"nuxt": "npm:nuxt-nightly@5x"
+	},
+	"devDependencies": {
+		"@anc/fantasy-design": "workspace:*",
+		"@anc/strict-tsconfig": "workspace:*",
+		"@nuxt/a11y": "1.0.0-alpha.1",
+		"@nuxt/eslint": "^1.15.2",
+		"isomorphic-git": "^1.37.5",
+		"nuxt-nexus": "^1.0.3",
+		"nuxt-svgo": "^4.2.6",
+		"rimraf": "^6.1.3"
+	}
+}

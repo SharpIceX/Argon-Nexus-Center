@@ -1,0 +1,65 @@
+{
+	"compilerOptions": {
+		/** 基础 */
+		"pretty": true,
+		"allowJs": true,
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": ["ESNext"],
+		"types": ["node"],
+
+		/** 构建 */
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
+		"moduleResolution": "Bundler",
+
+		/** JSX/TSX 相关 */
+		"jsx": "preserve",
+		"jsxImportSource": "vue",
+
+		/** 检查 */
+		"strict": true,
+		"checkJs": true,
+		"noCheck": false,
+		"skipLibCheck": true,
+		"alwaysStrict": true,
+		"noImplicitAny": true,
+		"noEmitOnError": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"esModuleInterop": true,
+		"strictNullChecks": true,
+		"noImplicitReturns": true,
+		"noErrorTruncation": true,
+		"noUnusedParameters": true,
+		"allowUnusedLabels": false,
+		"noImplicitOverride": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"verbatimModuleSyntax": true,
+		"allowUnreachableCode": false,
+		"useDefineForClassFields": true,
+		"noUncheckedIndexedAccess": true,
+		"noFallthroughCasesInSwitch": true,
+		"useUnknownInCatchVariables": true,
+		"exactOptionalPropertyTypes": true,
+		"strictBuiltinIteratorReturn": true,
+		"allowSyntheticDefaultImports": true,
+		"strictPropertyInitialization": true,
+		"noUncheckedSideEffectImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"noPropertyAccessFromIndexSignature": true
+	},
+	"vueCompilerOptions": {
+		"target": 3.6,
+		"jsxSlots": true,
+		"strictVModel": true,
+		"strictTemplates": true,
+		"strictCssModules": true,
+		"checkUnknownProps": true,
+		"checkUnknownEvents": true,
+		"checkUnknownDirectives": true,
+		"checkUnknownComponents": true,
+		"resolveStyleClassNames": "scoped"
+	}
+}
