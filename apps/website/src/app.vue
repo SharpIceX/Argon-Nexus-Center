@@ -1,4 +1,5 @@
 <template>
+	<AppCursor />
 	<AppHeader />
 	<main :class="$style['main-container']">
 		<NuxtPage />
@@ -6,6 +7,7 @@
 </template>
 
 <script lang="ts" setup>
+import AppCursor from './app/cursor.vue';
 import AppHeader from './app/header/main.vue';
 
 defineOptions({

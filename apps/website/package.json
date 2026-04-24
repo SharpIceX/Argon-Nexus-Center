@@ -16,6 +16,7 @@
 		"@fontsource/noto-color-emoji": "^5.2.10",
 		"@fortawesome/fontawesome-free": "^7.2.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
+		"gsap": "^3.15.0",
 		"nuxt": "npm:nuxt-nightly@5.0.0-29610312.e798cbf6",
 		"reka-ui": "^2.9.6"
 	},
