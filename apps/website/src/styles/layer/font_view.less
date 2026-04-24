@@ -1,0 +1,110 @@
+@import '@fontsource/noto-color-emoji';
+
+/* TODO 需要移除`@fontsource/noto-color-emoji`的`woff`格式，只保留`woff2` */
+
+/* Light 300 */
+@font-face {
+	font-family: 'LXGW Bright';
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+	src:
+		local('LXGW Bright Light'),
+		url('$/@lxgw/LxgwBright/LXGWBright/LXGWBright-Light.woff2') format('woff2');
+}
+
+/* Regular 400 */
+@font-face {
+	font-family: 'LXGW Bright';
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src:
+		local('LXGW Bright'),
+		url('$/@lxgw/LxgwBright/LXGWBright/LXGWBright-Regular.woff2') format('woff2');
+}
+
+/* Medium 500 */
+@font-face {
+	font-family: 'LXGW Bright';
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+	src:
+		local('LXGW Bright Medium'),
+		url('$/@lxgw/LxgwBright/LXGWBright/LXGWBright-Medium.woff2') format('woff2');
+}
+
+/* Regular Italic */
+@font-face {
+	font-family: 'LXGW Bright';
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	src:
+		local('LXGW Bright'),
+		url('$/@lxgw/LxgwBright/LXGWBright/LXGWBright-Italic.woff2') format('woff2');
+}
+
+/* Light Italic */
+@font-face {
+	font-family: 'LXGW Bright';
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+	src:
+		local('LXGW Bright Light'),
+		url('$/@lxgw/LxgwBright/LXGWBright/LXGWBright-LightItalic.woff2') format('woff2');
+}
+
+/* Medium Italic */
+@font-face {
+	font-family: 'LXGW Bright';
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+	src:
+		local('LXGW Bright Medium'),
+		url('$/@lxgw/LxgwBright/LXGWBright/LXGWBright-MediumItalic.woff2') format('woff2');
+}
+
+@layer font_view {
+	body {
+		line-height: 1.6;
+		font-smooth: always;
+		letter-spacing: 0.01em;
+		font-synthesis: weight style;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		font-family:
+			'LXGW Bright',
+			'Noto Sans SC',
+			'Noto Sans CJK SC',
+			'Source Han Sans SC',
+			'Source Han Sans CN',
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			'PingFang SC',
+			sans-serif,
+			'Apple Color Emoji',
+			'Segoe UI Emoji',
+			'Segoe UI Symbol';
+	}
+
+	* {
+		text-decoration-skip-ink: auto;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 600;
+		line-height: 1.2;
+	}
+}

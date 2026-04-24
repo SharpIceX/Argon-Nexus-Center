@@ -1,0 +1,102 @@
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	html {
+		block-size: 100%;
+		line-height: 1.5;
+		inline-size: 100%;
+		-webkit-text-size-adjust: 100%;
+
+		&:focus-within {
+			scroll-behavior: smooth;
+		}
+	}
+
+	body {
+		margin: 0;
+		display: grid;
+		inline-size: 100%;
+		min-block-size: 100dvh;
+		scrollbar-gutter: stable;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	figure,
+	blockquote,
+	dl,
+	dd {
+		margin: 0;
+	}
+
+	ul,
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	img,
+	picture,
+	video,
+	canvas {
+		display: block;
+		block-size: auto;
+		max-inline-size: 100%;
+	}
+
+	svg {
+		width: 1em;
+		height: 1em;
+		flex-shrink: 0;
+		stroke-width: 0;
+		fill: currentColor;
+		stroke: currentColor;
+		display: inline-block;
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		margin: 0;
+		padding: 0;
+		border: none;
+		font: inherit;
+		color: inherit;
+		background: transparent;
+	}
+
+	button {
+		cursor: pointer;
+		touch-action: manipulation;
+
+		&:disabled {
+			cursor: default;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	table {
+		border-color: inherit;
+		border-collapse: collapse;
+	}
+}

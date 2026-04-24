@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		/** 基础 */
+		/* 基础 */
 		"pretty": true,
 		"allowJs": true,
 		"target": "ESNext",
@@ -8,16 +8,16 @@
 		"lib": ["ESNext"],
 		"types": ["node"],
 
-		/** 构建 */
+		/* 构建 */
 		"resolveJsonModule": true,
 		"moduleDetection": "force",
 		"moduleResolution": "Bundler",
 
-		/** JSX/TSX 相关 */
+		/* JSX/TSX 相关 */
 		"jsx": "preserve",
 		"jsxImportSource": "vue",
 
-		/** 检查 */
+		/* 检查 */
 		"strict": true,
 		"checkJs": true,
 		"noCheck": false,

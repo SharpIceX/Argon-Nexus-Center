@@ -13,14 +13,20 @@
 		"clean": "rimraf dist .nuxt/cache node_modules/.cache"
 	},
 	"dependencies": {
-		"nuxt": "npm:nuxt-nightly@5.0.0-29610312.e798cbf6"
+		"@fontsource/noto-color-emoji": "^5.2.10",
+		"@fortawesome/fontawesome-free": "^7.2.0",
+		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
+		"nuxt": "npm:nuxt-nightly@5.0.0-29610312.e798cbf6",
+		"reka-ui": "^2.9.6"
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
 		"@nuxt/a11y": "1.0.0-alpha.1",
 		"@nuxt/eslint": "^1.15.2",
+		"@nuxtjs/device": "^4.0.0",
 		"isomorphic-git": "^1.37.5",
+		"less": "^4.6.4",
 		"nuxt-nexus": "^1.0.3",
 		"nuxt-svgo": "^4.2.6",
 		"rimraf": "^6.1.3"

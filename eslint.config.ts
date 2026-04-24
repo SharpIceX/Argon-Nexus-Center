@@ -23,13 +23,15 @@ const config = antfu(
 		rules: {
 			eqeqeq: 'error',
 
-			/** pnpm 安全性 */
+			/* pnpm 安全性 */
 			'pnpm/yaml-enforce-settings': 'off',
 
-			/** 排序 */
+			/* 排序 */
 			'yaml/sort-keys': 'off',
+			'vue/block-order': 'off',
 			'jsonc/sort-keys': 'off',
 			'perfectionist/sort-imports': 'off',
+			'perfectionist/sort-named-exports': 'off',
 		},
 	},
 ).append(eslintConfigPrettier);
