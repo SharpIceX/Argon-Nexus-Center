@@ -53,6 +53,9 @@ importers:
       reka-ui:
         specifier: ^2.9.6
         version: 2.9.6(vue@3.5.33(typescript@6.0.3))
+      vue:
+        specifier: ^3.5.33
+        version: 3.5.33(typescript@6.0.3)
     devDependencies:
       '@anc/fantasy-design':
         specifier: workspace:*

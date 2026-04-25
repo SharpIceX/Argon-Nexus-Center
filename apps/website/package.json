@@ -18,7 +18,8 @@
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "npm:nuxt-nightly@5.0.0-29610312.e798cbf6",
-		"reka-ui": "^2.9.6"
+		"reka-ui": "^2.9.6",
+		"vue": "^3.5.33"
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
