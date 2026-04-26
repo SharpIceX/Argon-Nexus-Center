@@ -9,6 +9,7 @@ import websiteNuxtConfig from '@anc/website/.nuxt/eslint.config.mjs';
 
 const config = antfu(
 	{
+		markdown: false,
 		stylistic: false,
 		typescript: {
 			tsconfigPath: 'tsconfig.json',

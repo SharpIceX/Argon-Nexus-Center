@@ -4,8 +4,9 @@ disallowWorkspaceCycles: true
 ignoreWorkspaceRootCheck: true
 
 packages:
-  - apps/**
-  - packages/**
+  - apps/*
+  - content/
+  - packages/*
 
 ignoredBuiltDependencies:
   - '@parcel/watcher'
