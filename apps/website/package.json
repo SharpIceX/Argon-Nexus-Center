@@ -27,7 +27,7 @@
 		"@nuxt/a11y": "1.0.0-alpha.1",
 		"@nuxt/eslint": "^1.15.2",
 		"@nuxtjs/device": "^4.0.0",
-		"isomorphic-git": "^1.37.5",
+		"isomorphic-git": "^1.37.6",
 		"less": "^4.6.4",
 		"nuxt-nexus": "^1.0.3",
 		"nuxt-svgo": "^4.2.6",
