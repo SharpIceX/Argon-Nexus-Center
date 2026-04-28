@@ -51,12 +51,10 @@
 		"noPropertyAccessFromIndexSignature": true
 	},
 	"vueCompilerOptions": {
-		"target": 3.6,
+		"target": "auto",
 		"jsxSlots": true,
 		"strictVModel": true,
-		"strictTemplates": true,
 		"strictCssModules": true,
-		"checkUnknownProps": true,
 		"checkUnknownEvents": true,
 		"checkUnknownDirectives": true,
 		"checkUnknownComponents": true,
