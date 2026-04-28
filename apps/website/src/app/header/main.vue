@@ -23,6 +23,7 @@ defineOptions({
 @import (reference) '@anc/fantasy-design/src/utils/radius.less';
 
 .header-container {
+	flex-shrink: 0;
 	height: 3.5rem;
 	padding: 0.5rem;
 	position: relative;

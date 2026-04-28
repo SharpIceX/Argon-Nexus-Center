@@ -4,11 +4,13 @@
 	<main :class="$style['main-container']">
 		<NuxtPage />
 	</main>
+	<AppFooter />
 </template>
 
 <script lang="ts" setup>
 import AppCursor from './app/cursor.vue';
 import AppHeader from './app/header/main.vue';
+import AppFooter from './app/footer/main.vue';
 
 defineOptions({
 	name: 'App',
@@ -25,6 +27,6 @@ defineOptions({
 
 <style lang="less" module>
 .main-container {
-	flex: 1;
+	flex: 1 0 auto;
 }
 </style>
