@@ -103,7 +103,7 @@ const isOpen = ref(false);
 	color: @fantasy5;
 	font-size: 0.95rem;
 	align-items: center;
-	border-bottom: none;
+	text-decoration: none;
 	padding: 0.75rem 1rem;
 	#utils > #radius > .smooth(8px);
 	transition:

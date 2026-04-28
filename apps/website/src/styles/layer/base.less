@@ -23,12 +23,18 @@
 			cursor: pointer;
 			color: @fantasy8;
 			font-weight: 450;
-			text-decoration: none;
-			border-bottom: 1.5px solid oklch(from @fantasy8 l c h / 0.3);
+			text-decoration: underline;
+			text-decoration-skip-ink: all;
+			text-underline-offset: 0.3rem;
+			text-decoration-thickness: 1px;
+			text-decoration-color: oklch(from @fantasy8 calc(l - 0.3) calc(c * 1.1) h);
+
+			will-change: transform;
+
 			transition:
-				color 0.2s ease,
-				border-color 0.2s ease,
-				transform 0.1s ease;
+				color 0.15s ease,
+				border-color 0.15s ease,
+				transform 0.1s ease-out;
 
 			&:visited {
 				color: oklch(from @fantasy8 calc(l - 0.15) calc(c - 0.05) h);
@@ -37,6 +43,10 @@
 			&:hover {
 				color: @fantasy9;
 				border-bottom-color: @fantasy9;
+				transition:
+					color 0.2s ease-out,
+					border-color 0.2s ease-out,
+					transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 			}
 
 			&:active {

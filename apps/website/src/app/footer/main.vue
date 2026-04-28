@@ -25,17 +25,7 @@ defineOptions({ name: 'AppFooter' });
 	border-top: 1px solid @fantasy2;
 
 	a {
-		font-weight: 600;
-		color: @fantasy8;
-		border-bottom: none;
-
-		&:hover {
-			color: oklch(from @fantasy8 calc(l + 0.08) c h);
-		}
-
-		&:active {
-			color: oklch(from @fantasy8 calc(l - 0.1) c h);
-		}
+		text-decoration: none;
 	}
 }
 </style>
