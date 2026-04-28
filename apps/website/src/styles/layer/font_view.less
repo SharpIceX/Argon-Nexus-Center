@@ -70,14 +70,24 @@
 
 @layer font_view {
 	body {
+		/* 文本渲染 */
 		line-height: 1.6;
-		font-smooth: always;
-		letter-spacing: 0.01em;
+		line-break: normal;
+		text-align: justify;
+		overflow-wrap: anywhere;
+		text-justify: inter-character;
+		text-spacing-trim: trim-start;
+		hanging-punctuation: first last allow-end;
+		text-autospace: ideograph-alpha ideograph-numeric;
+
+		/* 字体渲染 */
 		font-synthesis: weight style;
+		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-
+		font-variant-ligatures: common-ligatures;
+		font-variant-east-asian: proportional-widths;
+		font-variant-numeric: tabular-nums lining-nums;
 		font-family:
 			'LXGW Bright',
 			'Noto Sans SC',
@@ -94,10 +104,6 @@
 			'Segoe UI Symbol';
 	}
 
-	* {
-		text-decoration-skip-ink: auto;
-	}
-
 	h1,
 	h2,
 	h3,
@@ -106,5 +112,7 @@
 	h6 {
 		font-weight: 600;
 		line-height: 1.2;
+		text-wrap: balance;
+		letter-spacing: normal;
 	}
 }
