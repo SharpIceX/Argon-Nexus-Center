@@ -7,6 +7,7 @@ import git from 'isomorphic-git';
 import process from 'node:process';
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isGitHubAction = process.env.GITHUB_ACTIONS === 'true';
 
 const strictTSConfigPath = url.fileURLToPath(import.meta.resolve('@anc/strict-tsconfig/tsconfig.json'));
 const strictTSConfig = ts.readConfigFile(strictTSConfigPath, (path) => ts.sys.readFile(path));
@@ -32,12 +33,14 @@ export default defineNuxtConfig({
 		inlineStyles: true,
 	},
 	typescript: {
+		strict: true,
 		tsConfig: strictTSConfig.config as Record<string, unknown>,
 	},
 	experimental: {
 		headNext: true,
 		typedPages: true,
 		lazyHydration: true,
+		componentIslands: true,
 		typescriptPlugin: true,
 		navigationRepaint: true,
 		clientNodePlaceholder: true,
@@ -53,7 +56,7 @@ export default defineNuxtConfig({
 		prerender: {
 			crawlLinks: true,
 			autoSubfolderIndex: true,
-			concurrency: os.cpus().length - 1 || 1,
+			concurrency: isGitHubAction ? os.cpus().length : os.cpus().length - 1 || 1,
 		},
 	},
 	devServer: {
