@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import AppCursor from './app/cursor.vue';
 import AppHeader from './app/header/main.vue';
-import AppFooter from './app/footer/main.vue';
+import AppFooter from './app/footer.server.vue';
 
 defineOptions({
 	name: 'App',
