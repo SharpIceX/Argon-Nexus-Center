@@ -1,9 +1,9 @@
 import type { DefineComponent, ReservedProps, SVGAttributes } from 'vue';
 
-import houseIcon from 'lucide-static/icons/house.svg?component';
 import bookIcon from 'lucide-static/icons/book.svg?component';
 import atomIcon from 'lucide-static/icons/atom.svg?component';
 import heartIcon from 'lucide-static/icons/heart.svg?component';
+import houseIcon from 'lucide-static/icons/house.svg?component';
 import clapperboardIcon from 'lucide-static/icons/clapperboard.svg?component';
 
 interface NavItemType {
