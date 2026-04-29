@@ -96,34 +96,27 @@ export default defineNuxtConfig({
 	},
 	svgo: {
 		dts: true,
-		global: false,
+		global: true,
 		defaultImport: 'componentext',
 		svgoConfig: {
 			plugins: [
 				{
 					name: 'preset-default',
 					params: {
-						floatPrecision: 2,
 						overrides: {
+							cleanupIds: false,
 							removeViewBox: false,
-							convertShapeToPath: false,
-							mergePaths: false,
-							cleanupIds: {
-								minify: true,
-								remove: true,
-							},
 						},
 					},
 				},
 				{
-					name: 'addAttributesToSVGElement',
+					name: 'convertColors',
 					params: {
-						attributes: [{ fill: 'none' }, { stroke: 'currentColor' }],
+						currentColor: true,
 					},
 				},
 				'removeDimensions',
 				'sortAttrs',
-				'prefixIds',
 			],
 		},
 	},

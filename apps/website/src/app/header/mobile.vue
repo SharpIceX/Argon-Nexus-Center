@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import config from './config';
-import barsIcon from '@fortawesome/fontawesome-free/svgs/solid/bars.svg?component';
+import barsIcon from '@fortawesome/fontawesome-free/svgs/solid/bars.svg';
 
 defineOptions({
 	name: 'AppHeaderMobile',
