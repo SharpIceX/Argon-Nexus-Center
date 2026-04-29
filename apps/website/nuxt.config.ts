@@ -106,11 +106,19 @@ export default defineNuxtConfig({
 						floatPrecision: 2,
 						overrides: {
 							removeViewBox: false,
+							convertShapeToPath: false,
+							mergePaths: false,
 							cleanupIds: {
 								minify: true,
 								remove: true,
 							},
 						},
+					},
+				},
+				{
+					name: 'addAttributesToSVGElement',
+					params: {
+						attributes: [{ fill: 'none' }, { stroke: 'currentColor' }],
 					},
 				},
 				'removeDimensions',
