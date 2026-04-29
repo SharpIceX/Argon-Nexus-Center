@@ -1,8 +1,10 @@
-import bookIcon from 'lucide-static/icons/book.svg';
-import atomIcon from 'lucide-static/icons/atom.svg';
-import heartIcon from 'lucide-static/icons/heart.svg';
-import houseIcon from 'lucide-static/icons/house.svg';
-import clapperboardIcon from 'lucide-static/icons/clapperboard.svg';
+import {
+	Atom as atomIcon,
+	Book as bookIcon,
+	Heart as heartIcon,
+	House as houseIcon,
+	Clapperboard as clapperboardIcon,
+} from '@lucide/vue';
 
 interface NavItemType {
 	label: string;
