@@ -33,6 +33,7 @@ const config = antfu(
 			'jsonc/sort-keys': 'off',
 			'perfectionist/sort-imports': 'off',
 			'perfectionist/sort-named-exports': 'off',
+			'perfectionist/sort-named-imports': 'off',
 		},
 	},
 ).append(eslintConfigPrettier);
