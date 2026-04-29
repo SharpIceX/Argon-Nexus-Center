@@ -7,7 +7,7 @@
 		</RekaPopoverTrigger>
 
 		<RekaPopoverPortal>
-			<RekaPopoverContent :class="$style['popover-content']" :side-offset="8" align="end">
+			<RekaPopoverContent :class="$style['popover-content']" :side-offset="8" :collision-padding="12" align="end">
 				<nav :class="$style['nav-list']">
 					<NuxtLink
 						v-for="item in config"
@@ -16,7 +16,7 @@
 						:class="$style['nav-link']"
 						active-class="is-active"
 						@click="isOpen = false">
-						<component :is="item.icon" aria-hidden="true" :class="$style.icon" />
+						<component :is="item.icon" aria-hidden="true" />
 						<span>{{ item.label }}</span>
 					</NuxtLink>
 				</nav>
@@ -111,21 +111,12 @@ const isOpen = ref(false);
 		color 0.2s ease,
 		padding-left 0.2s ease;
 
-	.icon {
-		width: 1rem;
-		height: 1rem;
-		color: @fantasy6;
-		transition: color 0.2s ease;
-	}
-
 	&:global(.is-active) {
-		color: @fantasy8;
-		font-weight: 500;
-		background-color: oklch(from @fantasy8 l c h / 0.1);
+		@active-base: color-mix(in oklch, @fantasy9, @fantasy18);
 
-		.icon {
-			color: @fantasy8;
-		}
+		font-weight: 600;
+		color: @active-base;
+		background-color: oklch(from @active-base l c h / 0.1);
 	}
 }
 </style>

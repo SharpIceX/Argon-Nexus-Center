@@ -1,10 +1,10 @@
 import type { DefineComponent, ReservedProps, SVGAttributes } from 'vue';
 
-import bookIcon from '@fortawesome/fontawesome-free/svgs/solid/book.svg?component';
-import atomIcon from '@fortawesome/fontawesome-free/svgs/solid/atom.svg?component';
-import houseIcon from '@fortawesome/fontawesome-free/svgs/solid/house.svg?component';
-import heartIcon from '@fortawesome/fontawesome-free/svgs/solid/heart.svg?component';
-import clapperboardIcon from '@fortawesome/fontawesome-free/svgs/solid/clapperboard.svg?component';
+import houseIcon from 'lucide-static/icons/house.svg?component';
+import bookIcon from 'lucide-static/icons/book.svg?component';
+import atomIcon from 'lucide-static/icons/atom.svg?component';
+import heartIcon from 'lucide-static/icons/heart.svg?component';
+import clapperboardIcon from 'lucide-static/icons/clapperboard.svg?component';
 
 interface NavItemType {
 	label: string;

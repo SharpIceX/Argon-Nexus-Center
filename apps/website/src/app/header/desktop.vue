@@ -60,5 +60,10 @@ defineOptions({
 	&:hover {
 		background-color: oklab(from @fantasy10 l a b / 0.2);
 	}
+
+	&:global(.is-active) {
+		font-weight: 600;
+		color: color-mix(in oklch, @fantasy9, @fantasy18);
+	}
 }
 </style>
