@@ -2,7 +2,7 @@
 	<RekaPopoverRoot v-model:open="isOpen">
 		<RekaPopoverTrigger as-child>
 			<button :class="$style['menu-trigger']" aria-label="打开菜单">
-				<barsIcon />
+				<MenuIcon />
 			</button>
 		</RekaPopoverTrigger>
 
@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import config from './config';
-import barsIcon from '@fortawesome/fontawesome-free/svgs/solid/bars.svg';
+import { Menu as MenuIcon } from '@lucide/vue';
 
 defineOptions({
 	name: 'AppHeaderMobile',
