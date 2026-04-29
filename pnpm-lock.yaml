@@ -38,9 +38,6 @@ importers:
       '@fontsource/noto-color-emoji':
         specifier: ^5.2.10
         version: 5.2.10
-      '@fortawesome/fontawesome-free':
-        specifier: ^7.2.0
-        version: 7.2.0
       '@lxgw/LxgwBright':
         specifier: github:lxgw/LxgwBright#v5.528
         version: https://codeload.github.com/lxgw/LxgwBright/tar.gz/c87e019ae295c5025b33c9991cddd59c126f0879
@@ -56,6 +53,9 @@ importers:
       reka-ui:
         specifier: ^2.9.6
         version: 2.9.6(vue@3.5.33(typescript@6.0.3))
+      simple-icons:
+        specifier: ^16.18.0
+        version: 16.18.0
       vue:
         specifier: ^3.5.33
         version: 3.5.33(typescript@6.0.3)
@@ -746,10 +746,6 @@ packages:
 
   '@fontsource/noto-color-emoji@5.2.10':
     resolution: {integrity: sha512-sHu7Z2zkdmPbcNlNgqyQGJEis6fE3eBY8ZXzaUe5ixci2uCQ3g8cX5hJM+5P45JxTEhdbiU/4k3chQmDxe5puQ==}
-
-  '@fortawesome/fontawesome-free@7.2.0':
-    resolution: {integrity: sha512-3DguDv/oUE+7vjMeTSOjCSG+KeawgVQOHrKRnvUuqYh1mfArrh7s+s8hXW3e4RerBA1+Wh+hBqf8sJNpqNrBWg==}
-    engines: {node: '>=6'}
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -4040,6 +4036,10 @@ packages:
   simple-git@3.36.0:
     resolution: {integrity: sha512-cGQjLjK8bxJw4QuYT7gxHw3/IouVESbhahSsHrX97MzCL1gu2u7oy38W6L2ZIGECEfIBG4BabsWDPjBxJENv9Q==}
 
+  simple-icons@16.18.0:
+    resolution: {integrity: sha512-5KbjcP456Gm1lrk+rhDuX4zFri+3lRX39IjzXAvoMAO8Ne76WlVlM+Z3kA6jdZ7+QHadgXsf++R7g2jaYVbYig==}
+    engines: {node: '>=0.12.18'}
+
   sirv@3.0.2:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
@@ -5129,8 +5129,6 @@ snapshots:
       - vue
 
   '@fontsource/noto-color-emoji@5.2.10': {}
-
-  '@fortawesome/fontawesome-free@7.2.0': {}
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -8787,6 +8785,8 @@ snapshots:
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
+
+  simple-icons@16.18.0: {}
 
   sirv@3.0.2:
     dependencies:
