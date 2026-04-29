@@ -1,0 +1,30 @@
+# 搜索引擎
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: Googlebot
+User-agent: YandexBot
+User-agent: DuckDuckBot
+Allow: /
+
+# 增强 AI 搜索
+User-agent: OAI-SearchBot
+User-agent: PerplexityBot
+Allow: /
+
+# 社交媒体
+User-agent: Slackbot
+User-agent: redditbot
+User-agent: Twitterbot
+User-agent: Discordbot
+User-agent: LinkedInBot
+User-agent: TelegramBot
+User-agent: facebookexternalhit
+Allow: /
+
+# 秋云思
+User-agent: Curasea
+User-agent: CuraseaCarbon
+Allow: /
+
+User-agent: *
+Disallow: /
