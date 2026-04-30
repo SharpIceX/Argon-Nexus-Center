@@ -112,7 +112,7 @@ const isOpen = ref(false);
 		padding-left 0.2s ease;
 
 	&:global(.is-active) {
-		@active-base: color-mix(in oklch, @fantasy9, @fantasy18);
+		@active-base: color-mix(in oklch, @fantasy8, @fantasy18);
 
 		font-weight: 600;
 		color: @active-base;

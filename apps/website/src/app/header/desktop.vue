@@ -63,7 +63,7 @@ defineOptions({
 
 	&:global(.is-active) {
 		font-weight: 600;
-		color: color-mix(in oklch, @fantasy9, @fantasy18);
+		color: color-mix(in oklch, @fantasy8, @fantasy18);
 	}
 }
 </style>
