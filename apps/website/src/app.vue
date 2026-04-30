@@ -28,5 +28,10 @@ defineOptions({
 <style lang="less" module>
 .main-container {
 	flex: 1 0 auto;
+
+	/** 消除 Nuxt Island 的代理包装层干扰  */
+	& > div:not([class]) {
+		display: contents;
+	}
 }
 </style>

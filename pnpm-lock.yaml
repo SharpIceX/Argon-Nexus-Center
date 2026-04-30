@@ -49,7 +49,7 @@ importers:
         version: 3.15.0
       nuxt:
         specifier: npm:nuxt-nightly@5.0.0-29622644.ab09977e
-        version: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
+        version: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
       reka-ui:
         specifier: ^2.9.6
         version: 2.9.6(vue@3.5.33(typescript@6.0.3))
@@ -75,6 +75,9 @@ importers:
       '@nuxtjs/device':
         specifier: ^4.0.0
         version: 4.0.0
+      '@vitejs/plugin-vue-jsx':
+        specifier: ^5.1.5
+        version: 5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3))
       isomorphic-git:
         specifier: ^1.37.6
         version: 1.37.6
@@ -185,12 +188,26 @@ packages:
     resolution: {integrity: sha512-qsaF+9Qcm2Qv8SRIMMscAvG4O3lJ0F1GuMo5HR/Bp02LopNgnZBC/EkbevHFeGs4ls/oPz9v+Bsmzbkbe+0dUw==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/helper-annotate-as-pure@7.27.3':
+    resolution: {integrity: sha512-fXSwMQqitTGeHLBC08Eq5yXz2m37E4pJX1qAU1+2cNedz/ifv/bVXft90VeSav5nFO61EcNgwr0aJxbyPaWBPg==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/helper-compilation-targets@7.28.6':
     resolution: {integrity: sha512-JYtls3hqi15fcx5GaSNL7SCTJ2MNmjrkHXg4FSpOA/grxK8KwyZ5bubHsCq8FXCkua6xhuaaBit+3b7+VZRfcA==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/helper-create-class-features-plugin@7.28.6':
+    resolution: {integrity: sha512-dTOdvsjnG3xNT9Y0AUg1wAl38y+4Rl4sf9caSQZOXdNqVn+H+HbbJ4IyyHaIqNR6SW9oJpA/RuRjsjCw2IdIow==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+
   '@babel/helper-globals@7.28.0':
     resolution: {integrity: sha512-+W6cISkXFa1jXsDEdYA8HeevQT/FULhxzR99pxphltZcVaugps53THCeiWA8SguxxpSp3gKPiuYfSWopkLQ4hw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-member-expression-to-functions@7.28.5':
+    resolution: {integrity: sha512-cwM7SBRZcPCLgl8a7cY0soT1SptSzAlMH39vwiRpOQkJlh53r5hdHwLSCZpQdVLT39sZt+CRpNwYG4Y2v77atg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-module-imports@7.28.6':
@@ -203,8 +220,22 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0
 
+  '@babel/helper-optimise-call-expression@7.27.1':
+    resolution: {integrity: sha512-URMGH08NzYFhubNSGJrpUEphGKQwMQYBySzat5cAByY1/YgIRkULnIy3tAMeszlL/so2HbeilYloUmSpd7GdVw==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/helper-plugin-utils@7.28.6':
     resolution: {integrity: sha512-S9gzZ/bz83GRysI7gAD4wPT/AI3uCnY+9xn+Mx/KPs2JwHJIz1W8PZkg2cqyt3RNOBM8ejcXhV6y8Og7ly/Dug==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-replace-supers@7.28.6':
+    resolution: {integrity: sha512-mq8e+laIk94/yFec3DxSjCRD2Z0TAjhVbEJY3UQrlwVo15Lmt7C2wAUbK4bjnTs4APkwsYLTahXRraQXhb1WCg==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+
+  '@babel/helper-skip-transparent-expression-wrappers@7.27.1':
+    resolution: {integrity: sha512-Tub4ZKEXqbPjXgWLl2+3JpQAYBJ8+ikpQ2Ocj/q/r0LwE3UhENh7EUabyHjz2kCEsrRY83ew2DQdHluuiDQFzg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-string-parser@7.27.1':
@@ -228,8 +259,20 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  '@babel/plugin-syntax-jsx@7.28.6':
+    resolution: {integrity: sha512-wgEmr06G6sIpqr8YDwA2dSRTE3bJ+V0IfpzfSY3Lfgd7YWOaAdlykvJi13ZKBt8cZHfgH1IXN+CL656W3uUa4w==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
   '@babel/plugin-syntax-typescript@7.28.6':
     resolution: {integrity: sha512-+nDNmQye7nlnuuHDboPbGm00Vqg3oO8niRRL27/4LYHUsHYh0zJ1xWOz0uRwNFmM1Avzk8wZbc6rdiYhomzv/A==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@babel/plugin-transform-typescript@7.28.6':
+    resolution: {integrity: sha512-0YWL2RFxOqEm9Efk5PvreamxPME8OyY0wM5wh5lHjF+VtVhdneCWGzZeSqzOfiobVqQaNCd2z0tQvnI9DaPWPw==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -2180,6 +2223,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@vitejs/plugin-vue-jsx@5.1.5':
+    resolution: {integrity: sha512-jIAsvHOEtWpslLOI2MeElGFxH7M8pM83BU/Tor4RLyiwH0FM4nUW3xdvbw20EeU9wc5IspQwMq225K3CMnJEpA==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+      vue: ^3.0.0
+
   '@vitejs/plugin-vue@6.0.6':
     resolution: {integrity: sha512-u9HHgfrq3AjXlysn0eINFnWQOJQLO9WN6VprZ8FXl7A2bYisv3Hui9Ij+7QZ41F/WYWarHjwBbXtD7dKg3uxbg==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -2211,6 +2261,22 @@ packages:
     peerDependenciesMeta:
       vue:
         optional: true
+
+  '@vue/babel-helper-vue-transform-on@2.0.1':
+    resolution: {integrity: sha512-uZ66EaFbnnZSYqYEyplWvn46GhZ1KuYSThdT68p+am7MgBNbQ3hphTL9L+xSIsWkdktwhPYLwPgVWqo96jDdRA==}
+
+  '@vue/babel-plugin-jsx@2.0.1':
+    resolution: {integrity: sha512-a8CaLQjD/s4PVdhrLD/zT574ZNPnZBOY+IhdtKWRB4HRZ0I2tXBi5ne7d9eCfaYwp5gU5+4KIyFTV1W1YL9xZA==}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+
+  '@vue/babel-plugin-resolve-type@2.0.1':
+    resolution: {integrity: sha512-ybwgIuRGRRBhOU37GImDoWQoz+TlSqap65qVI6iwg/J7FfLTLmMf97TS7xQH9I7Qtr/gp161kYVdhr1ZMraSYQ==}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
 
   '@vue/compiler-core@3.5.33':
     resolution: {integrity: sha512-3PZLQwFw4Za3TC8t0FvTy3wI16Kt+pmwcgNZca4Pj9iWL2E72a/gZlpBtAJvEdDMdCxdG/qq0C7PN0bsJuv0Rw==}
@@ -4811,6 +4877,10 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.31
       jsesc: 3.1.0
 
+  '@babel/helper-annotate-as-pure@7.27.3':
+    dependencies:
+      '@babel/types': 7.29.0
+
   '@babel/helper-compilation-targets@7.28.6':
     dependencies:
       '@babel/compat-data': 7.29.0
@@ -4819,7 +4889,27 @@ snapshots:
       lru-cache: 5.1.1
       semver: 6.3.1
 
+  '@babel/helper-create-class-features-plugin@7.28.6(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/helper-annotate-as-pure': 7.27.3
+      '@babel/helper-member-expression-to-functions': 7.28.5
+      '@babel/helper-optimise-call-expression': 7.27.1
+      '@babel/helper-replace-supers': 7.28.6(@babel/core@7.29.0)
+      '@babel/helper-skip-transparent-expression-wrappers': 7.27.1
+      '@babel/traverse': 7.29.0
+      semver: 6.3.1
+    transitivePeerDependencies:
+      - supports-color
+
   '@babel/helper-globals@7.28.0': {}
+
+  '@babel/helper-member-expression-to-functions@7.28.5':
+    dependencies:
+      '@babel/traverse': 7.29.0
+      '@babel/types': 7.29.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@babel/helper-module-imports@7.28.6':
     dependencies:
@@ -4837,7 +4927,27 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@babel/helper-optimise-call-expression@7.27.1':
+    dependencies:
+      '@babel/types': 7.29.0
+
   '@babel/helper-plugin-utils@7.28.6': {}
+
+  '@babel/helper-replace-supers@7.28.6(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/helper-member-expression-to-functions': 7.28.5
+      '@babel/helper-optimise-call-expression': 7.27.1
+      '@babel/traverse': 7.29.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@babel/helper-skip-transparent-expression-wrappers@7.27.1':
+    dependencies:
+      '@babel/traverse': 7.29.0
+      '@babel/types': 7.29.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@babel/helper-string-parser@7.27.1': {}
 
@@ -4854,10 +4964,26 @@ snapshots:
     dependencies:
       '@babel/types': 7.29.0
 
+  '@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/helper-plugin-utils': 7.28.6
+
   '@babel/plugin-syntax-typescript@7.28.6(@babel/core@7.29.0)':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/helper-plugin-utils': 7.28.6
+
+  '@babel/plugin-transform-typescript@7.28.6(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/helper-annotate-as-pure': 7.27.3
+      '@babel/helper-create-class-features-plugin': 7.28.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.28.6
+      '@babel/helper-skip-transparent-expression-wrappers': 7.27.1
+      '@babel/plugin-syntax-typescript': 7.28.6(@babel/core@7.29.0)
+    transitivePeerDependencies:
+      - supports-color
 
   '@babel/template@7.28.6':
     dependencies:
@@ -5681,7 +5807,7 @@ snapshots:
       mlly: 1.8.2
       mocked-exports: 0.1.1
       nitro: 3.0.260311-beta(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.2.0)(jiti@2.6.1)(lru-cache@11.3.5)(miniflare@4.20260426.0)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))
-      nuxt: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
+      nuxt: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
       pathe: 2.0.3
       srvx: 0.11.15
       std-env: 4.1.0
@@ -5750,7 +5876,7 @@ snapshots:
       rc9: 3.0.1
       std-env: 4.1.0
 
-  '@nuxt/vite-builder-nightly@5.0.0-29622644.ab09977e(@types/node@25.6.0)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(less@4.6.4)(magicast@0.5.2)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vue@3.5.33(typescript@6.0.3))(yaml@2.8.3)':
+  '@nuxt/vite-builder-nightly@5.0.0-29622644.ab09977e(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(less@4.6.4)(magicast@0.5.2)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vue@3.5.33(typescript@6.0.3))(yaml@2.8.3)':
     dependencies:
       '@nuxt/kit': '@nuxt/kit-nightly@5.0.0-29622644.ab09977e(magicast@0.5.2)'
       '@vitejs/plugin-vue': 6.0.6(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3))
@@ -5764,7 +5890,7 @@ snapshots:
       magic-string: 0.30.21
       mlly: 1.8.2
       mocked-exports: 0.1.1
-      nuxt: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
+      nuxt: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
       pathe: 2.0.3
       pkg-types: 2.3.1
       seroval: 1.5.2
@@ -5777,6 +5903,8 @@ snapshots:
       vue: 3.5.33(typescript@6.0.3)
       vue-bundle-renderer: 2.2.0
     optionalDependencies:
+      '@babel/plugin-syntax-jsx': 7.28.6(@babel/core@7.29.0)
+      '@vitejs/plugin-vue-jsx': 5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3))
       rolldown: 1.0.0-rc.18
     transitivePeerDependencies:
       - '@biomejs/biome'
@@ -6504,6 +6632,18 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
+  '@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3))':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/plugin-syntax-typescript': 7.28.6(@babel/core@7.29.0)
+      '@babel/plugin-transform-typescript': 7.28.6(@babel/core@7.29.0)
+      '@rolldown/pluginutils': 1.0.0-rc.18
+      '@vue/babel-plugin-jsx': 2.0.1(@babel/core@7.29.0)
+      vite: 8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3)
+      vue: 3.5.33(typescript@6.0.3)
+    transitivePeerDependencies:
+      - supports-color
+
   '@vitejs/plugin-vue@6.0.6(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-rc.13
@@ -6530,6 +6670,35 @@ snapshots:
       unplugin-utils: 0.3.1
     optionalDependencies:
       vue: 3.5.33(typescript@6.0.3)
+
+  '@vue/babel-helper-vue-transform-on@2.0.1': {}
+
+  '@vue/babel-plugin-jsx@2.0.1(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/helper-module-imports': 7.28.6
+      '@babel/helper-plugin-utils': 7.28.6
+      '@babel/plugin-syntax-jsx': 7.28.6(@babel/core@7.29.0)
+      '@babel/template': 7.28.6
+      '@babel/traverse': 7.29.0
+      '@babel/types': 7.29.0
+      '@vue/babel-helper-vue-transform-on': 2.0.1
+      '@vue/babel-plugin-resolve-type': 2.0.1(@babel/core@7.29.0)
+      '@vue/shared': 3.5.33
+    optionalDependencies:
+      '@babel/core': 7.29.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@vue/babel-plugin-resolve-type@2.0.1(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/code-frame': 7.29.0
+      '@babel/core': 7.29.0
+      '@babel/helper-module-imports': 7.28.6
+      '@babel/helper-plugin-utils': 7.28.6
+      '@babel/parser': 7.29.2
+      '@vue/compiler-sfc': 3.5.33
+    transitivePeerDependencies:
+      - supports-color
 
   '@vue/compiler-core@3.5.33':
     dependencies:
@@ -8343,7 +8512,7 @@ snapshots:
       '@nuxt/kit': 4.4.4(magicast@0.5.2)
       '@vue/compiler-sfc': 3.5.33
       magic-string: 0.30.21
-      nuxt: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
+      nuxt: nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3)
       oxc-parser: 0.124.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
       unplugin: 3.0.0
       vue: 3.5.33(typescript@6.0.3)
@@ -8353,7 +8522,7 @@ snapshots:
       - '@emnapi/runtime'
       - magicast
 
-  nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3):
+  nuxt-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(@vue/compiler-sfc@3.5.33)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(giget@3.2.0)(less@4.6.4)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(yaml@2.8.3):
     dependencies:
       '@dxup/nuxt': 0.4.1(magicast@0.5.2)(typescript@6.0.3)
       '@nuxt/cli': '@nuxt/cli-nightly@3.35.2-20260430-052653-5526992(@nuxt/schema-nightly@5.0.0-29622644.ab09977e)(magicast@0.5.2)'
@@ -8362,7 +8531,7 @@ snapshots:
       '@nuxt/nitro-server': '@nuxt/nitro-server-nightly@5.0.0-29622644.ab09977e(@babel/core@7.29.0)(chokidar@5.0.0)(db0@0.3.4)(dotenv@17.4.2)(giget@3.2.0)(jiti@2.6.1)(magicast@0.5.2)(miniflare@4.20260426.0)(nuxt-nightly@5.0.0-29622644.ab09977e)(ofetch@2.0.0-alpha.3)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))'
       '@nuxt/schema': '@nuxt/schema-nightly@5.0.0-29622644.ab09977e'
       '@nuxt/telemetry': 2.8.0(@nuxt/kit-nightly@5.0.0-29622644.ab09977e(magicast@0.5.2))
-      '@nuxt/vite-builder': '@nuxt/vite-builder-nightly@5.0.0-29622644.ab09977e(@types/node@25.6.0)(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(less@4.6.4)(magicast@0.5.2)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vue@3.5.33(typescript@6.0.3))(yaml@2.8.3)'
+      '@nuxt/vite-builder': '@nuxt/vite-builder-nightly@5.0.0-29622644.ab09977e(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@types/node@25.6.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.10(@types/node@25.6.0)(esbuild@0.27.7)(jiti@2.6.1)(less@4.6.4)(yaml@2.8.3))(vue@3.5.33(typescript@6.0.3)))(esbuild@0.27.7)(eslint@10.2.1(jiti@2.6.1))(less@4.6.4)(magicast@0.5.2)(nuxt-nightly@5.0.0-29622644.ab09977e)(optionator@0.9.4)(rolldown@1.0.0-rc.18)(typescript@6.0.3)(vue@3.5.33(typescript@6.0.3))(yaml@2.8.3)'
       '@unhead/vue': 2.1.13(vue@3.5.33(typescript@6.0.3))
       '@vue/shared': 3.5.33
       chokidar: 5.0.0

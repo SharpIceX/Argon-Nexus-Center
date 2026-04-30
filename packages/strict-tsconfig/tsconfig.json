@@ -52,7 +52,6 @@
 	},
 	"vueCompilerOptions": {
 		"target": "auto",
-		"jsxSlots": true,
 		"strictVModel": true,
 		"strictCssModules": true,
 		"checkUnknownEvents": true,

@@ -58,6 +58,10 @@ export default defineNuxtConfig({
 			autoSubfolderIndex: true,
 			concurrency: isGitHubAction ? os.cpus().length : os.cpus().length - 1 || 1,
 		},
+		routeRules: {
+			/** TODO： 如果之后自己实现 OG-Image 需要处理下这里防止被屏蔽 */
+			'/_nexus/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+		},
 	},
 	devServer: {
 		port: 8600,
@@ -82,7 +86,7 @@ export default defineNuxtConfig({
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
-			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@vue/devtools-core'],
+			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@vue/devtools-core', '@lucide/vue'],
 		},
 	},
 	eslint: {
