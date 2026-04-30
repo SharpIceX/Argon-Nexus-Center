@@ -26,6 +26,7 @@ defineOptions({
 	flex-shrink: 0;
 	height: 3.5rem;
 	padding: 0.5rem;
+	user-select: none;
 	position: relative;
 	margin-bottom: 0.5rem;
 	border-bottom: 1px solid @fantasy3;
