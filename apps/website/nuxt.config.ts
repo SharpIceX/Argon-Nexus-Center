@@ -109,10 +109,10 @@ export default defineNuxtConfig({
 					params: {
 						overrides: {
 							cleanupIds: false,
-							removeViewBox: false,
 						},
 					},
 				},
+				'removeViewBox',
 				{
 					name: 'convertColors',
 					params: {
