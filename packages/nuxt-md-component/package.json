@@ -1,0 +1,21 @@
+{
+	"name": "@anc/nuxt-md-component",
+	"private": true,
+	"type": "module",
+	"main": "./src/module.ts",
+	"description": "允许将`.md`文件作为 Vue SFC 导入",
+	"scripts": {
+		"postinstall": "nuxt-module-build prepare"
+	},
+	"dependencies": {
+		"@mdit/plugin-attrs": "^0.25.2",
+		"@nuxt/kit": "^4.4.4",
+		"markdown-it": "^14.1.1",
+		"markdown-it-cjk-friendly": "^2.0.2"
+	},
+	"devDependencies": {
+		"@anc/strict-tsconfig": "workspace:*",
+		"@nuxt/module-builder": "^1.0.2",
+		"@types/markdown-it": "^14.1.2"
+	}
+}
