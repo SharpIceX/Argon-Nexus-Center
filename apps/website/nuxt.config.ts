@@ -21,7 +21,15 @@ export default defineNuxtConfig({
 	css: ['~/styles/main.less'],
 	srcDir: path.resolve(import.meta.dirname, './src'),
 	buildId: await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' }),
-	modules: ['nuxt-svgo', '@nuxt/eslint', '@nuxt/a11y', 'nuxt-nexus', 'reka-ui/nuxt', '@nuxtjs/device'],
+	modules: [
+		'nuxt-svgo',
+		'@nuxt/eslint',
+		'@nuxt/a11y',
+		'nuxt-nexus',
+		'reka-ui/nuxt',
+		'@nuxtjs/device',
+		'@anc/nuxt-md-component',
+	],
 	alias: {
 		$: path.resolve(import.meta.dirname, './node_modules'),
 	},

@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import config from './config';
+import config from '~/data/header';
 
 defineOptions({
 	name: 'AppHeaderDesktop',

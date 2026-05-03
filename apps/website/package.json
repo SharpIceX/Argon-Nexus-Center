@@ -13,6 +13,7 @@
 		"clean": "rimraf dist .nuxt/cache node_modules/.cache"
 	},
 	"dependencies": {
+		"@anc/nuxt-md-component": "workspace:*",
 		"@fontsource/noto-color-emoji": "^5.2.10",
 		"@lucide/vue": "^1.14.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",

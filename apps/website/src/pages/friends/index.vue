@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import friendsList from './config';
+import friendsList from '~/data/friends/main';
 
 useSeoMeta({
 	title: '朋友们',

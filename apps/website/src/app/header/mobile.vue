@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import config from './config';
+import config from '~/data/header';
 import { Menu as MenuIcon } from '@lucide/vue';
 
 defineOptions({

@@ -20,7 +20,7 @@
 	"htmlWhitespaceSensitivity": "strict",
 	"overrides": [
 		{
-			"files": ["*.md", "*.yml", "*.yaml"],
+			"files": ["*.md", "*.markdown", "*.mdx", "*.yml", "*.yaml"],
 			"options": {
 				"tabWidth": 2,
 				"useTabs": false
