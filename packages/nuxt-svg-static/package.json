@@ -1,0 +1,20 @@
+{
+	"name": "@anc/nuxt-svg-static",
+	"private": true,
+	"type": "module",
+	"main": "./src/module.ts",
+	"description": "允许将 `.svg` 文件作为 Vue 组件导入，并自动预处理为高性能、零水合的服务端孤岛组件",
+	"scripts": {
+		"postinstall": "nuxt-module-build prepare"
+	},
+	"dependencies": {
+		"@mdit/plugin-attrs": "^0.25.2",
+		"@nuxt/kit": "^4.4.4",
+		"defu": "^6.1.7",
+		"svgo": "^4.0.1"
+	},
+	"devDependencies": {
+		"@anc/strict-tsconfig": "workspace:*",
+		"@nuxt/module-builder": "^1.0.2"
+	}
+}

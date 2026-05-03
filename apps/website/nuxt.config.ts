@@ -22,12 +22,12 @@ export default defineNuxtConfig({
 	srcDir: path.resolve(import.meta.dirname, './src'),
 	buildId: await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' }),
 	modules: [
-		'nuxt-svgo',
-		'@nuxt/eslint',
 		'@nuxt/a11y',
 		'nuxt-nexus',
 		'reka-ui/nuxt',
+		'@nuxt/eslint',
 		'@nuxtjs/device',
+		'@anc/nuxt-svg-static',
 		'@anc/nuxt-md-component',
 	],
 	alias: {
@@ -106,11 +106,9 @@ export default defineNuxtConfig({
 			rootDir: path.resolve(import.meta.dirname, '../../'),
 		},
 	},
-	svgo: {
-		dts: true,
-		global: true,
-		defaultImport: 'componentext',
+	svg: {
 		svgoConfig: {
+			multipass: true,
 			plugins: [
 				{
 					name: 'preset-default',

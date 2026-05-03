@@ -78,9 +78,9 @@ The quick brown fox jumps over the lazy dog.
 
 - 无序列表 1
 - 无序列表 2
-    - 无序列表 3.1
-    - 无序列表 3.2
-        - 无序列表 3.2.1
+  - 无序列表 3.1
+  - 无序列表 3.2
+    - 无序列表 3.2.1
 - 无序列表 4
 - 无序列表 5
 
@@ -89,10 +89,10 @@ The quick brown fox jumps over the lazy dog.
 1. 有序列表 1
 2. 有序列表 2
 3. 有序列表 3
-    1. 有序列表 3.1
-    2. 有序列表 3.2
-    3. 有序列表 3.3
-        1. 有序列表 3.3.1
+   1. 有序列表 3.1
+   2. 有序列表 3.2
+   3. 有序列表 3.3
+      1. 有序列表 3.3.1
 4. 有序列表 4
 5. 有序列表 5
 
@@ -100,9 +100,9 @@ The quick brown fox jumps over the lazy dog.
 
 - 无序列表 1
 - 无序列表 2
-    1. 有序列表 3.1
-    2. 有序列表 3.2
-        - 无序列表 3.2.1
+  1. 有序列表 3.1
+  2. 有序列表 3.2
+     - 无序列表 3.2.1
 - 无序列表 4
 - 无序列表 5
 
@@ -110,13 +110,13 @@ The quick brown fox jumps over the lazy dog.
 
 1. 有序列表 1
 2. 有序列表 2
-    - 无序列表 3.1
-    - 无序列表 3.2
-        - 无序列表 3.2.1
+   - 无序列表 3.1
+   - 无序列表 3.2
+     - 无序列表 3.2.1
 3. 有序列表 4
-    - 无序列表 5.1
-    - 无序列表 5.2
-        - 无序列表 5.2.1
+   - 无序列表 5.1
+   - 无序列表 5.2
+     - 无序列表 5.2.1
 4. 有序列表 6
 
 ## 超链接测试
@@ -164,16 +164,16 @@ The quick brown fox jumps over the lazy dog.
  */
 
 interface Greeter {
-	message: string;
-	sayHello(): void;
+  message: string;
+  sayHello(): void;
 }
 
 class HelloWorld implements Greeter {
-	constructor(public message: string = 'Hello World!') {}
+  constructor(public message: string = 'Hello World!') {}
 
-	sayHello(): void {
-		console.log(this.message);
-	}
+  sayHello(): void {
+    console.log(this.message);
+  }
 }
 
 const greeter = new HelloWorld();
@@ -191,16 +191,16 @@ greeter.sayHello();
  */
 
 interface Greeter {
-	message: string;
-	sayHello(): void;
+  message: string;
+  sayHello(): void;
 }
 
 class HelloWorld implements Greeter {
-	constructor(public message: string = 'Hello World!') {}
+  constructor(public message: string = 'Hello World!') {}
 
-	sayHello(): void {
-		console.log(this.message);
-	}
+  sayHello(): void {
+    console.log(this.message);
+  }
 }
 
 const greeter = new HelloWorld();

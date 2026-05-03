@@ -1,0 +1,3 @@
+{
+	"extends": ["@anc/strict-tsconfig", "./.nuxt/tsconfig.json"]
+}

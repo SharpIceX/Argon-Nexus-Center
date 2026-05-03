@@ -3,6 +3,7 @@
 	"references": [
 		{ "path": "./tsconfig.isolated.json" },
 		{ "path": "./apps/website/tsconfig.json" },
+		{ "path": "./packages/nuxt-svg-static/tsconfig.json" },
 		{ "path": "./packages/nuxt-md-component/tsconfig.json" }
 	]
 }
