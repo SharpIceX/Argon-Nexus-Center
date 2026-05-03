@@ -19,14 +19,6 @@ export default defineNuxtModule({
 	setup(_options, nuxt) {
 		const vite = (nuxt.options.vite ??= {});
 
-		/**
-		 * TODO： 会与 TypeScript 行为不一致，导致直接`import test from './test'` 报错，但运行时正常
-		// import resolve
-		vite.resolve ||= {};
-		const ext = vite.resolve.extensions || [];
-		vite.resolve.extensions = Array.from(new Set([...ext, '.md']));
-		*/
-
 		// @vitejs/plugin-vue 插件
 		vite.vue ||= {};
 		const existingInclude = vite.vue.include ?? [regExpVue];

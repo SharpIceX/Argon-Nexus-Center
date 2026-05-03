@@ -58,11 +58,6 @@ function createSvgTransformer(svgoConfig: SvgoOptions = {}): UnpluginInstance<un
 				};
 			},
 
-			/**
-			 * TODO： 修复热更新问题
-			 * TODO： 但仍然有问题，只有客户端有热更新通知，服务端没有
-			 */
-			/**
 			vite: {
 				handleHotUpdate(ctx) {
 					if (ctx.file.endsWith('.svg')) {
@@ -93,7 +88,6 @@ function createSvgTransformer(svgoConfig: SvgoOptions = {}): UnpluginInstance<un
 					return [];
 				},
 			},
-				*/
 		};
 	});
 }

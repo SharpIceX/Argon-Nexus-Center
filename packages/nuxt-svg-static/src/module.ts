@@ -1,6 +1,5 @@
 import createSvgTransformer from './vite/plugin';
 import type { Config as SvgoOptions } from 'svgo';
-import type { CompilerOptions } from 'typescript';
 import { addTypeTemplate, addBuildPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
 
 interface ModuleOptions {
@@ -37,16 +36,38 @@ export default defineNuxtModule<ModuleOptions>({
 
 		// 类型
 		addTypeTemplate({
-			src: resolver.resolve('./types/component.d.ts'),
-			filename: 'types/nuxt-svg-static_component.d.ts.d.ts',
+			src: resolver.resolve('./types.d.ts'),
+			filename: 'types/nuxt-svg-static.d.ts',
 		});
 
-		// TSConfig
-		const compilerOptions = (nuxt.options.typescript.tsConfig as { compilerOptions: CompilerOptions })
-			.compilerOptions;
-		compilerOptions.paths ||= {};
-		compilerOptions.paths['*.svg'] = ['./types/nuxt-svg-static_component.d.ts'];
-		compilerOptions.paths['*.svg?component'] = ['./types/nuxt-svg-static_component.d.ts'];
+		// 类型顺序
+		nuxt.hook('prepare:types', ({ references }) => {
+			const svgRefIndex = references.findIndex(
+				(ref) =>
+					'path' in ref && typeof ref.path === 'string' && ref.path.includes('types/nuxt-svg-static.d.ts'),
+			);
+
+			if (svgRefIndex !== -1) {
+				const removedRefs = references.splice(svgRefIndex, 1);
+				const svgRef = removedRefs[0];
+
+				if (svgRef !== undefined) {
+					const builderEnvIndex = references.findIndex(
+						(ref) =>
+							'path' in ref &&
+							typeof ref.path === 'string' &&
+							ref.path.includes('types/builder-env.d.ts'),
+					);
+
+					if (builderEnvIndex !== -1) {
+						references.splice(builderEnvIndex, 0, svgRef);
+					} else {
+						// 兜底，如果找不到 `types/builder-env.d.ts` 则直接插到文件开头
+						references.unshift(svgRef);
+					}
+				}
+			}
+		});
 	},
 });
 

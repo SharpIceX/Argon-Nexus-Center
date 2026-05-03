@@ -3,21 +3,6 @@ import { createUnplugin } from 'unplugin';
 import type { UnpluginInstance } from 'unplugin';
 import createMarkdownRender from '../utils/markdown';
 
-const IGNORE_QUERY_PARAMETERS = new Set([
-	// Vue 内部
-	'vue',
-	'type',
-	// Vite 内部
-	'raw',
-	'url',
-	'worker',
-	'sharedworker',
-	'init',
-	'inline',
-	'no-inline',
-	'component',
-]);
-
 function createMdTransformer(): UnpluginInstance<unknown, boolean> {
 	const markdownRender = createMarkdownRender();
 
@@ -33,15 +18,9 @@ function createMdTransformer(): UnpluginInstance<unknown, boolean> {
 				const extName = path.extname(pathName);
 				if (extName !== '.md') return;
 
-				// 排除 Vite/Vue 内部查询参数
-				if (query !== null) {
-					const params = new URLSearchParams(query);
-					for (const key of params.keys()) {
-						if (IGNORE_QUERY_PARAMETERS.has(key)) return false;
-					}
-				}
-
-				return true;
+				// 只允许不带请求参数，或带了 component 请求参数的请求
+				const params = new URLSearchParams(query);
+				return query == null || params.has('component');
 			},
 
 			transform(code, _id) {
@@ -51,10 +30,6 @@ function createMdTransformer(): UnpluginInstance<unknown, boolean> {
 				};
 			},
 
-			/**
-			 * TODO： 修复热更新问题
-			 * TODO： 但仍然有问题，只有客户端有热更新通知，服务端没有
-			 */
 			vite: {
 				handleHotUpdate(ctx) {
 					if (ctx.file.endsWith('.md')) {
