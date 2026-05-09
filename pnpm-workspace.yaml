@@ -8,10 +8,10 @@ packages:
   - content/
   - packages/*
 
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
-  - unrs-resolver
-  - vue-demi
-  - workerd
+allowBuilds:
+  sharp: false
+  workerd: false
+  esbuild: false
+  vue-demi: false
+  unrs-resolver: false
+  '@parcel/watcher': false

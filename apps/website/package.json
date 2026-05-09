@@ -14,11 +14,11 @@
 	},
 	"dependencies": {
 		"@anc/nuxt-md-component": "workspace:*",
-		"@fontsource/noto-color-emoji": "^5.2.10",
+		"@fontsource/noto-color-emoji": "^5.2.12",
 		"@lucide/vue": "^1.14.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
-		"nuxt": "npm:nuxt-nightly@5.0.0-29622644.ab09977e",
+		"nuxt": "npm:nuxt-nightly@5.0.0-29636553.778f190b",
 		"reka-ui": "^2.9.7",
 		"simple-icons": "^16.18.1",
 		"vue": "^3.5.34"
