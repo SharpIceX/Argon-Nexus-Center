@@ -57,37 +57,6 @@ function createSvgTransformer(svgoConfig: SvgoOptions = {}): UnpluginInstance<un
 					map: { mappings: '' },
 				};
 			},
-
-			vite: {
-				handleHotUpdate(ctx) {
-					if (ctx.file.endsWith('.svg')) {
-						const { server, file } = ctx;
-						const mods = server.moduleGraph.getModulesByFile(file);
-
-						if (mods) {
-							const timestamp = Date.now();
-							mods.forEach((mod) => {
-								server.moduleGraph.invalidateModule(mod);
-								mod.lastHMRTimestamp = timestamp;
-							});
-
-							server.ws.send({
-								type: 'update',
-								updates: Array.from(mods).map((mod) => ({
-									timestamp,
-									path: mod.url,
-									type: 'js-update',
-									acceptedPath: mod.url,
-								})),
-							});
-
-							return [];
-						}
-					}
-
-					return [];
-				},
-			},
 		};
 	});
 }
