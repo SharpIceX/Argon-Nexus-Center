@@ -8,9 +8,38 @@ import process from 'node:process';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isGitHubAction = process.env.GITHUB_ACTIONS === 'true';
+const buildID = await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' });
 
 const strictTSConfigPath = url.fileURLToPath(import.meta.resolve('@anc/strict-tsconfig/tsconfig.json'));
 const strictTSConfig = ts.readConfigFile(strictTSConfigPath, (path) => ts.sys.readFile(path));
+
+function getBuildTimestamp() {
+	const now = new Date();
+	const formatter = new Intl.DateTimeFormat('zh-CN', {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+		hour: '2-digit',
+		minute: '2-digit',
+		second: '2-digit',
+		hour12: false,
+		timeZone: 'Asia/Shanghai',
+	});
+
+	const parts = formatter.formatToParts(now);
+	const p: Record<string, string> = {};
+	parts.forEach(({ type, value }) => {
+		p[type] = value;
+	});
+
+	const datePart = `${p.year}-${p.month}-${p.day}`;
+	const timePart = `${p.hour}:${p.minute}:${p.second}`;
+
+	return {
+		buildTimestamp: `${datePart} ${timePart}`,
+		buildTimestampISO: `${datePart}T${timePart}`,
+	};
+}
 
 export default defineNuxtConfig({
 	ssr: true,
@@ -20,7 +49,7 @@ export default defineNuxtConfig({
 	compatibilityDate: 'latest',
 	css: ['~/styles/main.less'],
 	srcDir: path.resolve(import.meta.dirname, './src'),
-	buildId: await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' }),
+	buildId: buildID,
 	modules: [
 		'@nuxt/a11y',
 		'nuxt-nexus',
@@ -32,6 +61,12 @@ export default defineNuxtConfig({
 	],
 	alias: {
 		$: path.resolve(import.meta.dirname, './node_modules'),
+	},
+	runtimeConfig: {
+		public: {
+			buildID,
+			...getBuildTimestamp(),
+		},
 	},
 	future: {
 		compatibilityVersion: 5,
