@@ -71,6 +71,9 @@ importers:
       '@anc/nuxt-md-component':
         specifier: workspace:*
         version: link:../../packages/nuxt-md-component
+      '@anc/nuxt-site-config':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-site-config
       '@anc/nuxt-svg-static':
         specifier: workspace:*
         version: link:../../packages/nuxt-svg-static
@@ -106,9 +109,6 @@ importers:
 
   packages/nuxt-md-component:
     dependencies:
-      '@mdit/plugin-attrs':
-        specifier: ^0.25.2
-        version: 0.25.2(markdown-it@14.1.1)
       '@nuxt/kit':
         specifier: ^4.4.5
         version: 4.4.5(magicast@0.5.3)
@@ -128,6 +128,19 @@ importers:
       '@types/markdown-it':
         specifier: ^14.1.2
         version: 14.1.2
+
+  packages/nuxt-site-config:
+    dependencies:
+      '@nuxt/kit':
+        specifier: ^4.4.5
+        version: 4.4.5(magicast@0.5.3)
+    devDependencies:
+      '@anc/strict-tsconfig':
+        specifier: workspace:*
+        version: link:../strict-tsconfig
+      '@nuxt/module-builder':
+        specifier: ^1.0.2
+        version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.34)(esbuild@0.27.7)(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
 
   packages/nuxt-svg-static:
     dependencies:
@@ -7578,8 +7591,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.59.1(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.59.1(typescript@6.0.3)
-      '@typescript-eslint/types': 8.59.1
+      '@typescript-eslint/tsconfig-utils': 8.59.3(typescript@6.0.3)
+      '@typescript-eslint/types': 8.59.3
       debug: 4.4.3
       typescript: 6.0.3
     transitivePeerDependencies:

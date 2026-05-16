@@ -27,6 +27,7 @@
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
 		"@anc/nuxt-md-component": "workspace:*",
+		"@anc/nuxt-site-config": "workspace:*",
 		"@anc/nuxt-svg-static": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
 		"@nuxt/a11y": "1.0.0-alpha.1",

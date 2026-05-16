@@ -58,6 +58,7 @@ export default defineNuxtConfig({
 		'@nuxt/eslint',
 		'@nuxtjs/device',
 		'@anc/nuxt-svg-static',
+		'@anc/nuxt-site-config',
 		'@anc/nuxt-md-component',
 	],
 	alias: {
@@ -169,11 +170,14 @@ export default defineNuxtConfig({
 	reka: {
 		prefix: 'reka',
 	},
+	site: {
+		url: 'https://sharpice.top',
+	},
 	app: {
 		buildAssetsDir: '_nexus',
 		rootId: `nexus_app`,
 		head: {
-			titleTemplate: '%s - 锐冰',
+			titleTemplate: '锐冰 - %s',
 			viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
 			htmlAttrs: {
 				dir: 'ltr',
