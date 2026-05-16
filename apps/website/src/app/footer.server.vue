@@ -9,13 +9,13 @@
 		<div :class="$style.buildInfo">
 			<p>
 				<span>构建日期：</span>
-				<time :datetime="runtimeConfigPublic.buildTimestampISO">
-					{{ runtimeConfigPublic.buildTimestamp }}
+				<time :datetime="runtimeConfig.public.buildTimestampISO">
+					{{ runtimeConfig.public.buildTimestamp }}
 				</time>
 			</p>
 			<p>
 				<span>构建版本：</span>
-				<code>{{ runtimeConfigPublic.buildID.substring(0, 7) }}</code>
+				<code>{{ buildId.substring(0, 7) }}</code>
 			</p>
 		</div>
 	</footer>
@@ -24,7 +24,26 @@
 <script lang="ts" setup>
 defineOptions({ name: 'AppFooter' });
 
-const runtimeConfigPublic = useRuntimeConfig().public;
+declare module 'nitro/types' {
+	interface NitroRuntimeConfigApp {
+		buildId: string;
+	}
+}
+
+const runtimeConfig = useRuntimeConfig();
+
+const buildId = runtimeConfig.app.buildId;
+if (!buildId) {
+	const error = createError({
+		fatal: true,
+		statusCode: 500,
+		statusMessage: 'Configuration Error',
+		message: '无法从 `runtimeConfig().app.buildId` 获取到 buildId！',
+	});
+
+	console.error(error);
+	throw error;
+}
 </script>
 
 <style lang="less" module>

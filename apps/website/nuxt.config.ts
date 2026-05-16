@@ -8,7 +8,6 @@ import process from 'node:process';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isGitHubAction = process.env.GITHUB_ACTIONS === 'true';
-const buildID = await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' });
 
 const strictTSConfigPath = url.fileURLToPath(import.meta.resolve('@anc/strict-tsconfig/tsconfig.json'));
 const strictTSConfig = ts.readConfigFile(strictTSConfigPath, (path) => ts.sys.readFile(path));
@@ -49,7 +48,7 @@ export default defineNuxtConfig({
 	compatibilityDate: 'latest',
 	css: ['~/styles/main.less'],
 	srcDir: path.resolve(import.meta.dirname, './src'),
-	buildId: buildID,
+	buildId: await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' }),
 	extends: [url.fileURLToPath(import.meta.resolve('@anc/content'))],
 	modules: [
 		'@nuxt/a11y',
@@ -66,7 +65,6 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		public: {
-			buildID,
 			...getBuildTimestamp(),
 		},
 	},
