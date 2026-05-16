@@ -33,11 +33,13 @@ importers:
         specifier: ^4.90.0
         version: 4.90.0
 
+  apps/content: {}
+
   apps/website:
     dependencies:
-      '@anc/nuxt-md-component':
+      '@anc/content':
         specifier: workspace:*
-        version: link:../../packages/nuxt-md-component
+        version: link:../content
       '@fontsource/noto-color-emoji':
         specifier: ^5.2.12
         version: 5.2.12
@@ -66,6 +68,9 @@ importers:
       '@anc/fantasy-design':
         specifier: workspace:*
         version: link:../../packages/fantasy-design
+      '@anc/nuxt-md-component':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-md-component
       '@anc/nuxt-svg-static':
         specifier: workspace:*
         version: link:../../packages/nuxt-svg-static
@@ -96,8 +101,6 @@ importers:
       rimraf:
         specifier: ^6.1.3
         version: 6.1.3
-
-  content: {}
 
   packages/fantasy-design: {}
 
@@ -7015,8 +7018,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.59.1(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.59.1(typescript@6.0.3)
-      '@typescript-eslint/types': 8.59.1
+      '@typescript-eslint/tsconfig-utils': 8.59.2(typescript@6.0.3)
+      '@typescript-eslint/types': 8.59.2
       debug: 4.4.3
       typescript: 6.0.3
     transitivePeerDependencies:

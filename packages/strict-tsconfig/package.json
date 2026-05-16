@@ -1,5 +1,6 @@
 {
 	"name": "@anc/strict-tsconfig",
 	"private": true,
+	"license": "MPL-2.0",
 	"description": "严格的 TSConfig 配置"
 }

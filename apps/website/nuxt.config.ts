@@ -50,6 +50,7 @@ export default defineNuxtConfig({
 	css: ['~/styles/main.less'],
 	srcDir: path.resolve(import.meta.dirname, './src'),
 	buildId: buildID,
+	extends: [url.fileURLToPath(import.meta.resolve('@anc/content'))],
 	modules: [
 		'@nuxt/a11y',
 		'nuxt-nexus',

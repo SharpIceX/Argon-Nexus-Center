@@ -2,5 +2,6 @@
 	"name": "@anc/content",
 	"private": true,
 	"type": "module",
+	"main": "./nuxt.config.ts",
 	"description": "Wiki、小说、博客等内容"
 }

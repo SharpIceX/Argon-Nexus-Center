@@ -5,7 +5,6 @@ ignoreWorkspaceRootCheck: true
 
 packages:
   - apps/*
-  - content/
   - packages/*
 
 allowBuilds:

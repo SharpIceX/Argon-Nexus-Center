@@ -2,6 +2,7 @@
 	"name": "@anc/nuxt-svg-static",
 	"private": true,
 	"type": "module",
+	"license": "MPL-2.0",
 	"main": "./src/module.ts",
 	"description": "允许将 `.svg` 文件作为 Vue 组件导入，并自动预处理为高性能、零水合的服务端孤岛组件",
 	"scripts": {
