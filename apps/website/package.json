@@ -16,10 +16,10 @@
 	"dependencies": {
 		"@anc/content": "workspace:*",
 		"@fontsource/noto-color-emoji": "^5.2.12",
-		"@lucide/vue": "^1.14.0",
+		"@lucide/vue": "^1.16.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
-		"nuxt": "npm:nuxt-nightly@5.0.0-29641847.819a00e2",
+		"nuxt": "npm:nuxt-nightly@5.0.0-29644927.fe86029c",
 		"reka-ui": "^2.9.7",
 		"simple-icons": "^16.19.0",
 		"vue": "^3.5.34"
@@ -33,7 +33,7 @@
 		"@nuxt/eslint": "^1.15.2",
 		"@nuxtjs/device": "^4.0.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.5",
-		"isomorphic-git": "^1.37.6",
+		"isomorphic-git": "^1.37.8",
 		"less": "^4.6.4",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
