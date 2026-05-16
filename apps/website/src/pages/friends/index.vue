@@ -7,7 +7,7 @@
 					:href="item.url"
 					target="_blank"
 					:class="$style['friend-card']"
-					rel="opener"
+					:rel="item.followSEO === true ? undefined : 'nofollow'"
 					@dragstart="handleDragStart($event, item.title)">
 					<div v-if="item.avatar" aria-hidden="true">
 						<img :src="item.avatar" :class="[$style.avatar, { [$style['is-rounded']]: !item.noRounded }]" />

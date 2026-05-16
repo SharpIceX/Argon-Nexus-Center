@@ -21,6 +21,11 @@ User-agent: TelegramBot
 User-agent: facebookexternalhit
 Allow: /
 
+# 互联网档案馆
+User-agent: ia_archiver
+User-agent: archive.org_bot
+Allow: /
+
 # 秋云思
 User-agent: Curasea
 User-agent: CuraseaCarbon

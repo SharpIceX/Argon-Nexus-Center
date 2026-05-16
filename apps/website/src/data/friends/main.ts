@@ -1,8 +1,9 @@
 interface friendsListType {
 	url: string;
 	title: string;
-	noRounded?: boolean;
 	avatar?: string;
+	followSEO?: boolean;
+	noRounded?: boolean;
 }
 
 const avatars = import.meta.glob('./avatar/*', { eager: true, import: 'default' });
@@ -14,6 +15,7 @@ const getAvatar = (name: string) => {
 const friendsList: friendsListType[] = [
 	{
 		title: '初雪·冰',
+		followSEO: true,
 		url: 'https://wolf.snowlyicewolf.club/',
 		avatar: getAvatar('snowlyicewolf.jxl'),
 	},
