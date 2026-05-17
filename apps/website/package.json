@@ -35,7 +35,7 @@
 		"@nuxt/eslint": "^1.15.2",
 		"@nuxtjs/device": "^4.0.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.5",
-		"isomorphic-git": "^1.37.8",
+		"isomorphic-git": "^1.38.0",
 		"less": "^4.6.4",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
