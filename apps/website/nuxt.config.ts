@@ -55,6 +55,7 @@ export default defineNuxtConfig({
 		'nuxt-nexus',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
+		'@anc/nuxt-seo',
 		'@nuxtjs/device',
 		'@anc/nuxt-svg-static',
 		'@anc/nuxt-site-config',

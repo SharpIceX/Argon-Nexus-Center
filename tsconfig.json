@@ -4,6 +4,7 @@
 		{ "path": "./tsconfig.isolated.json" },
 		{ "path": "./apps/content/tsconfig.json" },
 		{ "path": "./apps/website/tsconfig.json" },
+		{ "path": "./packages/nuxt-seo/tsconfig.json" },
 		{ "path": "./packages/nuxt-svg-static/tsconfig.json" },
 		{ "path": "./packages/nuxt-site-config/tsconfig.json" },
 		{ "path": "./packages/nuxt-md-component/tsconfig.json" }

@@ -71,6 +71,9 @@ importers:
       '@anc/nuxt-md-component':
         specifier: workspace:*
         version: link:../../packages/nuxt-md-component
+      '@anc/nuxt-seo':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-seo
       '@anc/nuxt-site-config':
         specifier: workspace:*
         version: link:../../packages/nuxt-site-config
@@ -110,8 +113,8 @@ importers:
   packages/nuxt-md-component:
     dependencies:
       '@nuxt/kit':
-        specifier: ^4.4.5
-        version: 4.4.5(magicast@0.5.3)
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
       markdown-it:
         specifier: ^14.1.1
         version: 14.1.1
@@ -129,11 +132,30 @@ importers:
         specifier: ^14.1.2
         version: 14.1.2
 
+  packages/nuxt-seo:
+    dependencies:
+      '@anc/nuxt-site-config':
+        specifier: workspace:*
+        version: link:../nuxt-site-config
+      '@nuxt/kit':
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
+      ufo:
+        specifier: ^1.6.4
+        version: 1.6.4
+    devDependencies:
+      '@anc/strict-tsconfig':
+        specifier: workspace:*
+        version: link:../strict-tsconfig
+      '@nuxt/module-builder':
+        specifier: ^1.0.2
+        version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.34)(esbuild@0.27.7)(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
+
   packages/nuxt-site-config:
     dependencies:
       '@nuxt/kit':
-        specifier: ^4.4.5
-        version: 4.4.5(magicast@0.5.3)
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
     devDependencies:
       '@anc/strict-tsconfig':
         specifier: workspace:*
@@ -148,8 +170,8 @@ importers:
         specifier: ^0.25.2
         version: 0.25.2(markdown-it@14.1.1)
       '@nuxt/kit':
-        specifier: ^4.4.5
-        version: 4.4.5(magicast@0.5.3)
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
       defu:
         specifier: ^6.1.7
         version: 6.1.7
