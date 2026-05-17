@@ -74,6 +74,9 @@ importers:
       '@anc/nuxt-seo':
         specifier: workspace:*
         version: link:../../packages/nuxt-seo
+      '@anc/nuxt-seo-sitemap':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-seo-sitemap
       '@anc/nuxt-site-config':
         specifier: workspace:*
         version: link:../../packages/nuxt-site-config
@@ -133,6 +136,25 @@ importers:
         version: 14.1.2
 
   packages/nuxt-seo:
+    dependencies:
+      '@anc/nuxt-site-config':
+        specifier: workspace:*
+        version: link:../nuxt-site-config
+      '@nuxt/kit':
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
+      ufo:
+        specifier: ^1.6.4
+        version: 1.6.4
+    devDependencies:
+      '@anc/strict-tsconfig':
+        specifier: workspace:*
+        version: link:../strict-tsconfig
+      '@nuxt/module-builder':
+        specifier: ^1.0.2
+        version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.34)(esbuild@0.27.7)(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
+
+  packages/nuxt-seo-sitemap:
     dependencies:
       '@anc/nuxt-site-config':
         specifier: workspace:*
@@ -7621,8 +7643,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.59.1(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.59.1(typescript@6.0.3)
-      '@typescript-eslint/types': 8.59.1
+      '@typescript-eslint/tsconfig-utils': 8.59.3(typescript@6.0.3)
+      '@typescript-eslint/types': 8.59.3
       debug: 4.4.3
       typescript: 6.0.3
     transitivePeerDependencies:

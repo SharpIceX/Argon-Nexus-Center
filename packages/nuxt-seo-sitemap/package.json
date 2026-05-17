@@ -1,0 +1,20 @@
+{
+	"name": "@anc/nuxt-seo-sitemap",
+	"private": true,
+	"type": "module",
+	"license": "MPL-2.0",
+	"main": "./src/module.ts",
+	"description": "Nuxt 站点地图生成模块",
+	"scripts": {
+		"postinstall": "nuxt-module-build prepare"
+	},
+	"dependencies": {
+		"@anc/nuxt-site-config": "workspace:*",
+		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c",
+		"ufo": "^1.6.4"
+	},
+	"devDependencies": {
+		"@anc/strict-tsconfig": "workspace:*",
+		"@nuxt/module-builder": "^1.0.2"
+	}
+}

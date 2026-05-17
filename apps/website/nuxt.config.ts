@@ -58,6 +58,7 @@ export default defineNuxtConfig({
 		'@anc/nuxt-seo',
 		'@nuxtjs/device',
 		'@anc/nuxt-svg-static',
+		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-site-config',
 		'@anc/nuxt-md-component',
 	],

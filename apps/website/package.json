@@ -28,6 +28,7 @@
 		"@anc/fantasy-design": "workspace:*",
 		"@anc/nuxt-md-component": "workspace:*",
 		"@anc/nuxt-seo": "workspace:*",
+		"@anc/nuxt-seo-sitemap": "workspace:*",
 		"@anc/nuxt-site-config": "workspace:*",
 		"@anc/nuxt-svg-static": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
