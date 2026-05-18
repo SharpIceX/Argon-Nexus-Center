@@ -1,4 +1,0 @@
-{
-	"extends": "@anc/strict-tsconfig",
-	"include": ["./eslint.config.ts", "./content/nuxt.config.ts"]
-}
