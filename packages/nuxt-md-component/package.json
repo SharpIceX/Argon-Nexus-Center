@@ -9,7 +9,7 @@
 		"postinstall": "nuxt-module-build prepare"
 	},
 	"dependencies": {
-		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c",
+		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29654382.18b66112",
 		"markdown-it": "^14.1.1",
 		"markdown-it-cjk-friendly": "^2.0.2"
 	},

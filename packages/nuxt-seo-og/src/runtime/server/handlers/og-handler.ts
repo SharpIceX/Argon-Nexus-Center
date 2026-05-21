@@ -4,7 +4,7 @@ import path from 'node:path';
 import module from 'node:module';
 import { inspect } from 'node:util';
 import { Buffer } from 'node:buffer';
-import { HTTPError } from 'nitro/h3';
+import { createError } from 'nitro/h3';
 import { defineEventHandler } from 'h3';
 import { useStorage } from 'nitro/storage';
 import { NodeCompiler as TypstNodeCompiler } from '@myriaddreamin/typst-ts-node-compiler';
@@ -51,13 +51,10 @@ export default defineEventHandler(async (event) => {
 	}
 
 	if (ogData.title === undefined) {
-		throw new HTTPError({
+		throw createError({
 			status: 404,
 			statusText: 'Not Found',
 			message: `页面「${routePath}」没有标题！`,
-			body: {
-				fatal: true,
-			},
 		});
 	}
 
@@ -89,16 +86,13 @@ export default defineEventHandler(async (event) => {
 
 		console.error(`--- [Typst Rendering Error] ---\nRoute: ${routePath}\nError Details:\n${formattedError}`);
 
-		throw new HTTPError({
+		throw createError({
 			status: 500,
 			cause: e,
 			statusText: 'Typst Render Error',
 			message: e instanceof Error ? e.message : String(e),
 			data: {
 				route: routePath,
-			},
-			body: {
-				fatal: true,
 			},
 		});
 	}
