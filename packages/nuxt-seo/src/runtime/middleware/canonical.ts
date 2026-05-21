@@ -1,11 +1,10 @@
 import { withBase, withoutTrailingSlash } from 'ufo';
-import { defineNuxtRouteMiddleware, useRuntimeConfig, useHead } from '#imports';
+import { defineNuxtRouteMiddleware, useAppConfig, useHead } from '#imports';
 
 export default defineNuxtRouteMiddleware((to) => {
-	const runtimeConfig = useRuntimeConfig();
-	const baseURL = runtimeConfig.public.site.url;
+	const appConfig = useAppConfig();
 
-	const canonicalURL = withoutTrailingSlash(withBase(to.path, baseURL));
+	const canonicalURL = withoutTrailingSlash(withBase(to.path, appConfig.site.url));
 
 	useHead({
 		link: [

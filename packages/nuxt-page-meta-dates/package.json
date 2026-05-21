@@ -1,5 +1,5 @@
 {
-	"name": "@anc/nuxt-seo-sitemap",
+	"name": "@anc/nuxt-page-meta-dates",
 	"private": true,
 	"type": "module",
 	"license": "MPL-2.0",
@@ -9,12 +9,10 @@
 		"postinstall": "nuxt-module-build prepare"
 	},
 	"dependencies": {
-		"@anc/nuxt-site-config": "workspace:*",
 		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c",
-		"ufo": "^1.6.4"
+		"simple-git": "^3.36.0"
 	},
 	"devDependencies": {
-		"@anc/nuxt-page-meta-dates": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
 		"@nuxt/module-builder": "^1.0.2"
 	}

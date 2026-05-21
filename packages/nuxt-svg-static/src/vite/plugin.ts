@@ -1,15 +1,23 @@
-import { defu } from 'defu';
 import fs from 'node:fs/promises';
+import type { Plugin } from 'vite';
 import path from 'node:path/posix';
-import { createUnplugin } from 'unplugin';
 import { optimize as svgoOptimize } from 'svgo';
-import type { UnpluginInstance } from 'unplugin';
 import type { Config as SvgoOptions } from 'svgo';
 
-// TODO 需要处理 prefixIds 问题
-
 const globalSvgoConfig: SvgoOptions = {
+	multipass: true,
 	plugins: [
+		{
+			name: 'preset-default',
+			params: {
+				overrides: {
+					convertColors: {
+						currentColor: true,
+					},
+				},
+			},
+		},
+		'removeDimensions',
 		{
 			name: 'add-directives',
 			fn: () => {
@@ -18,47 +26,43 @@ const globalSvgoConfig: SvgoOptions = {
 						enter: (node) => {
 							if (node.name === 'svg') {
 								node.attributes['v-once'] = '';
-								node.attributes['v-pre'] = '';
 								node.attributes['v-bind'] = '$attrs';
-								node.attributes['fill'] = node.attributes['fill'] ?? 'currentColor';
+								node.attributes['fill'] = 'currentColor';
 							}
 						},
 					},
 				};
 			},
 		},
+		'sortAttrs',
 	],
 };
 
-function createSvgTransformer(svgoConfig: SvgoOptions = {}): UnpluginInstance<unknown, boolean> {
-	return createUnplugin((_options) => {
+export default {
+	name: 'vite-plugin-svg-static',
+	enforce: 'pre',
+
+	async transform(_code, id) {
+		const [pathName, query] = id.split('?');
+		if (pathName === undefined) return;
+
+		// 排除非 .svg 文件
+		if (path.extname(pathName) !== '.svg') return;
+
+		// 只允许不带请求参数，或带了 component 请求参数的请求
+		const params = new URLSearchParams(query);
+		const shouldTransform = query === undefined || params.has('component');
+		if (!shouldTransform) return;
+
+		const svgRawCode = await fs.readFile(pathName, 'utf8');
+		const svgCode = svgoOptimize(svgRawCode, {
+			path: pathName,
+			...globalSvgoConfig,
+		}).data;
+
 		return {
-			name: '@anc/nuxt-svg-static/transform',
-			enforce: 'pre',
-			transformInclude(id) {
-				const [pathName, query] = id.split('?');
-				if (pathName === undefined) return;
-
-				// 排除非 `.svg` 文件
-				const extName = path.extname(pathName);
-				if (extName !== '.svg') return false;
-
-				// 只允许不带请求参数，或带了 component 请求参数的请求
-				const params = new URLSearchParams(query);
-				return query == null || params.has('component');
-			},
-
-			async transform(_code, id) {
-				const svgRawCode = await fs.readFile(id, 'utf8');
-				const svgCode = svgoOptimize(svgRawCode, defu(svgoConfig, globalSvgoConfig)).data;
-
-				return {
-					code: `<template>${svgCode}</template>`,
-					map: { mappings: '' },
-				};
-			},
+			code: `<template>${svgCode}</template>`,
+			map: { mappings: '' },
 		};
-	});
-}
-
-export default createSvgTransformer;
+	},
+} satisfies Plugin;

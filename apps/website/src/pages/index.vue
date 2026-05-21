@@ -5,9 +5,14 @@
 				<span>关于我</span>
 				<featherIcon aria-hidden="true" />
 			</h1>
+
 			<section :class="$style.section">
-				<introduction />
+				<p>
+					我是一名独立开发者、开源志愿者，目前主要维护一些开源项目。我平常也喜欢创作架空世界观、看科幻小说和可爱的艺术作品。
+				</p>
 			</section>
+
+			<hr :class="$style['hr-line']" />
 
 			<section :class="$style.section">
 				<ul :class="$style['connect-list']">
@@ -24,7 +29,6 @@
 </template>
 
 <script lang="ts" setup>
-import introduction from './introduction';
 import githubIcon from 'simple-icons/icons/github.svg';
 import discordIcon from 'simple-icons/icons/discord.svg';
 import bilibiliIcon from 'simple-icons/icons/bilibili.svg';
@@ -44,6 +48,12 @@ const connectList = [
 
 <style lang="less" module>
 @import (reference) '@anc/fantasy-design/src/color.less';
+
+.hr-line {
+	width: 100%;
+	margin-block: 1rem;
+	border-style: dashed;
+}
 
 .home-wrapper {
 	height: 100%;

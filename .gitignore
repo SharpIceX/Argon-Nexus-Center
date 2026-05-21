@@ -22,7 +22,13 @@ $RECYCLE.BIN
 *.log
 
 # Node
-node_modules
+**/node_modules
 
 # typescript
 *.tsbuildinfo
+
+# Nuxt
+**/.nuxt
+
+# Build
+**/dist

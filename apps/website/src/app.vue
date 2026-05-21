@@ -2,7 +2,9 @@
 	<AppCursor />
 	<AppHeader />
 	<main :class="$style['main-container']">
-		<NuxtPage :transition="{ name: 'page-fade', mode: 'out-in' }" />
+		<NuxtLayout>
+			<NuxtPage :transition="{ name: 'page-fade', mode: 'out-in' }" />
+		</NuxtLayout>
 	</main>
 	<AppFooter />
 </template>
@@ -14,6 +16,11 @@ import AppFooter from './app/footer.server.vue';
 
 defineOptions({
 	name: 'App',
+});
+
+defineOg({
+	type: 'website',
+	imageTemplate: 'default',
 });
 </script>
 

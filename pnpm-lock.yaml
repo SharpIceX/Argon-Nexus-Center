@@ -71,9 +71,15 @@ importers:
       '@anc/nuxt-md-component':
         specifier: workspace:*
         version: link:../../packages/nuxt-md-component
+      '@anc/nuxt-page-meta-dates':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-page-meta-dates
       '@anc/nuxt-seo':
         specifier: workspace:*
         version: link:../../packages/nuxt-seo
+      '@anc/nuxt-seo-og':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-seo-og
       '@anc/nuxt-seo-sitemap':
         specifier: workspace:*
         version: link:../../packages/nuxt-seo-sitemap
@@ -135,6 +141,22 @@ importers:
         specifier: ^14.1.2
         version: 14.1.2
 
+  packages/nuxt-page-meta-dates:
+    dependencies:
+      '@nuxt/kit':
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
+      simple-git:
+        specifier: ^3.36.0
+        version: 3.36.0
+    devDependencies:
+      '@anc/strict-tsconfig':
+        specifier: workspace:*
+        version: link:../strict-tsconfig
+      '@nuxt/module-builder':
+        specifier: ^1.0.2
+        version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.34)(esbuild@0.27.7)(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
+
   packages/nuxt-seo:
     dependencies:
       '@anc/nuxt-site-config':
@@ -143,6 +165,34 @@ importers:
       '@nuxt/kit':
         specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
         version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
+      ufo:
+        specifier: ^1.6.4
+        version: 1.6.4
+    devDependencies:
+      '@anc/strict-tsconfig':
+        specifier: workspace:*
+        version: link:../strict-tsconfig
+      '@nuxt/module-builder':
+        specifier: ^1.0.2
+        version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.34)(esbuild@0.27.7)(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
+
+  packages/nuxt-seo-og:
+    dependencies:
+      '@anc/nuxt-site-config':
+        specifier: workspace:*
+        version: link:../nuxt-site-config
+      '@lxgw/LxgwBright':
+        specifier: github:lxgw/LxgwBright#v5.528
+        version: https://codeload.github.com/lxgw/LxgwBright/tar.gz/c87e019ae295c5025b33c9991cddd59c126f0879
+      '@myriaddreamin/typst-ts-node-compiler':
+        specifier: 0.7.0-rc2
+        version: 0.7.0-rc2
+      '@nuxt/kit':
+        specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
+        version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
       ufo:
         specifier: ^1.6.4
         version: 1.6.4
@@ -166,6 +216,9 @@ importers:
         specifier: ^1.6.4
         version: 1.6.4
     devDependencies:
+      '@anc/nuxt-page-meta-dates':
+        specifier: workspace:*
+        version: link:../nuxt-page-meta-dates
       '@anc/strict-tsconfig':
         specifier: workspace:*
         version: link:../strict-tsconfig
@@ -188,15 +241,9 @@ importers:
 
   packages/nuxt-svg-static:
     dependencies:
-      '@mdit/plugin-attrs':
-        specifier: ^0.25.2
-        version: 0.25.2(markdown-it@14.1.1)
       '@nuxt/kit':
         specifier: npm:@nuxt/kit-nightly@5.0.0-29644927.fe86029c
         version: '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
-      defu:
-        specifier: ^6.1.7
-        version: 6.1.7
       svgo:
         specifier: ^4.0.1
         version: 4.0.1
@@ -1322,23 +1369,79 @@ packages:
     resolution: {gitHosted: true, tarball: https://codeload.github.com/lxgw/LxgwBright/tar.gz/c87e019ae295c5025b33c9991cddd59c126f0879}
     version: 0.0.0
 
-  '@mdit/helper@0.23.2':
-    resolution: {integrity: sha512-w4oja7kZYnkSiodfn4Neg1gmlIkvQtmCBJTLvLFOaET7xt8KomDNPQeumpGobQ9dWkXFqBKHlxjTYgroPH+CvA==}
-    engines: {node: '>= 20'}
-    peerDependencies:
-      markdown-it: ^14.1.0
-    peerDependenciesMeta:
-      markdown-it:
-        optional: true
+  '@myriaddreamin/typst-ts-node-compiler-android-arm-eabi@0.7.0-rc2':
+    resolution: {integrity: sha512-OnfUH3XbGel3+QUZc4G3+V1npXYGCDc3b7WhFw88ihCH/Xpw+NNjidLrFkY6kK2a5vVHnY2AEG0hJSwZzvOw0Q==}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [android]
 
-  '@mdit/plugin-attrs@0.25.2':
-    resolution: {integrity: sha512-/R1BzkCWY8OvjDek9y/0/hpxZKWlwef0Gq/jtee9+ZbX0J9ffXfJl+Isgh3Ecur01R6Bv+1XNJtaBGNgUm/w6Q==}
-    engines: {node: '>= 20'}
-    peerDependencies:
-      markdown-it: ^14.1.0
-    peerDependenciesMeta:
-      markdown-it:
-        optional: true
+  '@myriaddreamin/typst-ts-node-compiler-android-arm64@0.7.0-rc2':
+    resolution: {integrity: sha512-LR76t0jXcKp0F0vMViinS6+RBxyTFqBUFiUoZcGRPQD/DhLNBReTS7tJ14Jp5Mwuqe76RUshSeQSrKbJUoaQ3A==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [android]
+
+  '@myriaddreamin/typst-ts-node-compiler-darwin-arm64@0.7.0-rc2':
+    resolution: {integrity: sha512-xJndoR6Kn6UUYQDui41R7tx/avpfyY6c8dV5udyHP5FkeUSVgRAoFcjOtlI9Lpc84alFusIPwp4QR6V+xjOAhA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@myriaddreamin/typst-ts-node-compiler-darwin-x64@0.7.0-rc2':
+    resolution: {integrity: sha512-kmh37eshR40LVAM6P59uLWEYt5ffyUhKWcBOzsd/1QYNtsH28kLRUOShugAdxQN164Re+47z2nkSgd7HejASFg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-arm-gnueabihf@0.7.0-rc2':
+    resolution: {integrity: sha512-giroa96wdN0mxARN1NbRrKp9t+qqUNUSBzWBQp1RMPqGNPwtahEqJnpf5zmRSrEJYhEzVZbs9+CwxFjj5lw7VQ==}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [linux]
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-arm64-gnu@0.7.0-rc2':
+    resolution: {integrity: sha512-pDdc6hQrGdqr0BT+nNe0tJmdcmyp9yhn3WDeGlTi4YpYG2IybP7fBVIwDI3Mzr/IdCMtPbQxew4AfmAoJwIz6A==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-arm64-musl@0.7.0-rc2':
+    resolution: {integrity: sha512-wNEYhpjuwnhd7VrArL4EHd652z8YEGxG6C8haUjkVhGseFBetrL51yD1Ymg5fWEa+3+O4oZ1+IUN0Fu4/fKgHw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-x64-gnu@0.7.0-rc2':
+    resolution: {integrity: sha512-Z4i78r5MtFDYGHqgYrWfAcvqb3xW49WlLI35l1G818lYmkmGZAjAkVKb946ChOx+bBQIuMWefykCABLOlBkgKA==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-x64-musl@0.7.0-rc2':
+    resolution: {integrity: sha512-PXteqxa3RITEh5v3lQ4c5VGn16KHvUKVXjSZ2BudCe6C0gEuOO16JS9JU8DZVwd0dbtH0Mky6Q5V7tf6erpXGA==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@myriaddreamin/typst-ts-node-compiler-win32-arm64-msvc@0.7.0-rc2':
+    resolution: {integrity: sha512-wN1tjdRxabJzT8WuDVdOs2QKQuMzKht3QWPU/H7OjuDta1WcrYs/3IKnF67HNiphe/33MU8bKeih2GBVU+AuLg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@myriaddreamin/typst-ts-node-compiler-win32-x64-msvc@0.7.0-rc2':
+    resolution: {integrity: sha512-6DUe2iepqptLkJsOdUC4yHWM3/USCW82YieA+lPAeky37XSJ5KuLuLL6zOQiQt3IWot7jB+m9oKIvBqJh7yriA==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@myriaddreamin/typst-ts-node-compiler@0.7.0-rc2':
+    resolution: {integrity: sha512-a4Vicil6Tu0S87C3+J2EMtFDdQEmT18zYAW6Srmt32lgjrTq3HLy+WN0lA/bgaBgw2wNEkXdogz3yRg49vXs8w==}
+    engines: {node: '>= 10'}
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
@@ -1352,12 +1455,12 @@ packages:
   '@nuxt/a11y@1.0.0-alpha.1':
     resolution: {integrity: sha512-TwON9I0uI4erv9IJ6cD4nx9QcaxfXnAg7CwcQyjMKfDHCfI3xitezg4CZhQOHl0FGqHYGRf9Y9kSwh6fahCJrQ==}
 
-  '@nuxt/cli-nightly@3.36.0-20260515-084825-f869c61':
-    resolution: {integrity: sha512-0uNcg3jCMC+tqZLIXvQldP5IupMpmM3ZnHGEtB0LWBiq3xuyQkF+rICJHm120866yNiPFTcwiLtXsJLl/+fFCQ==}
+  '@nuxt/cli-nightly@3.36.0-20260520-053237-f869c61':
+    resolution: {integrity: sha512-XigOZLnZ7rxEOfBP6wAhSw/XRDyY+YprIpeHuVpzqt/ihoQOEUNHDc7ZTqmx0cLDDlomwLVNjycvxDuKLG5uyQ==}
     engines: {node: ^16.14.0 || >=18.0.0}
     hasBin: true
     peerDependencies:
-      '@nuxt/schema': ^4.4.5
+      '@nuxt/schema': ^4.4.6
     peerDependenciesMeta:
       '@nuxt/schema':
         optional: true
@@ -6572,18 +6675,52 @@ snapshots:
 
   '@lxgw/LxgwBright@https://codeload.github.com/lxgw/LxgwBright/tar.gz/c87e019ae295c5025b33c9991cddd59c126f0879': {}
 
-  '@mdit/helper@0.23.2(markdown-it@14.1.1)':
-    dependencies:
-      '@types/markdown-it': 14.1.2
-    optionalDependencies:
-      markdown-it: 14.1.1
+  '@myriaddreamin/typst-ts-node-compiler-android-arm-eabi@0.7.0-rc2':
+    optional: true
 
-  '@mdit/plugin-attrs@0.25.2(markdown-it@14.1.1)':
-    dependencies:
-      '@mdit/helper': 0.23.2(markdown-it@14.1.1)
-      '@types/markdown-it': 14.1.2
+  '@myriaddreamin/typst-ts-node-compiler-android-arm64@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-darwin-arm64@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-darwin-x64@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-arm-gnueabihf@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-arm64-gnu@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-arm64-musl@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-x64-gnu@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-linux-x64-musl@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-win32-arm64-msvc@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler-win32-x64-msvc@0.7.0-rc2':
+    optional: true
+
+  '@myriaddreamin/typst-ts-node-compiler@0.7.0-rc2':
     optionalDependencies:
-      markdown-it: 14.1.1
+      '@myriaddreamin/typst-ts-node-compiler-android-arm-eabi': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-android-arm64': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-darwin-arm64': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-darwin-x64': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-linux-arm-gnueabihf': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-linux-arm64-gnu': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-linux-arm64-musl': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-linux-x64-gnu': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-linux-x64-musl': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-win32-arm64-msvc': 0.7.0-rc2
+      '@myriaddreamin/typst-ts-node-compiler-win32-x64-msvc': 0.7.0-rc2
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
@@ -6616,7 +6753,7 @@ snapshots:
       - magicast
       - vite
 
-  '@nuxt/cli-nightly@3.36.0-20260515-084825-f869c61(@nuxt/schema-nightly@5.0.0-29644927.fe86029c)(magicast@0.5.3)':
+  '@nuxt/cli-nightly@3.36.0-20260520-053237-f869c61(@nuxt/schema-nightly@5.0.0-29644927.fe86029c)(magicast@0.5.3)':
     dependencies:
       '@bomb.sh/tab': 0.0.15(citty@0.2.2)
       '@clack/prompts': 1.4.0
@@ -10055,7 +10192,7 @@ snapshots:
   nuxt-nightly@5.0.0-29644927.fe86029c(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@babel/plugin-syntax-typescript@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.8.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(less@4.6.4)(yaml@2.9.0))(vue@3.5.34(typescript@6.0.3)))(@vue/compiler-sfc@3.5.34)(autoprefixer@10.5.0(postcss@8.5.14))(crossws@0.4.5(srvx@0.11.15))(cssnano@7.1.9(postcss@8.5.14))(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(eslint@10.4.0(jiti@2.7.0))(giget@3.2.0)(less@4.6.4)(lightningcss@1.32.0)(magicast@0.5.3)(miniflare@4.20260515.0)(nuxt-nightly@5.0.0-29644927.fe86029c)(optionator@0.9.4)(oxc-parser@0.127.0)(rollup@4.60.4)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(less@4.6.4)(yaml@2.9.0))(yaml@2.9.0):
     dependencies:
       '@dxup/nuxt': 0.4.1(magicast@0.5.3)(typescript@6.0.3)
-      '@nuxt/cli': '@nuxt/cli-nightly@3.36.0-20260515-084825-f869c61(@nuxt/schema-nightly@5.0.0-29644927.fe86029c)(magicast@0.5.3)'
+      '@nuxt/cli': '@nuxt/cli-nightly@3.36.0-20260520-053237-f869c61(@nuxt/schema-nightly@5.0.0-29644927.fe86029c)(magicast@0.5.3)'
       '@nuxt/devtools': 3.2.4(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(less@4.6.4)(yaml@2.9.0))(vue@3.5.34(typescript@6.0.3))
       '@nuxt/kit': '@nuxt/kit-nightly@5.0.0-29644927.fe86029c(magicast@0.5.3)'
       '@nuxt/nitro-server': '@nuxt/nitro-server-nightly@5.0.0-29644927.fe86029c(@babel/plugin-syntax-typescript@7.28.6(@babel/core@7.29.0))(chokidar@5.0.0)(crossws@0.4.5(srvx@0.11.15))(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.27.7)(giget@3.2.0)(jiti@2.7.0)(lightningcss@1.32.0)(magicast@0.5.3)(miniflare@4.20260515.0)(nuxt-nightly@5.0.0-29644927.fe86029c)(ofetch@2.0.0-alpha.3)(rolldown@1.0.1)(rollup@4.60.4)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(less@4.6.4)(yaml@2.9.0))'

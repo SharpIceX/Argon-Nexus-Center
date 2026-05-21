@@ -12,9 +12,10 @@ const isGitHubAction = process.env.GITHUB_ACTIONS === 'true';
 const strictTSConfigPath = url.fileURLToPath(import.meta.resolve('@anc/strict-tsconfig/tsconfig.json'));
 const strictTSConfig = ts.readConfigFile(strictTSConfigPath, (path) => ts.sys.readFile(path));
 
-function getBuildTimestamp() {
-	const now = new Date();
-	const formatter = new Intl.DateTimeFormat('zh-CN', {
+/** 获取 UTC+8 ISO 8601 格式的构建时间 */
+function getBuildTimestamp(): string {
+	const formatter = new Intl.DateTimeFormat('sv-SE', {
+		timeZone: 'Asia/Shanghai',
 		year: 'numeric',
 		month: '2-digit',
 		day: '2-digit',
@@ -22,27 +23,14 @@ function getBuildTimestamp() {
 		minute: '2-digit',
 		second: '2-digit',
 		hour12: false,
-		timeZone: 'Asia/Shanghai',
 	});
 
-	const parts = formatter.formatToParts(now);
-	const p: Record<string, string> = {};
-	parts.forEach(({ type, value }) => {
-		p[type] = value;
-	});
+	const formatted = formatter.format(new Date());
 
-	const datePart = `${p.year}-${p.month}-${p.day}`;
-	const timePart = `${p.hour}:${p.minute}:${p.second}`;
-
-	return {
-		buildTimestamp: `${datePart} ${timePart}`,
-		buildTimestampISO: `${datePart}T${timePart}`,
-	};
+	return `${formatted.replace(' ', 'T')}+08:00`;
 }
 
 export default defineNuxtConfig({
-	ssr: true,
-	pages: true,
 	telemetry: false,
 	appId: 'Argon-Nexus-Center',
 	compatibilityDate: 'latest',
@@ -57,17 +45,19 @@ export default defineNuxtConfig({
 		'@nuxt/eslint',
 		'@anc/nuxt-seo',
 		'@nuxtjs/device',
-		'@anc/nuxt-svg-static',
+		'@anc/nuxt-seo-og',
 		'@anc/nuxt-seo-sitemap',
+		'@anc/nuxt-svg-static',
 		'@anc/nuxt-site-config',
 		'@anc/nuxt-md-component',
+		'@anc/nuxt-page-meta-dates',
 	],
 	alias: {
 		$: path.resolve(import.meta.dirname, './node_modules'),
 	},
 	runtimeConfig: {
 		public: {
-			...getBuildTimestamp(),
+			buildTimestamp: getBuildTimestamp(),
 		},
 	},
 	future: {
@@ -104,7 +94,6 @@ export default defineNuxtConfig({
 			concurrency: isGitHubAction ? os.cpus().length : os.cpus().length - 1 || 1,
 		},
 		routeRules: {
-			/** TODO： 如果之后自己实现 OG-Image 需要处理下这里防止被屏蔽 */
 			'/_nexus/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
 		},
 	},
@@ -143,34 +132,12 @@ export default defineNuxtConfig({
 			rootDir: path.resolve(import.meta.dirname, '../../'),
 		},
 	},
-	svg: {
-		svgoConfig: {
-			multipass: true,
-			plugins: [
-				{
-					name: 'preset-default',
-					params: {
-						overrides: {
-							cleanupIds: false,
-						},
-					},
-				},
-				'removeViewBox',
-				{
-					name: 'convertColors',
-					params: {
-						currentColor: true,
-					},
-				},
-				'removeDimensions',
-				'sortAttrs',
-			],
-		},
-	},
 	reka: {
 		prefix: 'reka',
 	},
 	site: {
+		name: '锐冰',
+		lang: 'zh-CN',
 		url: 'https://sharpice.top',
 	},
 	app: {
@@ -182,7 +149,6 @@ export default defineNuxtConfig({
 			htmlAttrs: {
 				dir: 'ltr',
 				class: 'dark',
-				lang: 'zh-Hans',
 			},
 			meta: [
 				// 关键词

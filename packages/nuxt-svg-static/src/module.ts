@@ -1,20 +1,14 @@
-import createSvgTransformer from './vite/plugin';
-import type { Config as SvgoOptions } from 'svgo';
-import { addTypeTemplate, addBuildPlugin, createResolver, defineNuxtModule } from '@nuxt/kit';
-
-interface ModuleOptions {
-	svgoConfig?: SvgoOptions;
-}
+import ViteTransformerPlugin from './vite/plugin';
+import { addTypeTemplate, createResolver, defineNuxtModule, addVitePlugin } from '@nuxt/kit';
 
 const regExpSvg = /\.svg$/;
 const regExpVue = /\.vue$/;
 
 const resolver = createResolver(import.meta.url);
 
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
 	meta: {
 		name: '@anc/nuxt-svg-static',
-		configKey: 'svg',
 		compatibility: {
 			builder: {
 				rspack: false,
@@ -22,7 +16,7 @@ export default defineNuxtModule<ModuleOptions>({
 			},
 		},
 	},
-	setup(options, nuxt) {
+	setup(_options, nuxt) {
 		const vite = (nuxt.options.vite ??= {});
 
 		// @vitejs/plugin-vue 插件
@@ -32,7 +26,7 @@ export default defineNuxtModule<ModuleOptions>({
 		vite.vue.include = [...new Set([...includeArray, regExpSvg, regExpVue])];
 
 		// 构建插件
-		addBuildPlugin(createSvgTransformer(options.svgoConfig));
+		addVitePlugin(ViteTransformerPlugin);
 
 		// 类型
 		addTypeTemplate({
@@ -70,5 +64,3 @@ export default defineNuxtModule<ModuleOptions>({
 		});
 	},
 });
-
-export type { ModuleOptions };
