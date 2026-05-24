@@ -34,6 +34,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: 构建
+        working-directory: apps/website
         run: pnpm run generate
         env:
           NODE_ENV: production
@@ -42,6 +43,7 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           packageManager: pnpm
+          workingDirectory: apps/website
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
