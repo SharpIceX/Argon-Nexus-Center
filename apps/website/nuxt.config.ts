@@ -64,9 +64,6 @@ export default defineNuxtConfig({
 		compatibilityVersion: 5,
 		typescriptBundlerResolution: true,
 	},
-	features: {
-		inlineStyles: true,
-	},
 	typescript: {
 		strict: true,
 		tsConfig: strictTSConfig.config as Record<string, unknown>,
@@ -116,7 +113,6 @@ export default defineNuxtConfig({
 			},
 		},
 		esbuild: {
-			jsx: 'automatic',
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
