@@ -5,6 +5,8 @@ import ts from 'typescript';
 import path from 'node:path';
 import git from 'isomorphic-git';
 import process from 'node:process';
+import { composeVisitors } from 'lightningcss';
+import lightningcssVisitorRemoveWoff from '@anc/lightningcss-visitor-remove-woff';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isGitHubAction = process.env.GITHUB_ACTIONS === 'true';
@@ -103,6 +105,9 @@ export default defineNuxtConfig({
 			transformer: 'lightningcss',
 			modules: {
 				generateScopedName: '[local]_[hash:base64:5]',
+			},
+			lightningcss: {
+				visitor: composeVisitors([lightningcssVisitorRemoveWoff]),
 			},
 		},
 		build: {

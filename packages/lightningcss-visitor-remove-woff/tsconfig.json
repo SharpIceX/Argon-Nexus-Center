@@ -1,0 +1,4 @@
+{
+	"extends": "@anc/strict-tsconfig",
+	"include": ["./src/**/*.ts"]
+}

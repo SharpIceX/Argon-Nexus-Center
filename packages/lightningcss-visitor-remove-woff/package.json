@@ -1,0 +1,14 @@
+{
+	"name": "@anc/lightningcss-visitor-remove-woff",
+	"private": true,
+	"type": "module",
+	"license": "0BSD",
+	"main": "./src/index.ts",
+	"description": "从 CSS 的字体定义中移除 woff 字体",
+	"dependencies": {
+		"lightningcss": "^1.32.0"
+	},
+	"devDependencies": {
+		"@anc/strict-tsconfig": "workspace:*"
+	}
+}
