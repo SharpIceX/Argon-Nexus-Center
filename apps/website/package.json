@@ -22,8 +22,8 @@
 		"gsap": "^3.15.0",
 		"nuxt": "npm:nuxt-nightly@5.0.0-29654382.18b66112",
 		"reka-ui": "^2.9.8",
-		"simple-icons": "^16.20.0",
-		"vue": "^3.5.34"
+		"simple-icons": "^16.21.0",
+		"vue": "^3.5.35"
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
@@ -39,7 +39,7 @@
 		"@nuxt/eslint": "^1.15.2",
 		"@nuxtjs/device": "^4.0.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.5",
-		"isomorphic-git": "^1.38.1",
+		"isomorphic-git": "^1.38.3",
 		"less": "^4.6.4",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
