@@ -70,6 +70,9 @@ export default defineNuxtConfig({
 		strict: true,
 		tsConfig: strictTSConfig.config as Record<string, unknown>,
 	},
+	features: {
+		inlineStyles: true,
+	},
 	experimental: {
 		headNext: true,
 		typedPages: true,
