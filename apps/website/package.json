@@ -22,7 +22,7 @@
 		"gsap": "^3.15.0",
 		"nuxt": "npm:nuxt-nightly@5.0.0-29654382.18b66112",
 		"reka-ui": "^2.9.8",
-		"simple-icons": "^16.21.0",
+		"simple-icons": "^16.22.0",
 		"vue": "^3.5.35"
 	},
 	"devDependencies": {
