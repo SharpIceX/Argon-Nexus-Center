@@ -20,7 +20,6 @@ export default defineNuxtPlugin(() => {
 	}
 
 	const ogOptions = event.context._og_options;
-	const sysInputs = event.context._sys_inputs;
 
 	if (ogOptions?.disable === true) {
 		return;
@@ -78,7 +77,8 @@ export default defineNuxtPlugin(() => {
 				.then(({ useStorage }) => {
 					const storage = useStorage('og-data');
 					void storage.setItem(route.path, {
-						...sysInputs,
+						...ogOptions?.sysInputs,
+
 						title: pageTitle,
 						description: pageDescription,
 						template: ogOptions?.imageTemplate,

@@ -20,23 +20,23 @@ interface OgOptions {
 		| 'video.tv_show'
 		| 'video.other';
 	imageTemplate?: string;
+
+	sysInputs?: Record<string, string>;
 }
 
 declare module 'h3' {
 	interface H3EventContext {
 		_og_options?: OgOptions | undefined;
-		_sys_inputs?: Record<string, string> | undefined;
 	}
 }
 
-export function defineOg(options: OgOptions, sysInputs: Record<string, string>) {
+export function defineOg(options: OgOptions) {
 	if (import.meta.server) {
 		const nuxtApp = useNuxtApp();
 		const event = nuxtApp.ssrContext?.event;
 
 		if (event) {
 			event.context._og_options = options;
-			event.context._sys_inputs = sysInputs;
 		}
 	}
 }

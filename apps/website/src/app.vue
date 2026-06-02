@@ -11,12 +11,13 @@
 
 <script lang="ts" setup>
 import AppCursor from './app/cursor.vue';
-import AppHeader from './app/header/main.vue';
 import AppFooter from './app/footer.server.vue';
 
 defineOptions({
 	name: 'App',
 });
+
+const AppHeader = defineAsyncComponent(() => import('./app/header/main.vue'));
 
 defineOg({
 	type: 'website',
