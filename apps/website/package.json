@@ -21,8 +21,8 @@
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "npm:nuxt-nightly@5.0.0-29654382.18b66112",
-		"reka-ui": "^2.9.8",
-		"simple-icons": "^16.22.0",
+		"reka-ui": "^2.9.9",
+		"simple-icons": "^16.23.0",
 		"vue": "^3.5.35"
 	},
 	"devDependencies": {
@@ -39,7 +39,7 @@
 		"@nuxt/eslint": "^1.15.2",
 		"@nuxtjs/device": "^4.0.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.5",
-		"isomorphic-git": "^1.38.3",
+		"isomorphic-git": "^1.38.4",
 		"less": "^4.6.4",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
