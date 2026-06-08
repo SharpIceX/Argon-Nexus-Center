@@ -40,7 +40,7 @@ jobs:
           NODE_ENV: production
 
       - name: 部署到 Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           packageManager: pnpm
           workingDirectory: apps/website
