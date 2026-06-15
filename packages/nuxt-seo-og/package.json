@@ -13,7 +13,7 @@
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"@myriaddreamin/typst-ts-node-compiler": "0.7.0",
 		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29654382.18b66112",
-		"sharp": "^0.34.5",
+		"sharp": "^0.35.1",
 		"ufo": "^1.6.4"
 	},
 	"devDependencies": {
