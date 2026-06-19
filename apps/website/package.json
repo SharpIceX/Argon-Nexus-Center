@@ -19,7 +19,7 @@
 		"@lucide/vue": "^1.21.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
-		"nuxt": "npm:nuxt-nightly@5.0.0-29654382.18b66112",
+		"nuxt": "npm:nuxt-nightly@5x",
 		"reka-ui": "^2.9.10",
 		"simple-icons": "^16.23.0",
 		"vue": "^3.5.38"
