@@ -12,8 +12,8 @@
 		"@anc/nuxt-site-config": "workspace:*",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"@myriaddreamin/typst-ts-node-compiler": "0.7.0",
-		"@nuxt/kit": "npm:@nuxt/kit-nightly@5x",
-		"sharp": "^0.35.1",
+		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5",
+		"sharp": "^0.35.2",
 		"ufo": "^1.6.4"
 	},
 	"devDependencies": {
