@@ -33,3 +33,5 @@ Allow: /
 
 User-agent: *
 Disallow: /
+
+Sitemap: https://sharpice.top/sitemap.xml
