@@ -126,7 +126,7 @@ export default defineNuxtConfig({
 	site: {
 		name: '锐冰',
 		lang: 'zh-CN',
-		url: 'https://sharpice.top',
+		url: 'https://avali.top',
 	},
 	app: {
 		buildAssetsDir: '_nexus',
