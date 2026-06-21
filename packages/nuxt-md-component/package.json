@@ -9,13 +9,13 @@
 		"postinstall": "nuxt-module-build prepare"
 	},
 	"dependencies": {
-		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5",
+		"@nuxt/kit": "catalog:",
 		"markdown-it": "^14.2.0",
 		"markdown-it-cjk-friendly": "^2.0.2"
 	},
 	"devDependencies": {
 		"@anc/strict-tsconfig": "workspace:*",
-		"@nuxt/module-builder": "^1.0.2",
+		"@nuxt/module-builder": "catalog:",
 		"@types/markdown-it": "^14.1.2"
 	}
 }

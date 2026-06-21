@@ -9,10 +9,10 @@
 		"postinstall": "nuxt-module-build prepare"
 	},
 	"dependencies": {
-		"@nuxt/kit": "npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5"
+		"@nuxt/kit": "catalog:"
 	},
 	"devDependencies": {
 		"@anc/strict-tsconfig": "workspace:*",
-		"@nuxt/module-builder": "^1.0.2"
+		"@nuxt/module-builder": "catalog:"
 	}
 }

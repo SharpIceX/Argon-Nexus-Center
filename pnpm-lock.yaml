@@ -4,6 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@nuxt/kit':
+      specifier: npm:@nuxt/kit-nightly@5x
+      version: 5.0.0-29699100.d62452a5
+    '@nuxt/module-builder':
+      specifier: ^1.0.2
+      version: 1.0.2
+    nuxt:
+      specifier: npm:nuxt-nightly@5x
+      version: 5.0.0-29699100.d62452a5
+
 importers:
 
   .:
@@ -53,7 +65,7 @@ importers:
         specifier: ^3.15.0
         version: 3.15.0
       nuxt:
-        specifier: npm:nuxt-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: nuxt-nightly@5.0.0-29699100.d62452a5(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@parcel/watcher@2.5.6)(@types/node@26.0.0)(@vitejs/plugin-vue-jsx@5.1.5(vite@8.0.16(@types/node@26.0.0)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.6)(yaml@2.9.0))(vue@3.5.38(typescript@6.0.3)))(@vue/compiler-sfc@3.5.38)(autoprefixer@10.5.0(postcss@8.5.15))(crossws@0.4.6(srvx@0.11.17))(cssnano@7.1.9(postcss@8.5.15))(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.28.1)(eslint@10.5.0(jiti@2.7.0))(giget@3.3.0)(less@4.6.6)(lightningcss@1.32.0)(magicast@0.5.3)(miniflare@4.20260617.1)(nuxt-nightly@5.0.0-29699100.d62452a5)(optionator@0.9.4)(oxc-parser@0.135.0)(rollup@4.62.2)(typescript@6.0.3)(vite@8.0.16(@types/node@26.0.0)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.6)(yaml@2.9.0))(wrangler@4.103.0)(yaml@2.9.0)
       reka-ui:
         specifier: ^2.10.0
@@ -122,7 +134,7 @@ importers:
   packages/nuxt-md-component:
     dependencies:
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
       markdown-it:
         specifier: ^14.2.0
@@ -135,7 +147,7 @@ importers:
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
       '@types/markdown-it':
         specifier: ^14.1.2
@@ -144,7 +156,7 @@ importers:
   packages/nuxt-page-meta-dates:
     dependencies:
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
       simple-git:
         specifier: ^3.36.0
@@ -154,7 +166,7 @@ importers:
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
 
   packages/nuxt-seo:
@@ -163,7 +175,7 @@ importers:
         specifier: workspace:*
         version: link:../nuxt-site-config
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
       ufo:
         specifier: ^1.6.4
@@ -173,7 +185,7 @@ importers:
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
 
   packages/nuxt-seo-og:
@@ -188,7 +200,7 @@ importers:
         specifier: 0.7.0
         version: 0.7.0
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
       sharp:
         specifier: ^0.35.2
@@ -201,7 +213,7 @@ importers:
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
 
   packages/nuxt-seo-sitemap:
@@ -210,7 +222,7 @@ importers:
         specifier: workspace:*
         version: link:../nuxt-site-config
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
       ufo:
         specifier: ^1.6.4
@@ -223,26 +235,26 @@ importers:
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
 
   packages/nuxt-site-config:
     dependencies:
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
     devDependencies:
       '@anc/strict-tsconfig':
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
 
   packages/nuxt-svg-static:
     dependencies:
       '@nuxt/kit':
-        specifier: npm:@nuxt/kit-nightly@5.0.0-29699100.d62452a5
+        specifier: 'catalog:'
         version: '@nuxt/kit-nightly@5.0.0-29699100.d62452a5(magicast@0.5.3)'
       svgo:
         specifier: ^4.0.1
@@ -252,7 +264,7 @@ importers:
         specifier: workspace:*
         version: link:../strict-tsconfig
       '@nuxt/module-builder':
-        specifier: ^1.0.2
+        specifier: 'catalog:'
         version: 1.0.2(@nuxt/cli@3.35.1(magicast@0.5.3))(@vue/compiler-core@3.5.38)(esbuild@0.28.1)(typescript@6.0.3)(vue@3.5.38(typescript@6.0.3))
 
   packages/strict-tsconfig: {}
@@ -8143,8 +8155,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.59.1(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.59.1(typescript@6.0.3)
-      '@typescript-eslint/types': 8.59.1
+      '@typescript-eslint/tsconfig-utils': 8.61.1(typescript@6.0.3)
+      '@typescript-eslint/types': 8.61.1
       debug: 4.4.3
       typescript: 6.0.3
     transitivePeerDependencies:

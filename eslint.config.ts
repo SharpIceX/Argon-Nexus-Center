@@ -23,8 +23,7 @@ const config = antfu(
 	{
 		rules: {
 			eqeqeq: 'error',
-
-			/* pnpm 安全性 */
+			'pnpm/json-enforce-catalog': 'off',
 			'pnpm/yaml-enforce-settings': 'off',
 
 			/* 排序 */

@@ -14,3 +14,8 @@ allowBuilds:
   vue-demi: false
   unrs-resolver: false
   '@parcel/watcher': false
+
+catalog:
+  nuxt: 'npm:nuxt-nightly@5x'
+  '@nuxt/module-builder': '^1.0.2'
+  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5x'
