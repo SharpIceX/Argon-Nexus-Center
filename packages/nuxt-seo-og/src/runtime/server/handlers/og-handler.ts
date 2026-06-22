@@ -4,7 +4,7 @@ import path from 'node:path';
 import module from 'node:module';
 import { inspect } from 'node:util';
 import { Buffer } from 'node:buffer';
-import { createError } from 'nitro/h3';
+import { HTTPError } from 'nitro/h3';
 import { defineEventHandler } from 'h3';
 import { useStorage } from 'nitro/storage';
 import { NodeCompiler as TypstNodeCompiler } from '@myriaddreamin/typst-ts-node-compiler';
@@ -32,7 +32,6 @@ const TYPST_CONTEXT = TypstNodeCompiler.create({
 		},
 	],
 });
-TYPST_CONTEXT.evictCache(10);
 
 export default defineEventHandler(async (event) => {
 	const dirname = path.posix.dirname(event.context.params!['_']!);
@@ -51,7 +50,7 @@ export default defineEventHandler(async (event) => {
 	}
 
 	if (ogData.title === undefined) {
-		throw createError({
+		throw new HTTPError({
 			status: 404,
 			statusText: 'Not Found',
 			message: `页面「${routePath}」没有标题！`,
@@ -86,7 +85,7 @@ export default defineEventHandler(async (event) => {
 
 		console.error(`--- [Typst Rendering Error] ---\nRoute: ${routePath}\nError Details:\n${formattedError}`);
 
-		throw createError({
+		throw new HTTPError({
 			status: 500,
 			cause: e,
 			statusText: 'Typst Render Error',
@@ -95,5 +94,7 @@ export default defineEventHandler(async (event) => {
 				route: routePath,
 			},
 		});
+	} finally {
+		TYPST_CONTEXT.evictCache(10);
 	}
 });
