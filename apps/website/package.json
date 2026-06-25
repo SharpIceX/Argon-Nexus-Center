@@ -21,7 +21,7 @@
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
 		"reka-ui": "^2.10.0",
-		"simple-icons": "^16.23.0",
+		"simple-icons": "^16.24.0",
 		"vue": "^3.5.38"
 	},
 	"devDependencies": {
@@ -37,9 +37,9 @@
 		"@nuxt/a11y": "1.0.0-alpha.1",
 		"@nuxt/eslint": "^1.16.0",
 		"@nuxtjs/device": "^4.0.0",
-		"@vitejs/plugin-vue-jsx": "^5.1.5",
+		"@vitejs/plugin-vue-jsx": "^5.1.6",
 		"isomorphic-git": "^1.38.5",
-		"less": "^4.6.6",
+		"less": "^4.6.7",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
 	}
