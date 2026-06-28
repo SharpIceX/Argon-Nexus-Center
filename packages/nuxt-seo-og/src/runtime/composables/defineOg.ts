@@ -3,7 +3,8 @@ import { useNuxtApp } from '#imports';
 interface OgOptions {
 	disable?: true;
 
-	type?: // No Vertical
+	type?:
+		// No Vertical
 		| 'website'
 		| 'article'
 		| 'book'
