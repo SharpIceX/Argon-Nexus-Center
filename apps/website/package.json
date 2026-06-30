@@ -16,12 +16,12 @@
 	"dependencies": {
 		"@anc/content": "workspace:*",
 		"@fontsource/noto-color-emoji": "^5.2.12",
-		"@lucide/vue": "^1.21.0",
+		"@lucide/vue": "^1.22.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
 		"reka-ui": "^2.10.1",
-		"simple-icons": "^16.24.0",
+		"simple-icons": "^16.24.1",
 		"vue": "^3.5.39"
 	},
 	"devDependencies": {
