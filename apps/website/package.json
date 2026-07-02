@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@anc/content": "workspace:*",
 		"@fontsource/noto-color-emoji": "^5.2.12",
-		"@lucide/vue": "^1.22.0",
+		"@lucide/vue": "^1.23.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
@@ -38,7 +38,7 @@
 		"@nuxt/eslint": "^1.16.0",
 		"@nuxtjs/device": "^4.0.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.6",
-		"isomorphic-git": "^1.38.5",
+		"isomorphic-git": "^1.38.6",
 		"less": "^4.6.7",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
