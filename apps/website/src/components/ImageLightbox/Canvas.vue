@@ -25,6 +25,9 @@ const props = defineProps<{
 	flipV: boolean;
 }>();
 
+// TODO: 手机不支持缩放、移动等
+// TODO: 解决打开页面后，切换标签页在切换回来灯箱卡顿未响应问题
+
 const MIN_SCALE = 0.15;
 const MAX_SCALE = 10.0;
 const ZOOM_SPEED = 0.12;
