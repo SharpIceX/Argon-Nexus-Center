@@ -87,6 +87,11 @@ export default defineNuxtConfig({
 			crawlLinks: true,
 			autoSubfolderIndex: true,
 			concurrency: isGitHubAction ? os.cpus().length : os.cpus().length - 1 || 1,
+
+			routes: [
+				// 图库页面
+				'/gallery',
+			],
 		},
 		routeRules: {
 			'/_nexus/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },

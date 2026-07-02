@@ -10,7 +10,10 @@
 					:rel="item.followSEO === true ? undefined : 'nofollow'"
 					@dragstart="handleDragStart($event, item.title)">
 					<div v-if="item.avatar" aria-hidden="true">
-						<img :src="item.avatar" :class="[$style.avatar, { [$style['is-rounded']]: !item.noRounded }]" />
+						<img
+							:src="item.avatar"
+							:class="[$style.avatar, { [$style['is-rounded']]: !item.noRounded }]"
+							loading="lazy" />
 					</div>
 					<p :class="$style.name">{{ item.title }}</p>
 				</a>
@@ -141,7 +144,7 @@ const handleDragStart = (e: DragEvent, title: string) => {
 	white-space: nowrap;
 	pointer-events: none;
 	padding: 0.5rem 1rem;
-	border: 1px solid @fantasy8;
+	border: 2px solid @fantasy8;
 	background-color: @fantasy2;
 }
 

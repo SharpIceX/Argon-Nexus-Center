@@ -36,13 +36,12 @@ defineOptions({
 .nav-list {
 	height: 100%;
 	display: flex;
-	column-gap: 1.5rem;
+	column-gap: 0.5rem;
 }
 
 .nav-link {
 	height: 100%;
 	border: none;
-	cursor: pointer;
 	column-gap: 0.5rem;
 	align-items: center;
 	display: inline-flex;

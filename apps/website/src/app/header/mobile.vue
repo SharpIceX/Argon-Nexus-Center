@@ -41,7 +41,6 @@ const isOpen = ref(false);
 @import (reference) '@anc/fantasy-design/src/utils/radius.less';
 
 .menu-trigger {
-	display: flex;
 	padding: 0.5rem;
 	cursor: pointer;
 	font-size: 1.25rem;

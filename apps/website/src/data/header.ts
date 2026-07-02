@@ -16,9 +16,9 @@ const navData: NavItemType[] = [
 	// TODO
 
 	{ label: '首页', path: '/', icon: houseIcon },
+	{ label: '艺术图库', path: '/gallery', icon: clapperboardIcon },
 	// { label: '博客', path: '/blog', icon: bookIcon },
-	// { label: '图库', path: '/art', icon: clapperboardIcon },
-	// { label: '幻术奇象', path: '/ts', icon: atomIcon },
+	// { label: '架空世界观', path: '/ts', icon: atomIcon },
 	{ label: '朋友们', path: '/friends', icon: heartIcon },
 ];
 
