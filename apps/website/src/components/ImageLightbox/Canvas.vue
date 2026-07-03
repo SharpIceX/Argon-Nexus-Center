@@ -1,5 +1,5 @@
 <template>
-	<div :class="$style['canvas-viewport']" @wheel.prevent="handleWheel" @mousedown="handleMouseDown">
+	<div :class="$style['canvas-viewport']" @wheel.prevent="handleWheel" @pointerdown="handlePointerDown">
 		<div :class="$style['canvas-container']">
 			<img
 				alt=""
@@ -18,15 +18,14 @@ defineOptions({
 	name: 'ImageLightboxCanvas',
 });
 
+// TODO: 来回切换标签页有卡死问题
+
 const props = defineProps<{
 	url: string;
 	rotate: number;
 	flipH: boolean;
 	flipV: boolean;
 }>();
-
-// TODO: 手机不支持缩放、移动等
-// TODO: 解决打开页面后，切换标签页在切换回来灯箱卡顿未响应问题
 
 const MIN_SCALE = 0.15;
 const MAX_SCALE = 10.0;
@@ -49,7 +48,6 @@ const handleWheel = (e: WheelEvent) => {
 	const zoomFactor = e.deltaY < 0 ? 1 + ZOOM_SPEED : 1 - ZOOM_SPEED;
 	const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale.value * zoomFactor));
 
-	// 计算缩放比例变化
 	const ratio = newScale / scale.value;
 	const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
 	const mouseX = e.clientX - rect.left - rect.width / 2;
@@ -61,54 +59,121 @@ const handleWheel = (e: WheelEvent) => {
 	scale.value = newScale;
 };
 
-// 拖拽逻辑
-let startX = 0;
-let startY = 0;
-let currentX = 0;
-let currentY = 0;
+let nextTranslateX = 0;
+let nextTranslateY = 0;
+let pointerStartOffsetX = 0;
+let pointerStartOffsetY = 0;
 let rafId: number | null = null;
 
-const handleMouseMove = (e: MouseEvent) => {
+// 移动端多点触控缓存
+const activePointers: PointerEvent[] = [];
+let initialTouchDistance = 0;
+let initialTouchScale = 0;
+
+// 计算两点间距离
+const getDistance = (p1: PointerEvent, p2: PointerEvent) => {
+	const dx = p1.clientX - p2.clientX;
+	const dy = p1.clientY - p2.clientY;
+	return Math.sqrt(dx * dx + dy * dy);
+};
+
+const handlePointerMove = (e: PointerEvent) => {
+	const index = activePointers.findIndex((p) => p.pointerId === e.pointerId);
+	if (index !== -1) activePointers[index] = e;
+
+	// 双指缩放逻辑
+	if (activePointers.length === 2) {
+		isDragging.value = false;
+		const currentDistance = getDistance(activePointers[0]!, activePointers[1]!);
+		if (initialTouchDistance > 0) {
+			const zoomFactor = currentDistance / initialTouchDistance;
+			const newScale = initialTouchScale * zoomFactor;
+			scale.value = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale));
+		}
+		return;
+	}
+
+	// 单指/鼠标拖拽逻辑
 	if (!isDragging.value) return;
 
-	currentX = e.clientX - startX;
-	currentY = e.clientY - startY;
+	nextTranslateX = e.clientX - pointerStartOffsetX;
+	nextTranslateY = e.clientY - pointerStartOffsetY;
 
-	// 避免高频触发 mousemove 导致视图渲染丢帧
+	// 避免高频触发导致丢帧
 	if (rafId === null) {
 		rafId = requestAnimationFrame(() => {
-			translateX.value = currentX;
-			translateY.value = currentY;
+			translateX.value = nextTranslateX;
+			translateY.value = nextTranslateY;
 			rafId = null;
 		});
 	}
 };
 
-const handleMouseUp = () => {
-	isDragging.value = false;
-	if (rafId !== null) {
-		cancelAnimationFrame(rafId);
-		rafId = null;
+const handlePointerUp = (e: PointerEvent) => {
+	const index = activePointers.findIndex((p) => p.pointerId === e.pointerId);
+	if (index !== -1) activePointers.splice(index, 1);
+
+	if (activePointers.length < 2) {
+		initialTouchDistance = 0;
 	}
-	window.removeEventListener('mousemove', handleMouseMove);
-	window.removeEventListener('mouseup', handleMouseUp);
+
+	if (activePointers.length === 0) {
+		isDragging.value = false;
+		if (rafId !== null) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		}
+		window.removeEventListener('pointermove', handlePointerMove);
+		window.removeEventListener('pointerup', handlePointerUp);
+		window.removeEventListener('pointercancel', handlePointerUp);
+	}
 };
 
-const handleMouseDown = (e: MouseEvent) => {
-	if (e.button !== 0) return; // 仅响应鼠标左键
+const handlePointerDown = (e: PointerEvent) => {
+	if (e.pointerType === 'mouse' && e.button !== 0) return;
 
-	isDragging.value = true;
-	startX = e.clientX - translateX.value;
-	startY = e.clientY - translateY.value;
+	activePointers.push(e);
 
-	window.addEventListener('mousemove', handleMouseMove);
-	window.addEventListener('mouseup', handleMouseUp);
+	if (activePointers.length === 2) {
+		isDragging.value = false;
+		initialTouchDistance = getDistance(activePointers[0]!, activePointers[1]!);
+		initialTouchScale = scale.value;
+	} else if (activePointers.length === 1) {
+		isDragging.value = true;
+		pointerStartOffsetX = e.clientX - translateX.value;
+		pointerStartOffsetY = e.clientY - translateY.value;
+	}
+
+	window.addEventListener('pointerup', handlePointerUp);
+	window.addEventListener('pointermove', handlePointerMove);
+	window.addEventListener('pointercancel', handlePointerUp);
 };
+
+const handleVisibilityChange = () => {
+	if (document.visibilityState === 'hidden') {
+		if (rafId !== null) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		}
+		isDragging.value = false;
+		activePointers.length = 0;
+		initialTouchDistance = 0;
+		window.removeEventListener('pointerup', handlePointerUp);
+		window.removeEventListener('pointermove', handlePointerMove);
+		window.removeEventListener('pointercancel', handlePointerUp);
+	}
+};
+
+onMounted(() => {
+	document.addEventListener('visibilitychange', handleVisibilityChange);
+});
 
 onUnmounted(() => {
 	if (rafId !== null) cancelAnimationFrame(rafId);
-	window.removeEventListener('mousemove', handleMouseMove);
-	window.removeEventListener('mouseup', handleMouseUp);
+	window.removeEventListener('pointerup', handlePointerUp);
+	window.removeEventListener('pointermove', handlePointerMove);
+	window.removeEventListener('pointercancel', handlePointerUp);
+	document.removeEventListener('visibilitychange', handleVisibilityChange);
 });
 </script>
 
