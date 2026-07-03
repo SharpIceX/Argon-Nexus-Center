@@ -26,7 +26,6 @@
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
-		"@anc/nuxt-md-component": "workspace:*",
 		"@anc/nuxt-page-meta-dates": "workspace:*",
 		"@anc/nuxt-seo": "workspace:*",
 		"@anc/nuxt-seo-og": "workspace:*",

@@ -49,7 +49,6 @@ export default defineNuxtConfig({
 		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-svg-static',
 		'@anc/nuxt-site-config',
-		'@anc/nuxt-md-component',
 		'@anc/nuxt-page-meta-dates',
 	],
 	alias: {

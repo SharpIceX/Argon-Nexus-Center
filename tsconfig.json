@@ -9,7 +9,6 @@
 		{ "path": "./packages/nuxt-svg-static/tsconfig.json" },
 		{ "path": "./packages/nuxt-seo-sitemap/tsconfig.json" },
 		{ "path": "./packages/nuxt-site-config/tsconfig.json" },
-		{ "path": "./packages/nuxt-md-component/tsconfig.json" },
 		{ "path": "./packages/nuxt-page-meta-dates/tsconfig.json" }
 	]
 }

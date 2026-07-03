@@ -18,8 +18,6 @@ defineOptions({
 	name: 'ImageLightboxCanvas',
 });
 
-// TODO: 来回切换标签页有卡死问题
-
 const props = defineProps<{
 	url: string;
 	rotate: number;
