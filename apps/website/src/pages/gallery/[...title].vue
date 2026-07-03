@@ -65,7 +65,7 @@ const currentItem = computed(() => {
 });
 
 useSeoMeta({
-	title: () => (currentItem.value ? `图库 / ${currentItem.value.title}` : '图库'),
+	title: () => (currentItem.value ? `艺术图库 / ${currentItem.value.title}` : '艺术图库'),
 	description: '这里有我做的CG渲染图之类的东西~',
 });
 
