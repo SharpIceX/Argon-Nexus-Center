@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "catalog:",
-		"markdown-it": "^14.2.0",
+		"markdown-it": "^14.3.0",
 		"markdown-it-cjk-friendly": "^2.0.2"
 	},
 	"devDependencies": {
