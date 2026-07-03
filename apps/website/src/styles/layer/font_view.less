@@ -1,4 +1,5 @@
 @import '@fontsource/noto-color-emoji';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 
 /* Light 300 */
 @font-face {
@@ -118,5 +119,16 @@
 		line-height: 1.2;
 		text-wrap: balance;
 		letter-spacing: normal;
+	}
+
+	/** 代码字体 */
+	code,
+	pre,
+	kbd,
+	samp {
+		font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+	}
+	pre code {
+		font-weight: 400;
 	}
 }

@@ -15,6 +15,7 @@
 	},
 	"dependencies": {
 		"@anc/content": "workspace:*",
+		"@fontsource-variable/jetbrains-mono": "^5.2.8",
 		"@fontsource/noto-color-emoji": "^5.2.12",
 		"@lucide/vue": "^1.23.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
