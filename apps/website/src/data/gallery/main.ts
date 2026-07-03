@@ -49,7 +49,7 @@ if (import.meta.dev || import.meta.server) {
 
 	if (duplicates.length > 0) {
 		const info = duplicates.map((d) => `"${d.title}" (索引: ${d.index})`).join(', ');
-		throw new Error(`[Gallery Error] 发现重复的图片标题: ${info}`);
+		throw new Error(`发现重复的图片标题: ${info}`);
 	}
 }
 
