@@ -74,6 +74,8 @@ import {
 	FlipHorizontal as FlipHorizontalIcon,
 } from '@lucide/vue';
 
+// TODO: 下载按钮应该是可选的才对
+
 defineOptions({
 	name: 'ImageLightbox',
 });
