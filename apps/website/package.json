@@ -17,12 +17,12 @@
 		"@anc/content": "workspace:*",
 		"@fontsource-variable/jetbrains-mono": "^5.2.8",
 		"@fontsource/noto-color-emoji": "^5.2.12",
-		"@lucide/vue": "^1.23.0",
+		"@lucide/vue": "^1.24.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
 		"reka-ui": "^2.10.1",
-		"simple-icons": "^16.24.1",
+		"simple-icons": "^16.25.0",
 		"vue": "^3.5.39"
 	},
 	"devDependencies": {
