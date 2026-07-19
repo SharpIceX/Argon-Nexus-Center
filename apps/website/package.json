@@ -15,15 +15,15 @@
 	},
 	"dependencies": {
 		"@anc/content": "workspace:*",
-		"@fontsource-variable/jetbrains-mono": "^5.2.8",
+		"@fontsource-variable/jetbrains-mono": "^5.3.0",
 		"@fontsource/noto-color-emoji": "^5.2.12",
-		"@lucide/vue": "^1.24.0",
+		"@lucide/vue": "^1.25.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
 		"reka-ui": "^2.10.1",
-		"simple-icons": "^16.25.0",
-		"vue": "^3.5.39"
+		"simple-icons": "^16.26.0",
+		"vue": "^3.5.40"
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
@@ -38,7 +38,7 @@
 		"@nuxt/eslint": "^1.16.0",
 		"@nuxtjs/device": "^4.0.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.6",
-		"isomorphic-git": "^1.38.6",
+		"isomorphic-git": "^1.38.7",
 		"less": "^4.6.7",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"

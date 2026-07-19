@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "catalog:",
-		"svgo": "^4.0.1"
+		"svgo": "^4.0.2"
 	},
 	"devDependencies": {
 		"@anc/strict-tsconfig": "workspace:*",
