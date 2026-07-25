@@ -3,5 +3,16 @@
 	"js/ts.tsdk.path": "node_modules/typescript/lib",
 	"markdownlint.config": {
 		"MD041": false
-	}
+	},
+
+	// Discord Rich Presence
+	"vscord.status.details.text.editing": "🔨 灵羽概念独立区",
+	"vscord.status.state.text.editing": "🏗️ {file_name}{file_extension}",
+
+	// Tinymist
+	"tinymist.formatterIndentSize": 4,
+	"tinymist.formatterProseWrap": false,
+	"tinymist.formatterPrintWidth": 120,
+	"tinymist.formatterMode": "typstyle",
+	"tinymist.completion.symbol": "stepless"
 }
