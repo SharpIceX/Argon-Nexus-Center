@@ -15,13 +15,13 @@
 		"email": "SharpIce@SharpIce.top"
 	},
 	"engines": {
-		"pnpm": ">=11.15"
+		"pnpm": ">=11.17"
 	},
 	"devEngines": {
 		"runtime": {
 			"name": "node",
 			"onFail": "error",
-			"version": ">=24.16"
+			"version": ">=24.18"
 		},
 		"packageManager": {
 			"name": "pnpm",
@@ -33,13 +33,13 @@
 		"format": "prettier . --write"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "^9.1.0",
+		"@antfu/eslint-config": "^9.2.0",
 		"@types/node": "^26.1.1",
-		"eslint": "^10.7.0",
+		"eslint": "^10.8.0",
 		"eslint-config-prettier": "^10.1.8",
 		"jiti": "^2.7.0",
-		"prettier": "^3.9.5",
+		"prettier": "^3.9.6",
 		"typescript": "^6.0.3",
-		"wrangler": "^4.112.0"
+		"wrangler": "^4.114.0"
 	}
 }
