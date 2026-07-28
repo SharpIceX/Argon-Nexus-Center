@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import type { RouteMeta } from 'vue-router';
 import { defineNuxtModule } from '@nuxt/kit';
-import { withBase, withoutTrailingSlash } from 'ufo';
+import { withBase, withTrailingSlash } from 'ufo';
 import type { NuxtModule, NuxtPage } from '@nuxt/schema';
 
 const t8DateFormatter = new Intl.DateTimeFormat('sv-SE', {
@@ -56,7 +56,7 @@ const module: NuxtModule = defineNuxtModule({
 
 					sitemapContent.forEach((route) => {
 						// 基本路径
-						const pageURL = withoutTrailingSlash(withBase(route, siteConfig.url));
+						const pageURL = withTrailingSlash(withBase(route, siteConfig.url));
 						sitemapXML += `<url><loc>${pageURL}</loc>`;
 
 						// 更新时间
