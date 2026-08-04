@@ -15,7 +15,7 @@
 		"email": "SharpIce@SharpIce.top"
 	},
 	"engines": {
-		"pnpm": ">=11.20"
+		"pnpm": ">=11.19"
 	},
 	"devEngines": {
 		"runtime": {
