@@ -87,6 +87,7 @@ export default defineNuxtConfig({
 			autoSubfolderIndex: true,
 			concurrency: isGitHubAction ? os.cpus().length : os.cpus().length - 1 || 1,
 
+			// TODO：导航栏要改为响应式可预渲染的静态，然后这个就不用了，也顺便解决 SEO 爬虫问题
 			routes: [
 				// 艺术图库页面
 				'/gallery',
