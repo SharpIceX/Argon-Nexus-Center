@@ -1,9 +1,9 @@
 /*
 生成缩略图：
-magick 未命名_RGB_8.png -gravity center -crop "%[fx:min(w,h)*0.5]x%[fx:min(w,h)*0.5]+0+0" -resize 512x512 -strip ppm:- | cjxl - 缩略图输出.jxl -d 2.0 -e 9
+magick 未命名_RGB_8.png -gravity center -crop "%[fx:min(w,h)*0.5]x%[fx:min(w,h)*0.5]+0+0" -resize 512x512 -strip ppm:- | cjxl - thumb.jxl -d 2.0 -e 9
 
 其他格式的图片转 JXL：
-cjxl -d 0 -e 9 原始图片.png 输出.jxl
+cjxl -d 0 -e 9 原始图片.png image.jxl
 */
 
 interface galleryType {
@@ -38,6 +38,12 @@ const galleryMap: galleryType[] = [
 		image: getURL('./data/剑—后退/image.jxl'),
 		thumb: getURL('./data/剑—后退/thumb.jxl'),
 		description: '第一次做 Avali 拿着武器的渲染图。虽然感觉效果不是很好。。。',
+	},
+	{
+		title: '渲染测试—可怜的Avali',
+		image: getURL('./data/渲染测试—可怜的Avali/image.jxl'),
+		thumb: getURL('./data/渲染测试—可怜的Avali/thumb.jxl'),
+		description: '这只 Avali 演员要领盒饭了吗？',
 	},
 ];
 
