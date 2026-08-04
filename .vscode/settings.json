@@ -6,7 +6,7 @@
 	},
 
 	// Discord Rich Presence
-	"vscord.status.details.text.editing": "🔨 灵羽概念独立区",
+	"vscord.status.details.text.editing": "🔨 灵羽独立区",
 	"vscord.status.state.text.editing": "🏗️ {file_name}{file_extension}",
 
 	// Tinymist
