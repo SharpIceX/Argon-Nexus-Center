@@ -17,13 +17,13 @@
 		"@anc/content": "workspace:*",
 		"@fontsource-variable/jetbrains-mono": "^5.3.0",
 		"@fontsource/noto-color-emoji": "^5.3.0",
-		"@lucide/vue": "^1.27.0",
+		"@lucide/vue": "^1.29.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
 		"reka-ui": "^2.10.1",
-		"simple-icons": "^16.27.1",
-		"vue": "^3.5.40"
+		"simple-icons": "^16.28.0",
+		"vue": "^3.5.41"
 	},
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
@@ -35,10 +35,10 @@
 		"@anc/nuxt-svg-static": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
 		"@nuxt/a11y": "1.0.0-alpha.1",
-		"@nuxt/eslint": "^1.16.0",
+		"@nuxt/eslint": "^1.17.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.6",
 		"isomorphic-git": "^1.40.0",
-		"less": "^4.8.0",
+		"less": "^4.8.1",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
 	}
