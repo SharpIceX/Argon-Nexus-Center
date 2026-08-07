@@ -7,13 +7,13 @@ settings:
 catalogs:
   default:
     '@nuxt/kit':
-      specifier: npm:@nuxt/kit-nightly@5x
+      specifier: npm:@nuxt/kit-nightly@5.0.0-29752672.8adb999d
       version: 5.0.0-29752672.8adb999d
     '@nuxt/module-builder':
       specifier: ^1.0.3
       version: 1.0.3
     nuxt:
-      specifier: npm:nuxt-nightly@5x
+      specifier: npm:nuxt-nightly@5.0.0-29752672.8adb999d
       version: 5.0.0-29752672.8adb999d
 
 importers:
@@ -110,9 +110,6 @@ importers:
       '@nuxt/eslint':
         specifier: ^1.16.0
         version: 1.16.0(@typescript-eslint/utils@8.65.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(@vue/compiler-sfc@3.5.40)(esbuild@0.28.1)(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(magic-string@1.1.0)(magicast@0.5.3)(oxc-parser@0.140.0)(rolldown@1.2.0)(rollup@4.62.3)(srvx@0.11.22)(supports-color@10.2.2)(typescript@6.0.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5))(vite@8.1.5)
-      '@nuxtjs/device':
-        specifier: ^4.0.0
-        version: 4.0.0
       '@vitejs/plugin-vue-jsx':
         specifier: ^5.1.6
         version: 5.1.6(supports-color@10.2.2)(vite@8.1.5)(vue@3.5.40(typescript@6.0.3))
@@ -461,6 +458,21 @@ packages:
 
   '@bomb.sh/tab@0.0.19':
     resolution: {integrity: sha512-dTRfo9Q9B+lbLG3JCu8a/AGQSfD2XXcFcnakQzVjSOX+VvR/s9zpsH8TlqV3iHqazniRn1Ypwd1hcRlXcu/4BA==}
+    hasBin: true
+    peerDependencies:
+      cac: ^6.7.14
+      citty: ^0.1.6 || ^0.2.0
+      commander: ^13.1.0 || ^14.0.0 || ^15.0.0
+    peerDependenciesMeta:
+      cac:
+        optional: true
+      citty:
+        optional: true
+      commander:
+        optional: true
+
+  '@bomb.sh/tab@0.0.21':
+    resolution: {integrity: sha512-L9tqUOFS9GFJu+EWaoN6EvNAFKHtROJ3VmKP0AKGN4AnR/JXZbNPC9TXJhrNdTJISiUN7ZU0uJCq64fvyUVSvg==}
     hasBin: true
     peerDependencies:
       cac: ^6.7.14
@@ -1557,16 +1569,16 @@ packages:
   '@nuxt/a11y@1.0.0-alpha.1':
     resolution: {integrity: sha512-TwON9I0uI4erv9IJ6cD4nx9QcaxfXnAg7CwcQyjMKfDHCfI3xitezg4CZhQOHl0FGqHYGRf9Y9kSwh6fahCJrQ==}
 
-  '@nuxt/cli-nightly@3.38.0-20260727-142820-1730419':
-    resolution: {integrity: sha512-GX829/yDNU5F/HwL2Z8bAj+E9rpwjdJoEqdpP/st+UJPhBL6T4oKeiXKKY7TjZn+sTIlqluJv2M54fAdDDg+YA==}
-    engines: {node: ^16.14.0 || >=18.0.0}
+  '@nuxt/cli-nightly@4.0.0-20260806-130706-18c41d1':
+    resolution: {integrity: sha512-XAfIN6s2pcxORR2Kb/m8qQVQLvTeffTAm+P30wz6+WNkWcx3waB5DWKCWg9OE0OGBb3G4o3Kt5b2O8dEnlcvsw==}
+    engines: {node: ^22.19.0 || ^24.11.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
-      '@nuxt/schema': ^4.4.6
+      '@nuxt/schema': ^4.5.2
       jiti: ^2.7.0
-      oxc-parser: '>=0.56.3'
+      oxc-parser: '>=0.143.0'
       rolldown: ^1.0.0-rc.16 || ^1.0.0
-      serve: ^14.0.0
+      serve: ^14.2.6
     peerDependenciesMeta:
       '@nuxt/schema':
         optional: true
@@ -1698,9 +1710,6 @@ packages:
         optional: true
       rollup-plugin-visualizer:
         optional: true
-
-  '@nuxtjs/device@4.0.0':
-    resolution: {integrity: sha512-Tkbvde/GInmigbS/n3X3X+qXJWi6hsYrViKpZrakaBBYY3NbGYJb0c8aVxd3vI636HBbOhu0I39rv7MSjP7w8Q==}
 
   '@ota-meshi/ast-token-store@0.3.0':
     resolution: {integrity: sha512-XRO0zi2NIUKq2lUk3T1ecFSld1fMWRKE6naRFGkgkdeosx7IslyUKNv5Dcb5PJTja9tHJoFu0v/7yEpAkrkrTg==}
@@ -3106,6 +3115,9 @@ packages:
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
+  args-tokenizer@0.3.0:
+    resolution: {integrity: sha512-xXAd7G2Mll5W8uo37GETpQ2VrE84M181Z7ugHFGQnJZ50M2mbOv0osSZ9VsSgPfJQ+LVG0prSi0th+ELMsno7Q==}
+
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
     engines: {node: '>=10'}
@@ -3623,6 +3635,9 @@ packages:
   errx@0.1.0:
     resolution: {integrity: sha512-fZmsRiDNv07K6s2KkKFTiD2aIvECa7++PKyD5NC32tpRw46qZA3sOz+aM+/V9V0GDHxVTKLziveV4JhzBHDp9Q==}
 
+  errx@0.1.2:
+    resolution: {integrity: sha512-chfpPHmCerdo/rXr/nNvPZRkV4WwDRwzwnsJ0Uzz3tVi8Z41tDctRjduYy1138ii77AFlts1qvWtX3g/Acg91Q==}
+
   es-define-property@1.0.1:
     resolution: {integrity: sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g==}
     engines: {node: '>= 0.4'}
@@ -3917,6 +3932,9 @@ packages:
   exsolve@1.1.0:
     resolution: {integrity: sha512-D+42+T12DdIlJM3uepa55qGiL3sYdLBOxIl2ifQCzCHz4c7eiolaHsi3BIqEr7JxBzxv2pYZQX9kw16ziMcEmw==}
 
+  exsolve@1.1.1:
+    resolution: {integrity: sha512-9U/jZUgjnSGyntRr6y5Muu1MJcwFl6kPu7k8qLF0IMNfLqvw0NZ4nnVDq0RVoZ0RvCyumib4Ez3KYrVfilrw+g==}
+
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
 
@@ -4010,6 +4028,9 @@ packages:
   fuse.js@7.5.0:
     resolution: {integrity: sha512-sQtrEfA+ez/3G0cCZecF70oqpCRttCexYUG4mUrtWL49ULUzUyxokt5kyqwtKzj1270RaKih+hcP3qLcumccow==}
     engines: {node: '>=10'}
+
+  fuzzysort@3.1.0:
+    resolution: {integrity: sha512-sR9BNCjBg6LNgwvxlBd0sBABvQitkLzoVY9MYYROQVX/FvfJ4Mai9LsGhDgd8qYdds0bY77VzYd5iuB+v5rwQQ==}
 
   fzf@0.5.2:
     resolution: {integrity: sha512-Tt4kuxLXFKHy8KT40zwsUPUkg1CrsgY25FxA2U/j/0WgEDCk3ddc/zLTCCcbSHX9FcKtLuVaDGtGE/STWC+j3Q==}
@@ -4814,8 +4835,8 @@ packages:
     resolution: {integrity: sha512-LarFH0+6VfriEhqMMcLX2F7SwSXeWwnEAJEsYm5QKWchiVYVvJyV9v7UDvUv+w5HO23ZpQTXDv/GxdDdMyOuoQ==}
     engines: {node: '>= 6.13.0'}
 
-  node-mock-http@1.0.4:
-    resolution: {integrity: sha512-8DY+kFsDkNXy1sJglUfuODx1/opAGJGyrTuFqEoN90oRc2Vk0ZbD4K2qmKXBBEhZQzdKHIVfEJpDU8Ak2NJEvQ==}
+  node-mock-http@1.0.5:
+    resolution: {integrity: sha512-KQyt/wLjG3TAc7DOUhpqWzgd4ERxR80JOlTK5VE5R1S12IaPVN5qkj4klBce9HPG1Njuup4Sb5bljaT34lIyjw==}
 
   node-releases@2.0.51:
     resolution: {integrity: sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==}
@@ -4868,6 +4889,11 @@ packages:
 
   nypm@0.6.8:
     resolution: {integrity: sha512-Q9K4Diu6l5u6xJQogeFSs/zKtyMSgFKFtRQV+tHP4kL7KPm2grpBU0dFIwFaXwNxN0MtfKWc43VpCugAa+LPsw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  nypm@0.6.9:
+    resolution: {integrity: sha512-zxlE2yvSWZWmHcNdT3+5zV2lrCogeE9YOklHrR3dFjqutq5wO7GFDYLFDRXLsYnJzwvy/im9fYoxePvS0VTW0w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5501,6 +5527,11 @@ packages:
     engines: {node: '>=20.16.0'}
     hasBin: true
 
+  srvx@0.12.5:
+    resolution: {integrity: sha512-IuvtDNQg5EIwv3c6dleyau7u8hCyGQ7D6+V/QM799Aud07z0wCUcurKLTRfyG33C8oUY+UWcVBFkfHMcbtmRLA==}
+    engines: {node: '>=20.16.0'}
+    hasBin: true
+
   stable-hash-x@0.2.0:
     resolution: {integrity: sha512-o3yWv49B/o4QZk5ZcsALc6t0+eCelPc44zZsLtCQnZPDwFpDYSWcDnrv2TtMmMbQ7uKo3J0HTURCqckw23czNQ==}
     engines: {node: '>=12.0.0'}
@@ -5602,12 +5633,16 @@ packages:
     resolution: {integrity: sha512-uo33abH+Ays0xYaDysoBt494Hb3hsEczMpcC0MwFl773pazORx4fmvKhclhR1wonUbB6vvpRsvVMwnhfqeMc+A==}
     engines: {node: ^16.14.0 || >= 17.3.0}
 
-  tinyclip@1.0.0:
-    resolution: {integrity: sha512-TRHzxKSFyzcd1MOyJvNm3EZ+1M/LyzKFh+kii+TSc8/m0wnvvMfktO5KueVPTj6UU9wTUlEbLCAOchuQkSWl1A==}
+  tinyclip@1.0.1:
+    resolution: {integrity: sha512-Dufbdbi5sSm9VHDGh1DQfMPHR5yPiMBiN+aLKqAF+5D5fDsw9UughbK8MRopvd2r84+qRwveIXtLs/FAO93eiQ==}
     engines: {node: ^16.14.0 || >= 17.3.0}
 
   tinyexec@1.2.4:
     resolution: {integrity: sha512-SHf/r48b7vOrjve9PxJo3MN5v5yuyjHvdUcrQffT3WXMUfnGmHDVbC4k3sHJaJTgZCwpUplIaAo5ANtMyp3YHg==}
+    engines: {node: '>=18'}
+
+  tinyexec@1.3.0:
+    resolution: {integrity: sha512-QKAl9m8gWWGHV8jZcPeym6j+XULi6tOf1mT83WYJ4Lk2ytW/uwAWkrP0uFsdoYMdueVJ0qs26wZ+23xeB4ibNQ==}
     engines: {node: '>=18'}
 
   tinyglobby@0.2.17:
@@ -6518,7 +6553,11 @@ snapshots:
       '@babel/helper-string-parser': 8.0.0
       '@babel/helper-validator-identifier': 8.0.2
 
-  '@bomb.sh/tab@0.0.19(cac@7.0.0)(citty@0.2.2)':
+  '@bomb.sh/tab@0.0.19(citty@0.2.2)':
+    optionalDependencies:
+      citty: 0.2.2
+
+  '@bomb.sh/tab@0.0.21(cac@7.0.0)(citty@0.2.2)':
     optionalDependencies:
       cac: 7.0.0
       citty: 0.2.2
@@ -7413,39 +7452,32 @@ snapshots:
       - unplugin
       - vite
 
-  '@nuxt/cli-nightly@3.38.0-20260727-142820-1730419(@nuxt/schema-nightly@5.0.0-29752672.8adb999d)(cac@7.0.0)(jiti@2.7.0)(oxc-parser@0.140.0)(rolldown@1.2.0)':
+  '@nuxt/cli-nightly@4.0.0-20260806-130706-18c41d1(@nuxt/schema-nightly@5.0.0-29752672.8adb999d)(cac@7.0.0)(jiti@2.7.0)(oxc-parser@0.140.0)(rolldown@1.2.0)':
     dependencies:
-      '@bomb.sh/tab': 0.0.19(cac@7.0.0)(citty@0.2.2)
+      '@bomb.sh/tab': 0.0.21(cac@7.0.0)(citty@0.2.2)
       '@clack/prompts': 1.7.0
+      args-tokenizer: 0.3.0
       citty: 0.2.2
       clickable-path: 0.0.1
       confbox: 0.2.4
       consola: 3.4.2
       defu: 6.1.7
-      exsolve: 1.1.0
-      fzf: 0.5.2
+      exsolve: 1.1.1
+      fuzzysort: 3.1.0
       get-port-please: 3.2.0
-      giget: 3.3.1
-      nypm: 0.6.8
+      nypm: 0.6.9
       obug: 2.1.4
-      ohash: 2.0.11
       pathe: 2.0.3
       perfect-debounce: 2.1.0
-      picocolors: 1.1.1
       pkg-types: 2.3.1
-      pnpm-workspace-yaml: 1.7.0
       rc9: 3.0.1
       scule: 1.3.0
-      source-map-js: 1.2.1
-      srvx: 0.11.22
+      srvx: 0.12.5
       std-env: 4.2.0
-      tinyclip: 1.0.0
-      tinyexec: 1.2.4
-      ufo: 1.6.4
+      tinyclip: 1.0.1
+      tinyexec: 1.3.0
       uqr: 0.1.3
       verkit: 0.3.1
-      youch: 4.1.1
-      youch-core: 0.3.3
     optionalDependencies:
       '@nuxt/schema': '@nuxt/schema-nightly@5.0.0-29752672.8adb999d'
       jiti: 2.7.0
@@ -7457,7 +7489,7 @@ snapshots:
 
   '@nuxt/cli@3.37.0(magicast@0.5.3)(supports-color@10.2.2)':
     dependencies:
-      '@bomb.sh/tab': 0.0.19(cac@7.0.0)(citty@0.2.2)
+      '@bomb.sh/tab': 0.0.19(citty@0.2.2)
       '@clack/prompts': 1.7.0
       c12: 3.3.4(magicast@0.5.3)
       citty: 0.2.2
@@ -7675,7 +7707,7 @@ snapshots:
       consola: 3.4.2
       defu: 6.1.7
       destr: 2.0.5
-      errx: 0.1.0
+      errx: 0.1.2
       exsolve: 1.1.0
       ignore: 7.0.6
       jiti: 2.7.0
@@ -7804,7 +7836,7 @@ snapshots:
       defu: 6.1.7
       destr: 2.0.5
       devalue: 5.8.2
-      errx: 0.1.0
+      errx: 0.1.2
       escape-string-regexp: 5.0.0
       exsolve: 1.1.0
       impound: 1.1.6(esbuild@0.28.1)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5)
@@ -7960,10 +7992,6 @@ snapshots:
       - unplugin
       - vue-tsc
       - yaml
-
-  '@nuxtjs/device@4.0.0':
-    dependencies:
-      defu: 6.1.7
 
   '@ota-meshi/ast-token-store@0.3.0': {}
 
@@ -9155,6 +9183,8 @@ snapshots:
 
   argparse@2.0.1: {}
 
+  args-tokenizer@0.3.0: {}
+
   aria-hidden@1.2.6:
     dependencies:
       tslib: 2.8.1
@@ -9654,6 +9684,8 @@ snapshots:
 
   errx@0.1.0: {}
 
+  errx@0.1.2: {}
+
   es-define-property@1.0.1: {}
 
   es-errors@1.3.0: {}
@@ -10079,6 +10111,8 @@ snapshots:
 
   exsolve@1.1.0: {}
 
+  exsolve@1.1.1: {}
+
   fast-deep-equal@3.1.3: {}
 
   fast-json-stable-stringify@2.1.0: {}
@@ -10161,6 +10195,8 @@ snapshots:
 
   fuse.js@7.5.0: {}
 
+  fuzzysort@3.1.0: {}
+
   fzf@0.5.2: {}
 
   generic-names@4.0.0:
@@ -10237,7 +10273,7 @@ snapshots:
       defu: 6.1.7
       destr: 2.0.5
       iron-webcrypto: 1.2.1
-      node-mock-http: 1.0.4
+      node-mock-http: 1.0.5
       radix3: 1.1.2
       ufo: 1.6.4
       uncrypto: 0.1.3
@@ -11165,7 +11201,7 @@ snapshots:
 
   node-forge@1.4.0: {}
 
-  node-mock-http@1.0.4: {}
+  node-mock-http@1.0.5: {}
 
   node-releases@2.0.51: {}
 
@@ -11234,7 +11270,7 @@ snapshots:
   nuxt-nightly@5.0.0-29752672.8adb999d(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@parcel/watcher@2.5.6)(@types/node@26.1.1)(@vitejs/devtools@0.3.4)(@vitejs/plugin-vue-jsx@5.1.6(supports-color@10.2.2)(vite@8.1.5)(vue@3.5.40(typescript@6.0.3)))(@vue/compiler-sfc@3.5.40)(autoprefixer@10.5.4(postcss@8.5.23))(cac@7.0.0)(crossws@0.4.10(srvx@0.11.22))(cssnano@7.1.9(postcss@8.5.23))(db0@0.3.4)(devframe@0.7.14(cac@7.0.0)(srvx@0.11.22)(typescript@6.0.3))(dotenv@17.4.2)(esbuild@0.28.1)(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(giget@3.3.1)(less@4.8.0(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.3)(miniflare@4.20260722.0)(nuxt-nightly@5.0.0-29752672.8adb999d)(optionator@0.9.4)(oxc-parser@0.140.0)(rollup@4.62.3)(srvx@0.11.22)(typescript@6.0.3)(valibot@1.4.2(typescript@6.0.3))(vite@8.1.5)(wrangler@4.114.0)(yaml@2.9.0):
     dependencies:
       '@dxup/nuxt': 0.5.4(esbuild@0.28.1)(magicast@0.5.3)(oxc-parser@0.140.0)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5)
-      '@nuxt/cli': '@nuxt/cli-nightly@3.38.0-20260727-142820-1730419(@nuxt/schema-nightly@5.0.0-29752672.8adb999d)(cac@7.0.0)(jiti@2.7.0)(oxc-parser@0.140.0)(rolldown@1.2.0)'
+      '@nuxt/cli': '@nuxt/cli-nightly@4.0.0-20260806-130706-18c41d1(@nuxt/schema-nightly@5.0.0-29752672.8adb999d)(cac@7.0.0)(jiti@2.7.0)(oxc-parser@0.140.0)(rolldown@1.2.0)'
       '@nuxt/devtools': 4.0.0-alpha.9(cac@7.0.0)(crossws@0.4.10(srvx@0.11.22))(db0@0.3.4)(devframe@0.7.14(cac@7.0.0)(srvx@0.11.22)(typescript@6.0.3))(magic-string@1.1.0)(oxc-parser@0.140.0)(rolldown@1.2.0)(srvx@0.11.22)(typescript@6.0.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5))(valibot@1.4.2(typescript@6.0.3))(vite@8.1.5)(vue@3.5.40(typescript@6.0.3))
       '@nuxt/kit': '@nuxt/kit-nightly@5.0.0-29752672.8adb999d(magic-string@1.1.0)(magicast@0.5.3)(oxc-parser@0.140.0)(rolldown@1.2.0)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5))'
       '@nuxt/nitro-server': '@nuxt/nitro-server-nightly@5.0.0-29752672.8adb999d(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(cac@7.0.0)(chokidar@5.0.0)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.28.1)(giget@3.3.1)(jiti@2.7.0)(lightningcss@1.33.0)(magicast@0.5.3)(miniflare@4.20260722.0)(nuxt-nightly@5.0.0-29752672.8adb999d)(ofetch@2.0.0-alpha.3)(oxc-parser@0.140.0)(rolldown@1.2.0)(rollup@4.62.3)(typescript@6.0.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5))(vite@8.1.5)(wrangler@4.114.0)'
@@ -11249,7 +11285,7 @@ snapshots:
       cookie-es: 3.1.1
       defu: 6.1.7
       devalue: 5.8.2
-      errx: 0.1.0
+      errx: 0.1.2
       escape-string-regexp: 5.0.0
       exsolve: 1.1.0
       fnv1a-64: 0.1.1
@@ -11385,6 +11421,12 @@ snapshots:
       - zephyr-agent
 
   nypm@0.6.8:
+    dependencies:
+      citty: 0.2.2
+      pathe: 2.0.3
+      tinyexec: 1.2.4
+
+  nypm@0.6.9:
     dependencies:
       citty: 0.2.2
       pathe: 2.0.3
@@ -12172,6 +12214,8 @@ snapshots:
 
   srvx@0.11.22: {}
 
+  srvx@0.12.5: {}
+
   stable-hash-x@0.2.0: {}
 
   std-env@4.2.0: {}
@@ -12277,9 +12321,11 @@ snapshots:
 
   tinyclip@0.1.15: {}
 
-  tinyclip@1.0.0: {}
+  tinyclip@1.0.1: {}
 
   tinyexec@1.2.4: {}
+
+  tinyexec@1.3.0: {}
 
   tinyglobby@0.2.17:
     dependencies:

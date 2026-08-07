@@ -48,6 +48,12 @@ const isOpen = ref(false);
 	transition:
 		background-color 0.25s ease,
 		color 0.25s ease;
+
+	display: none;
+	/* 小屏幕 */
+	@media (max-width: 768px) {
+		display: inline-flex;
+	}
 }
 
 .popover-content {

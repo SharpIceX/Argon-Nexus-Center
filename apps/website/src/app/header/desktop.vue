@@ -31,6 +31,11 @@ defineOptions({
 	& > div {
 		height: 100%;
 	}
+
+	/* 小屏幕 */
+	@media (max-width: 768px) {
+		display: none;
+	}
 }
 
 .nav-list {
