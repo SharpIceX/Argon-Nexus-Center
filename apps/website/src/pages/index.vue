@@ -29,7 +29,10 @@
 </template>
 
 <script lang="ts" setup>
+import xIcon from 'simple-icons/icons/x.svg';
+import pixivIcon from 'simple-icons/icons/pixiv.svg';
 import githubIcon from 'simple-icons/icons/github.svg';
+import redditIcon from 'simple-icons/icons/reddit.svg';
 import discordIcon from 'simple-icons/icons/discord.svg';
 import bilibiliIcon from 'simple-icons/icons/bilibili.svg';
 import { Feather as featherIcon, Mail as mailIcon } from '@lucide/vue';
@@ -38,10 +41,14 @@ useSeoMeta({
 	title: '首页',
 });
 
+// TODO：这里之后要移动到单独的页面，然后补充一些相关链接。。。
 const connectList = [
 	{ name: 'GitHub', icon: markRaw(githubIcon), url: 'https://github.com/SharpIceX' },
 	{ name: 'BiliBili', icon: markRaw(bilibiliIcon), url: 'https://space.bilibili.com/513364639' },
 	{ name: 'Discord', icon: markRaw(discordIcon), url: 'https://discord.com/users/650534063492431891' },
+	{ name: 'Pixiv', icon: markRaw(pixivIcon), url: 'https://www.pixiv.net/users/113640979' },
+	{ name: 'Reddit', icon: markRaw(redditIcon), url: 'https://www.reddit.com/user/SharpIceX' },
+	{ name: 'Twitter', icon: markRaw(xIcon), url: 'https://x.com/Curasea_Elve' },
 	{ name: 'Email', icon: markRaw(mailIcon), url: 'mailto:SharpIce@SharpIce.top' },
 ];
 </script>
