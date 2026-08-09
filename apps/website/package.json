@@ -17,7 +17,7 @@
 		"@anc/content": "workspace:*",
 		"@fontsource-variable/jetbrains-mono": "^5.3.0",
 		"@fontsource/noto-color-emoji": "^5.3.0",
-		"@lucide/vue": "^1.29.0",
+		"@lucide/vue": "^1.30.0",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"gsap": "^3.15.0",
 		"nuxt": "catalog:",
@@ -37,7 +37,7 @@
 		"@nuxt/a11y": "1.0.0-alpha.1",
 		"@nuxt/eslint": "^1.17.0",
 		"@vitejs/plugin-vue-jsx": "^5.1.6",
-		"isomorphic-git": "^1.40.0",
+		"isomorphic-git": "^1.40.5",
 		"less": "^4.8.1",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
