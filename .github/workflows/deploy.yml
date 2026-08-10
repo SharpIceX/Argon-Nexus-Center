@@ -20,7 +20,6 @@ jobs:
       - name: 安装 pnpm
         uses: pnpm/setup@v2
         with:
-          cache: true
           install: false
           version: latest
 
