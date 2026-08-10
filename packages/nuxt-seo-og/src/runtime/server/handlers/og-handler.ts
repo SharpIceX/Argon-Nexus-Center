@@ -23,7 +23,6 @@ const fontFiles = [
 const fontBlobs = fontFiles.map((file) => fs.readFileSync(path.join(FONTS_DIRECTORY, file)));
 
 const TYPST_DIRECTORY_ROOT = path.join(path.dirname(require.resolve('@anc/nuxt-seo-og/package.json')), 'src/typst');
-
 const TYPST_CONTEXT = TypstNodeCompiler.create({
 	workspace: TYPST_DIRECTORY_ROOT,
 	fontArgs: [
@@ -32,6 +31,8 @@ const TYPST_CONTEXT = TypstNodeCompiler.create({
 		},
 	],
 });
+
+sharp.simd(true);
 
 export default defineEventHandler(async (event) => {
 	const dirname = path.posix.dirname(event.context.params!['_']!);
@@ -64,9 +65,13 @@ export default defineEventHandler(async (event) => {
 		});
 
 		const webpImageBuffer = await sharp(Buffer.from(svgString))
+			.resize({
+				width: 1200,
+			})
 			.webp({
-				quality: 100,
-				lossless: true,
+				effort: 0,
+				quality: 85,
+				preset: 'drawing',
 			})
 			.toBuffer();
 
