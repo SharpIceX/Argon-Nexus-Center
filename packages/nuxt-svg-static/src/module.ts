@@ -1,4 +1,4 @@
-import ViteTransformerPlugin from './vite/plugin';
+import ViteTransformerPlugin from './vite/plugin.ts';
 import { addTypeTemplate, createResolver, defineNuxtModule, addVitePlugin } from '@nuxt/kit';
 
 const regExpSvg = /\.svg$/;

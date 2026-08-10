@@ -6,8 +6,8 @@ import path from 'node:path';
 import git from 'isomorphic-git';
 import process from 'node:process';
 
-const isProduction = process.env.NODE_ENV === 'production';
-const isGitHubAction = process.env.GITHUB_ACTIONS === 'true';
+const isProduction = process.env['NODE_ENV'] === 'production';
+const isGitHubAction = process.env['GITHUB_ACTIONS'] === 'true';
 
 const strictTSConfigPath = url.fileURLToPath(import.meta.resolve('@anc/strict-tsconfig/tsconfig.json'));
 const strictTSConfig = ts.readConfigFile(strictTSConfigPath, (path) => ts.sys.readFile(path));
@@ -72,12 +72,15 @@ export default defineNuxtConfig({
 	experimental: {
 		typedPages: true,
 		typescriptPlugin: true,
+
+		// TODO：会引起<https://github.com/nuxt/nuxt/issues/36023>这个问题
+		nitroViteEnvironment: false,
 	},
 	devtools: {
 		enabled: !isProduction,
 	},
 	build: {
-		analyze: process.env.ANALYZE === 'true' ? { analyzerMode: 'server', analyzerPort: 8601 } : false,
+		analyze: process.env['ANALYZE'] === 'true' ? { analyzerMode: 'server', analyzerPort: 8601 } : false,
 	},
 	nitro: {
 		preset: 'cloudflare-pages-static',
@@ -85,12 +88,6 @@ export default defineNuxtConfig({
 			crawlLinks: true,
 			autoSubfolderIndex: true,
 			concurrency: isGitHubAction ? os.cpus().length : os.cpus().length - 1 || 1,
-
-			// TODO：导航栏要改为响应式可预渲染的静态，然后这个就不用了，也顺便解决 SEO 爬虫问题
-			routes: [
-				// 艺术图库页面
-				'/gallery',
-			],
 		},
 		routeRules: {
 			'/_nexus/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
