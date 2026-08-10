@@ -14,9 +14,6 @@
 		"url": "https://avali.top",
 		"email": "SharpIce@SharpIce.top"
 	},
-	"engines": {
-		"pnpm": ">=11.21"
-	},
 	"devEngines": {
 		"runtime": {
 			"name": "node",
@@ -25,7 +22,8 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"onFail": "error"
+			"onFail": "error",
+			"version": ">=11.21"
 		}
 	},
 	"scripts": {

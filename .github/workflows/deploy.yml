@@ -18,11 +18,11 @@ jobs:
           fetch-depth: 0
 
       - name: 安装 pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/setup@v2
         with:
           cache: true
+          install: false
           version: latest
-          run_install: false
 
       - name: 安装 Node.js 环境
         uses: actions/setup-node@v6
