@@ -1,9 +1,6 @@
 {
 	"js/ts.tsdk.promptToUseWorkspaceVersion": true,
 	"js/ts.tsdk.path": "node_modules/typescript/lib",
-	"markdownlint.config": {
-		"MD041": false
-	},
 
 	// Discord Rich Presence
 	"vscord.status.details.text.editing": "🔨 灵羽独立区",
