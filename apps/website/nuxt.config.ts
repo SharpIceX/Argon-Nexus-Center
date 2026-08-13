@@ -41,13 +41,10 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxt/a11y',
 		'nuxt-nexus',
+		'@nuxtjs/seo',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
-		'@anc/nuxt-seo',
-		'@anc/nuxt-seo-og',
-		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-svg-static',
-		'@anc/nuxt-site-config',
 		'@anc/nuxt-page-meta-dates',
 	],
 	alias: {
@@ -126,12 +123,90 @@ export default defineNuxtConfig({
 	},
 	site: {
 		name: '锐冰',
-		lang: 'zh-CN',
+		indexable: true,
+		trailingSlash: true,
 		url: 'https://avali.top',
+		defaultLocale: 'zh-Hans',
+		description: '这里是锐冰的个人网站和灵羽独立区的 Wiki。',
+	},
+	seo: {
+		meta: {
+			author: '锐冰',
+			colorScheme: 'dark',
+			themeColor: '#4DA9CF',
+			appleMobileWebAppTitle: '锐冰',
+		},
+	},
+	schemaOrg: {
+		identity: {
+			name: '锐冰',
+			type: 'Person',
+			image: '/favicon.webp',
+			alternateName: 'SharpIce',
+			sameAs: ['https://github.com/SharpIceX'],
+		},
+	},
+	sitemap: {
+		// TODO：存在`Cannot read properties of undefined (reading 'raw')`问题
+		enabled: false,
+
+		// TODO：之后可能要关闭 xsl
+		// xsl: fallse,
+		credits: false,
+		zeroRuntime: true,
+		minify: isProduction,
+		discoverImages: false,
+		discoverVideos: false,
+	},
+	linkChecker: {
+		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
+	},
+	ogImage: {
+		// TODO
+	},
+	// TODO：可能需要禁止爬取任何图片
+	robots: {
+		credits: false,
+		blockAiBots: true,
+		blockNonSeoBots: true,
+		groups: [
+			{
+				userAgent: [
+					// 搜索引擎
+					'Bingbot',
+					'Applebot',
+					'Googlebot',
+					'YandexBot',
+					'DuckDuckBot',
+
+					// 社交媒体
+					'Slackbot',
+					'redditbot',
+					'Twitterbot',
+					'Discordbot',
+					'LinkedInBot',
+					'TelegramBot',
+					'facebookexternalhit',
+
+					// 互联网档案馆
+					'ia_archiver',
+					'archive.org_bot',
+
+					// 秋云思
+					'Curasea',
+					'CuraseaCarbon',
+				],
+				allow: ['/'],
+			},
+			{
+				userAgent: ['*'],
+				disallow: ['/'],
+			},
+		],
 	},
 	app: {
 		buildAssetsDir: '_nexus',
-		rootId: `nexus_app`,
+		rootId: 'nexus_app',
 		head: {
 			titleTemplate: '锐冰 - %s',
 			viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
@@ -146,31 +221,11 @@ export default defineNuxtConfig({
 					content: 'SharpIce, 锐冰, 幻想生物, 个人网站',
 				},
 
-				// Web App
-				{
-					name: 'apple-mobile-web-app-title',
-					content: '锐冰',
-				},
-
-				// 网站主题颜色
-				{
-					name: 'theme-color',
-					content: '#4DA9CF',
-				},
-
-				// 版权信息
+				// 版权与许可证信息
 				{
 					name: 'copyright',
 					content: 'Copyright © 2020-2026 锐冰 (SharpIce). Licensed under the Mozilla Public License 2.0.',
 				},
-
-				// 作者
-				{
-					name: 'author',
-					content: '锐冰',
-				},
-
-				// 许可证
 				{
 					name: 'license',
 					content: 'https://www.mozilla.org/MPL/2.0/',
@@ -180,26 +235,8 @@ export default defineNuxtConfig({
 				{
 					name: 'darkreader-lock',
 				},
-
-				// 仅提供深色模式
-				{
-					name: 'color-scheme',
-					content: 'dark',
-				},
 			],
-
 			link: [
-				{
-					rel: 'apple-touch-icon',
-					href: '/apple-touch-icon.png',
-				},
-
-				{
-					rel: 'icon',
-					type: 'image/x-icon',
-					sizes: 'any',
-					href: '/favicon.ico',
-				},
 				{
 					rel: 'icon',
 					type: 'image/jxl',

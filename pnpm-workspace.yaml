@@ -6,6 +6,7 @@ ignoreWorkspaceRootCheck: true
 packages:
   - apps/*
   - packages/*
+  - '!packages/nuxt-seo-sitemap/'
 
 allowBuilds:
   sharp: false
@@ -20,9 +21,9 @@ updateConfig:
     - typescript
 
 catalog:
-  nuxt: 'npm:nuxt-nightly@5.0.0-29769956.67f87d15'
+  nuxt: 'npm:nuxt-nightly@5.0.0-29775387.11fb88e2'
   '@nuxt/module-builder': ^1.0.3
-  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5.0.0-29769956.67f87d15'
+  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5.0.0-29775387.11fb88e2'
 
 minimumReleaseAgeExclude:
   - '@fontsource-variable/jetbrains-mono@5.3.0'
