@@ -71,6 +71,7 @@ export default defineNuxtConfig({
 		typescriptPlugin: true,
 
 		// TODO：会引起<https://github.com/nuxt/nuxt/issues/36023>这个问题
+		// @ts-expect-error
 		nitroViteEnvironment: false,
 	},
 	devtools: {
@@ -106,7 +107,7 @@ export default defineNuxtConfig({
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
-			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@vue/devtools-core', '@lucide/vue'],
+			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@unhead/schema-org/vue', '@lucide/vue'],
 		},
 	},
 	eslint: {
@@ -159,10 +160,12 @@ export default defineNuxtConfig({
 		discoverVideos: false,
 	},
 	linkChecker: {
+		// TODO：开发模式下启用有问题
+		enabled: isProduction,
 		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
 	},
 	ogImage: {
-		// TODO
+		zeroRuntime: true,
 	},
 	// TODO：可能需要禁止爬取任何图片
 	robots: {

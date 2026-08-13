@@ -21,9 +21,9 @@ updateConfig:
     - typescript
 
 catalog:
-  nuxt: 'npm:nuxt-nightly@5.0.0-29775387.11fb88e2'
+  nuxt: 'npm:nuxt-nightly@5.0.0-29775838.79ef035f'
   '@nuxt/module-builder': ^1.0.3
-  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5.0.0-29775387.11fb88e2'
+  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5.0.0-29775838.79ef035f'
 
 minimumReleaseAgeExclude:
   - '@fontsource-variable/jetbrains-mono@5.3.0'
