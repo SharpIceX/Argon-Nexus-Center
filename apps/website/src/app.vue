@@ -18,7 +18,10 @@ defineOptions({
 	name: 'App',
 });
 
-defineOgImage('Default');
+defineOG({
+	ogType: 'website',
+	ogImageTemplate: 'default',
+});
 
 // TODO: 添加检查是否 JPEG XL，不支持就弹窗，要包裹在 ClientOnly运行
 </script>

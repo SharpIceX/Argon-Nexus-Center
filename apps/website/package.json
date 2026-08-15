@@ -28,15 +28,16 @@
 	"devDependencies": {
 		"@anc/fantasy-design": "workspace:*",
 		"@anc/nuxt-page-meta-dates": "workspace:*",
+		"@anc/nuxt-seo-og": "workspace:*",
 		"@anc/nuxt-svg-static": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
 		"@nuxt/a11y": "1.0.0-alpha.1",
 		"@nuxt/eslint": "^1.17.0",
 		"@nuxtjs/seo": "^5.3.12",
-		"@takumi-rs/core": "^2.7.2",
+		"@takumi-rs/core": "^2.8.1",
 		"@vitejs/plugin-vue-jsx": "^5.1.6",
-		"isomorphic-git": "^1.41.3",
-		"less": "^4.8.1",
+		"isomorphic-git": "^1.41.4",
+		"less": "^4.9.0",
 		"nuxt-nexus": "^1.0.3",
 		"rimraf": "^6.1.3"
 	}

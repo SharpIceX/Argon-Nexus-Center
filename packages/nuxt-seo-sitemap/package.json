@@ -9,7 +9,6 @@
 		"postinstall": "nuxt-module-build prepare"
 	},
 	"dependencies": {
-		"@anc/nuxt-site-config": "workspace:*",
 		"@nuxt/kit": "catalog:",
 		"ufo": "^1.6.4"
 	},

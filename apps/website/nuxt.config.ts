@@ -37,13 +37,15 @@ export default defineNuxtConfig({
 	css: ['~/styles/main.less'],
 	srcDir: path.resolve(import.meta.dirname, './src'),
 	buildId: await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' }),
-	extends: [url.fileURLToPath(import.meta.resolve('@anc/content'))],
+	// TODO：未完成 Wiki、小说、Blog 的开发
+	// extends: [url.fileURLToPath(import.meta.resolve('@anc/content'))],
 	modules: [
 		'@nuxt/a11y',
 		'nuxt-nexus',
 		'@nuxtjs/seo',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
+		'@anc/nuxt-seo-og',
 		'@anc/nuxt-svg-static',
 		'@anc/nuxt-page-meta-dates',
 	],
@@ -71,7 +73,8 @@ export default defineNuxtConfig({
 		typescriptPlugin: true,
 
 		// TODO：会引起<https://github.com/nuxt/nuxt/issues/36023>这个问题
-		// @ts-expect-error
+		// eslint-disable-next-line ts/ban-ts-comment
+		// @ts-ignore
 		nitroViteEnvironment: false,
 	},
 	devtools: {
@@ -165,6 +168,8 @@ export default defineNuxtConfig({
 		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
 	},
 	ogImage: {
+		// TODO：目前 Nuxt V5 的 DevTool 存在 Bug 导致调试不方便，而且 nuxt-og-image 限制较多，之后在考虑换回
+		enabled: false,
 		zeroRuntime: true,
 	},
 	// TODO：可能需要禁止爬取任何图片
