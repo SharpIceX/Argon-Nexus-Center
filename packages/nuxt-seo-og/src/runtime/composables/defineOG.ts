@@ -1,5 +1,4 @@
 import { useRequestEvent } from '#imports';
-import type { UseSeoMetaInput } from 'unhead/types';
 
 interface ogOptions {
 	/** 是否禁用 Open Graph 图片生成 */
@@ -10,9 +9,6 @@ interface ogOptions {
 
 	/** 传递给 Typst sys input 的自定义变量（可覆盖 name、description、template）） */
 	props?: Record<string, string>;
-
-	/** Open Graph 类型 */
-	ogType?: Extract<UseSeoMetaInput['ogType'], string>;
 }
 
 declare module 'h3' {

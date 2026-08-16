@@ -61,29 +61,12 @@ export default defineNuxtPlugin(() => {
 			if (pageTitle !== undefined && pageDescription !== undefined) break;
 		}
 
-		const newTags: (typeof ctx.tags)[number][] = [
-			// TODO：nuxt-seo 插件似乎会自动添加这个
-			//{ tag: 'meta', props: { property: 'og:site_name', content: siteName } },
-
-			// TODO：nuxt-seo 插件似乎会自动添加这个
-			//{ tag: 'meta', props: { property: 'og:locale', content: siteDefaultLocale } },
-
-			// TODO：nuxt-seo 插件似乎会自动添加这个，而且这个计算是相对链接而不是带主机名的绝对链接，似乎有问题
-			//{ tag: 'meta', props: { property: 'og:url', content: resolveSitePath(route.path).value } },
-
-			// TODO：不知道什么东西自动增加了一个 og:type = 'website'
-			{ tag: 'meta', props: { property: 'og:type', content: ogOptions?.ogType || 'website' } },
-		];
-
 		if (isOGImageEnabled) {
-			newTags.push(
+			ctx.tags.push(
 				// Twitter
 				{ tag: 'meta', props: { name: 'twitter:image', content: ogImageURL } },
 				{ tag: 'meta', props: { name: 'twitter:image:width', content: '1200' } },
 				{ tag: 'meta', props: { name: 'twitter:image:height', content: '600' } },
-
-				// TODO：nuxt-seo 插件似乎会自动添加这个
-				//{ tag: 'meta', props: { name: 'twitter:card', content: 'summary_large_image' } },
 
 				// Open Graph
 				{ tag: 'meta', props: { property: 'og:image', content: ogImageURL } },
@@ -92,19 +75,6 @@ export default defineNuxtPlugin(() => {
 				{ tag: 'meta', props: { property: 'og:image:type', content: 'image/webp' } },
 			);
 		}
-
-		// TODO：nuxt-seo 插件似乎会自动添加这个
-		/*
-		if (pageTitle !== undefined) {
-			newTags.push({ tag: 'meta', props: { property: 'og:title', content: pageTitle } });
-		}
-
-		if (pageDescription !== undefined) {
-			newTags.push({ tag: 'meta', props: { property: 'og:description', content: pageDescription } });
-		}
-		*/
-
-		ctx.tags.push(...newTags);
 
 		// 预渲染请求
 		if (isOGImageEnabled && ((import.meta.server && import.meta.prerender) || import.meta.dev)) {

@@ -19,7 +19,6 @@ defineOptions({
 });
 
 defineOG({
-	ogType: 'website',
 	ogImageTemplate: 'default',
 });
 
