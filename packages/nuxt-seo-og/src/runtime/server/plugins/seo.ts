@@ -66,12 +66,12 @@ export default defineNuxtPlugin(() => {
 				// Twitter
 				{ tag: 'meta', props: { name: 'twitter:image', content: ogImageURL } },
 				{ tag: 'meta', props: { name: 'twitter:image:width', content: '1200' } },
-				{ tag: 'meta', props: { name: 'twitter:image:height', content: '600' } },
+				{ tag: 'meta', props: { name: 'twitter:image:height', content: '630' } },
 
 				// Open Graph
 				{ tag: 'meta', props: { property: 'og:image', content: ogImageURL } },
 				{ tag: 'meta', props: { property: 'og:image:width', content: '1200' } },
-				{ tag: 'meta', props: { property: 'og:image:height', content: '600' } },
+				{ tag: 'meta', props: { property: 'og:image:height', content: '630' } },
 				{ tag: 'meta', props: { property: 'og:image:type', content: 'image/webp' } },
 			);
 		}
@@ -84,7 +84,7 @@ export default defineNuxtPlugin(() => {
 				.then(async ({ useStorage }) => {
 					const storage = useStorage('og-data');
 					return storage.setItem(route.path, {
-						title: pageTitle,
+						title: pageTitle ?? siteName,
 						description: pageDescription,
 						template: ogOptions?.ogImageTemplate,
 						...ogOptions?.props,
