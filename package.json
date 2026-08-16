@@ -23,7 +23,7 @@
 		"packageManager": {
 			"name": "pnpm",
 			"onFail": "error",
-			"version": ">=11.21"
+			"version": ">=11.22"
 		}
 	},
 	"scripts": {

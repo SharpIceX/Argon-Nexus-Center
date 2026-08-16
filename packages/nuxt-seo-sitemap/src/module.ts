@@ -2,8 +2,8 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import type { RouteMeta } from 'vue-router';
 import { defineNuxtModule } from '@nuxt/kit';
-import { withBase, withTrailingSlash } from 'ufo';
 import type { NuxtModule, NuxtPage } from '@nuxt/schema';
+import { createSitePathResolver } from 'nuxt-site-config-kit';
 
 const t8DateFormatter = new Intl.DateTimeFormat('sv-SE', {
 	timeZone: 'Asia/Shanghai',
@@ -17,12 +17,29 @@ const module: NuxtModule = defineNuxtModule({
 		name: '@anc/nuxt-seo-sitemap',
 	},
 	moduleDependencies: {
-		'@anc/nuxt-site-config': {},
+		'@nuxtjs/robots': {},
+		'nuxt-site-config': {},
 		'@anc/nuxt-page-meta-dates': {},
 	},
 	setup(_options, nuxt) {
-		nuxt.hook('site-config:resolve', (siteConfig) => {
-			nuxt.hook('nitro:init', (nitro) => {
+		nuxt.hook('site-config:resolve', () => {
+			const resolveSitePath = createSitePathResolver({ canonical: true, absolute: true }, nuxt);
+
+			// 向 @nuxtjs/robots 添加 sitemap 位置
+			nuxt.hook('robots:config', (config) => {
+				const sitemapUrl = resolveSitePath('/sitemap.xml');
+
+				if (!Array.isArray(config.sitemap)) {
+					config.sitemap = [sitemapUrl];
+					return;
+				}
+
+				if (!config.sitemap.includes(sitemapUrl)) {
+					config.sitemap.push(sitemapUrl);
+				}
+			});
+
+			nuxt.hook('nitro:init', async (nitro) => {
 				nitro.hooks.hook('prerender:done', async (result) => {
 					const sitemapContent = new Set<string>();
 					const routes = new Set<NuxtPage>();
@@ -56,7 +73,7 @@ const module: NuxtModule = defineNuxtModule({
 
 					sitemapContent.forEach((route) => {
 						// 基本路径
-						const pageURL = withTrailingSlash(withBase(route, siteConfig.url));
+						const pageURL = resolveSitePath(route);
 						sitemapXML += `<url><loc>${pageURL}</loc>`;
 
 						// 更新时间

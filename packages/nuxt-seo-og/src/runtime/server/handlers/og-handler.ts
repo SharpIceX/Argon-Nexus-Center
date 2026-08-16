@@ -41,12 +41,17 @@ export default defineEventHandler(async (event) => {
 	>(routePath);
 
 	if (!ogData) {
-		return;
+		// TODO：dev 开发模式下看不到 og 图，因为 ogData 是空的
+		throw new HTTPError({
+			statusCode: 404,
+			statusMessage: 'Not Found',
+			message: `未找到路径「${routePath}」的 OG 数据`,
+		});
 	}
 
 	if (ogData.title === undefined) {
 		throw new HTTPError({
-			statusCode: 404,
+			statusCode: 422,
 			statusText: 'Not Found',
 			message: `页面「${routePath}」没有标题！`,
 		});
@@ -82,12 +87,12 @@ export default defineEventHandler(async (event) => {
 			showHidden: false,
 		});
 
-		console.error(`--- [Typst Rendering Error] ---\nRoute: ${routePath}\nError Details:\n${formattedError}`);
+		console.error(`Typst 渲染失败\n路由: ${routePath}\n`, formattedError);
 
 		throw new HTTPError({
 			cause: error,
 			statusCode: 500,
-			statusText: 'Typst Render Error',
+			statusText: 'Typst 渲染错误',
 			message: error instanceof Error ? error.message : String(error),
 			data: {
 				route: routePath,

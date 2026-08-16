@@ -30,6 +30,8 @@ function getBuildTimestamp(): string {
 	return `${formatted.replace(' ', 'T')}+08:00`;
 }
 
+// TODO：预渲染和 sitemap 中会出现重复的`/friends/`页面
+
 export default defineNuxtConfig({
 	telemetry: false,
 	appId: 'Argon-Nexus-Center',
@@ -47,6 +49,7 @@ export default defineNuxtConfig({
 		'@nuxt/eslint',
 		'@anc/nuxt-seo-og',
 		'@anc/nuxt-svg-static',
+		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-page-meta-dates',
 	],
 	alias: {
@@ -206,10 +209,6 @@ export default defineNuxtConfig({
 				],
 				allow: ['/'],
 			},
-			{
-				userAgent: ['*'],
-				disallow: ['/'],
-			},
 		],
 	},
 	app: {
@@ -222,6 +221,13 @@ export default defineNuxtConfig({
 				dir: 'ltr',
 				class: 'dark',
 			},
+			link: [
+				// 网站图标
+				{ rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+				{ rel: 'icon', type: 'image/jxl', sizes: '1024x1024', href: '/favicon.jxl' },
+				{ rel: 'icon', type: 'image/webp', sizes: '1024x1024', href: '/favicon.webp' },
+				{ rel: 'apple-touch-icon', type: 'image/png', href: '/apple-touch-icon.png', sizes: '180x180' },
+			],
 			meta: [
 				// 关键词
 				{
@@ -242,14 +248,7 @@ export default defineNuxtConfig({
 				// 禁用浏览器扩展 Dark Reader
 				{
 					name: 'darkreader-lock',
-				},
-			],
-			link: [
-				{
-					rel: 'icon',
-					type: 'image/jxl',
-					sizes: '1024x1024',
-					href: '/favicon.jxl',
+					content: 'true',
 				},
 			],
 		},
