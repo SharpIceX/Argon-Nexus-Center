@@ -5,7 +5,7 @@ import module from 'node:module';
 import { inspect } from 'node:util';
 import { Buffer } from 'node:buffer';
 import { useStorage } from 'nitro/storage';
-import { HTTPError, defineEventHandler } from 'h3';
+import { createError, defineEventHandler } from 'h3';
 import { NodeCompiler as TypstNodeCompiler } from '@myriaddreamin/typst-ts-node-compiler';
 
 const require = module.createRequire(import.meta.url);
@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
 
 	if (!ogData) {
 		// TODO：dev 开发模式下看不到 og 图，因为 ogData 是空的
-		throw new HTTPError({
+		throw createError({
 			statusCode: 404,
 			statusMessage: 'Not Found',
 			message: `未找到路径「${routePath}」的 OG 数据`,
@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
 	}
 
 	if (ogData.title === undefined) {
-		throw new HTTPError({
+		throw createError({
 			statusCode: 422,
 			statusText: 'Not Found',
 			message: `页面「${routePath}」没有标题！`,
@@ -89,7 +89,7 @@ export default defineEventHandler(async (event) => {
 
 		console.error(`Typst 渲染失败\n路由: ${routePath}\n`, formattedError);
 
-		throw new HTTPError({
+		throw createError({
 			cause: error,
 			statusCode: 500,
 			statusText: 'Typst 渲染错误',

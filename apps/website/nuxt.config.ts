@@ -154,7 +154,7 @@ export default defineNuxtConfig({
 		},
 	},
 	sitemap: {
-		// TODO：存在`Cannot read properties of undefined (reading 'raw')`问题
+		// TODO：存在`Cannot read properties of undefined (reading 'raw')`问题，By <https://github.com/nuxt-modules/sitemap/issues/658>
 		enabled: false,
 
 		// TODO：之后可能要关闭 xsl

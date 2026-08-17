@@ -10,13 +10,13 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "catalog:",
-		"nuxt-site-config-kit": "^4.2.2"
+		"nuxt-site-config-kit": "^4.2.3"
 	},
 	"devDependencies": {
 		"@anc/nuxt-page-meta-dates": "workspace:*",
 		"@anc/strict-tsconfig": "workspace:*",
 		"@nuxt/module-builder": "catalog:",
 		"@nuxtjs/robots": "^6.1.4",
-		"nuxt-site-config": "^4.2.2"
+		"nuxt-site-config": "^4.2.3"
 	}
 }
