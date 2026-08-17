@@ -30,10 +30,10 @@
         // 中间
         #place(horizon, pad(x: 60pt)[
             #block(width: 90%)[
-                #text(size: 3em, weight: "bold", title)
+                #text(size: 3em, weight: "bold", max-lines: 2, title)
                 #if type(description) == str and description.trim() != "" [
                     #v(20pt)
-                    #text(size: 1.5em, fill: text-muted, description)
+                    #text(size: 1.5em, fill: text-muted, max-lines: 3, description)
                 ]
             ]
         ])
