@@ -223,9 +223,9 @@ export default defineNuxtConfig({
 			},
 			link: [
 				// 网站图标
-				{ rel: 'icon', href: '/favicon.ico', sizes: 'any' },
 				{ rel: 'icon', type: 'image/jxl', sizes: '1024x1024', href: '/favicon.jxl' },
 				{ rel: 'icon', type: 'image/webp', sizes: '1024x1024', href: '/favicon.webp' },
+				{ rel: 'icon', href: '/favicon.ico', sizes: '16x16 32x32 48x48 64x64 128x128 256x256' },
 				{ rel: 'apple-touch-icon', type: 'image/png', href: '/apple-touch-icon.png', sizes: '180x180' },
 			],
 			meta: [
