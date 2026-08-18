@@ -40,14 +40,14 @@ export default defineNuxtPlugin(() => {
 
 	const route = useRoute();
 	const nuxtApp = useNuxtApp();
+
 	const resolveSitePath = createSitePathResolver();
-
-	const ogOptions = event.context._og_options;
-	const isOGImageEnabled = ogOptions?.disabledOGImage !== true;
-
 	const ogImageURL = resolveSitePath(joinURL('/_og-image', route.path, 'og.webp')).value;
 
 	head.hooks.hook('tags:resolve', (ctx) => {
+		const ogOptions = event.context._og_options;
+		const isOGImageEnabled = ogOptions?.disabledOGImage !== true;
+
 		let pageTitle: string | undefined;
 		let pageDescription: string | undefined;
 
