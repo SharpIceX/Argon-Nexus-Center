@@ -4,11 +4,9 @@
 		{ "path": "./tsconfig.config.json" },
 		{ "path": "./apps/content/tsconfig.json" },
 		{ "path": "./apps/website/tsconfig.json" },
-		{ "path": "./packages/nuxt-seo/tsconfig.json" },
 		{ "path": "./packages/nuxt-seo-og/tsconfig.json" },
 		{ "path": "./packages/nuxt-svg-static/tsconfig.json" },
 		{ "path": "./packages/nuxt-seo-sitemap/tsconfig.json" },
-		{ "path": "./packages/nuxt-site-config/tsconfig.json" },
 		{ "path": "./packages/nuxt-page-meta-dates/tsconfig.json" }
 	]
 }

@@ -6,7 +6,7 @@
 				<li v-for="item in galleryData" :key="item.title" :class="$style['gallery-item']">
 					<RekaTooltipRoot>
 						<RekaTooltipTrigger as-child>
-							<NuxtLink :to="`/gallery/${item.title}`" @dragstart="handleDragStart($event, item)">
+							<NuxtLink :to="`/gallery/${item.title}/`" @dragstart="handleDragStart($event, item)">
 								<figure>
 									<img :src="item.thumb" :alt="item.title" loading="lazy" />
 								</figure>

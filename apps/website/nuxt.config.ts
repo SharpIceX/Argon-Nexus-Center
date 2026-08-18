@@ -30,6 +30,8 @@ function getBuildTimestamp(): string {
 	return `${formatted.replace(' ', 'T')}+08:00`;
 }
 
+// TODO：预渲染和 sitemap 中会出现重复的`/friends/`页面
+
 export default defineNuxtConfig({
 	telemetry: false,
 	appId: 'Argon-Nexus-Center',
@@ -37,17 +39,17 @@ export default defineNuxtConfig({
 	css: ['~/styles/main.less'],
 	srcDir: path.resolve(import.meta.dirname, './src'),
 	buildId: await git.resolveRef({ fs, dir: path.resolve(import.meta.dirname, '../../'), ref: 'HEAD' }),
-	extends: [url.fileURLToPath(import.meta.resolve('@anc/content'))],
+	// TODO：未完成 Wiki、小说、Blog 的开发
+	// extends: [url.fileURLToPath(import.meta.resolve('@anc/content'))],
 	modules: [
 		'@nuxt/a11y',
 		'nuxt-nexus',
+		'@nuxtjs/seo',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
-		'@anc/nuxt-seo',
 		'@anc/nuxt-seo-og',
-		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-svg-static',
-		'@anc/nuxt-site-config',
+		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-page-meta-dates',
 	],
 	alias: {
@@ -74,6 +76,8 @@ export default defineNuxtConfig({
 		typescriptPlugin: true,
 
 		// TODO：会引起<https://github.com/nuxt/nuxt/issues/36023>这个问题
+		// eslint-disable-next-line ts/ban-ts-comment
+		// @ts-ignore
 		nitroViteEnvironment: false,
 	},
 	devtools: {
@@ -109,7 +113,7 @@ export default defineNuxtConfig({
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
-			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@vue/devtools-core', '@lucide/vue'],
+			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@unhead/schema-org/vue', '@lucide/vue'],
 		},
 	},
 	eslint: {
@@ -126,12 +130,90 @@ export default defineNuxtConfig({
 	},
 	site: {
 		name: '锐冰',
-		lang: 'zh-CN',
+		indexable: true,
+		trailingSlash: true,
 		url: 'https://avali.top',
+		defaultLocale: 'zh-Hans',
+		description: '这里是锐冰的个人网站和灵羽独立区的 Wiki。',
+	},
+	seo: {
+		meta: {
+			author: '锐冰',
+			colorScheme: 'dark',
+			themeColor: '#4DA9CF',
+			appleMobileWebAppTitle: '锐冰',
+		},
+	},
+	schemaOrg: {
+		identity: {
+			name: '锐冰',
+			type: 'Person',
+			image: '/favicon.webp',
+			alternateName: 'SharpIce',
+			sameAs: ['https://github.com/SharpIceX'],
+		},
+	},
+	sitemap: {
+		// TODO：存在`Cannot read properties of undefined (reading 'raw')`问题，By <https://github.com/nuxt-modules/sitemap/issues/658>
+		enabled: false,
+
+		// TODO：之后可能要关闭 xsl
+		// xsl: fallse,
+		credits: false,
+		zeroRuntime: true,
+		minify: isProduction,
+		discoverImages: false,
+		discoverVideos: false,
+	},
+	linkChecker: {
+		// TODO：开发模式下启用有问题
+		enabled: isProduction,
+		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
+	},
+	ogImage: {
+		// TODO：目前 Nuxt V5 的 DevTool 存在 Bug 导致调试不方便，而且 nuxt-og-image 限制较多，之后在考虑换回
+		enabled: false,
+		zeroRuntime: true,
+	},
+	// TODO：可能需要禁止爬取任何图片
+	robots: {
+		credits: false,
+		blockAiBots: true,
+		blockNonSeoBots: true,
+		groups: [
+			{
+				userAgent: [
+					// 搜索引擎
+					'Bingbot',
+					'Applebot',
+					'Googlebot',
+					'YandexBot',
+					'DuckDuckBot',
+
+					// 社交媒体
+					'Slackbot',
+					'redditbot',
+					'Twitterbot',
+					'Discordbot',
+					'LinkedInBot',
+					'TelegramBot',
+					'facebookexternalhit',
+
+					// 互联网档案馆
+					'ia_archiver',
+					'archive.org_bot',
+
+					// 秋云思
+					'Curasea',
+					'CuraseaCarbon',
+				],
+				allow: ['/'],
+			},
+		],
 	},
 	app: {
 		buildAssetsDir: '_nexus',
-		rootId: `nexus_app`,
+		rootId: 'nexus_app',
 		head: {
 			titleTemplate: '锐冰 - %s',
 			viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
@@ -139,6 +221,13 @@ export default defineNuxtConfig({
 				dir: 'ltr',
 				class: 'dark',
 			},
+			link: [
+				// 网站图标
+				{ rel: 'icon', type: 'image/jxl', sizes: '1024x1024', href: '/favicon.jxl' },
+				{ rel: 'icon', type: 'image/webp', sizes: '1024x1024', href: '/favicon.webp' },
+				{ rel: 'icon', href: '/favicon.ico', sizes: '16x16 32x32 48x48 64x64 128x128 256x256' },
+				{ rel: 'apple-touch-icon', type: 'image/png', href: '/apple-touch-icon.png', sizes: '180x180' },
+			],
 			meta: [
 				// 关键词
 				{
@@ -146,31 +235,11 @@ export default defineNuxtConfig({
 					content: 'SharpIce, 锐冰, 幻想生物, 个人网站',
 				},
 
-				// Web App
-				{
-					name: 'apple-mobile-web-app-title',
-					content: '锐冰',
-				},
-
-				// 网站主题颜色
-				{
-					name: 'theme-color',
-					content: '#4DA9CF',
-				},
-
-				// 版权信息
+				// 版权与许可证信息
 				{
 					name: 'copyright',
 					content: 'Copyright © 2020-2026 锐冰 (SharpIce). Licensed under the Mozilla Public License 2.0.',
 				},
-
-				// 作者
-				{
-					name: 'author',
-					content: '锐冰',
-				},
-
-				// 许可证
 				{
 					name: 'license',
 					content: 'https://www.mozilla.org/MPL/2.0/',
@@ -179,32 +248,7 @@ export default defineNuxtConfig({
 				// 禁用浏览器扩展 Dark Reader
 				{
 					name: 'darkreader-lock',
-				},
-
-				// 仅提供深色模式
-				{
-					name: 'color-scheme',
-					content: 'dark',
-				},
-			],
-
-			link: [
-				{
-					rel: 'apple-touch-icon',
-					href: '/apple-touch-icon.png',
-				},
-
-				{
-					rel: 'icon',
-					type: 'image/x-icon',
-					sizes: 'any',
-					href: '/favicon.ico',
-				},
-				{
-					rel: 'icon',
-					type: 'image/jxl',
-					sizes: '1024x1024',
-					href: '/favicon.jxl',
+					content: 'true',
 				},
 			],
 		},

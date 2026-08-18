@@ -9,15 +9,16 @@
 		"postinstall": "nuxt-module-build prepare"
 	},
 	"dependencies": {
-		"@anc/nuxt-site-config": "workspace:*",
 		"@lxgw/LxgwBright": "github:lxgw/LxgwBright#v5.528",
 		"@myriaddreamin/typst-ts-node-compiler": "0.7.0",
 		"@nuxt/kit": "catalog:",
+		"nuxt-site-config-kit": "^4.2.3",
 		"sharp": "^0.35.3",
 		"ufo": "^1.6.4"
 	},
 	"devDependencies": {
 		"@anc/strict-tsconfig": "workspace:*",
-		"@nuxt/module-builder": "catalog:"
+		"@nuxt/module-builder": "catalog:",
+		"nuxt-site-config": "^4.2.3"
 	}
 }

@@ -1,34 +1,57 @@
-import { joinURL, withBase, withoutTrailingSlash } from 'ufo';
-import { defineNuxtPlugin, useAppConfig, useRoute, useNuxtApp, injectHead, prerenderRoutes } from '#imports';
+import { joinURL } from 'ufo';
+import {
+	useRoute,
+	showError,
+	useNuxtApp,
+	injectHead,
+	createError,
+	useSiteConfig,
+	useRequestEvent,
+	prerenderRoutes,
+	defineNuxtPlugin,
+	createSitePathResolver,
+} from '#imports';
 
 export default defineNuxtPlugin(() => {
 	const head = injectHead();
-	if (!head.hooks) {
+	const event = useRequestEvent();
+	if (!event?.context || !head?.hooks) {
 		return;
+	}
+
+	// 站点配置
+	const siteConfig = useSiteConfig();
+	const siteName = siteConfig['name'] as string | undefined;
+	const siteDefaultLocale = siteConfig['defaultLocale'] as string | undefined;
+	if (typeof siteDefaultLocale !== 'string' || !siteDefaultLocale) {
+		throw createError({
+			fatal: true,
+			statusCode: 500,
+			statusMessage: '站点配置缺少 defaultLocale',
+		});
+	}
+	if (typeof siteName !== 'string' || !siteName) {
+		throw createError({
+			fatal: true,
+			statusCode: 500,
+			statusMessage: '站点配置缺少 name',
+		});
 	}
 
 	const route = useRoute();
 	const nuxtApp = useNuxtApp();
-	const appConfig = useAppConfig();
 
-	const canonicalURL = withoutTrailingSlash(withBase(route.path, appConfig.site.url));
-	const ogImageURL = withBase(joinURL('/_og-image', route.path, 'og.webp'), appConfig.site.url);
+	const resolveSitePath = createSitePathResolver();
+	const ogImageURL = resolveSitePath(joinURL('/_og-image', route.path, 'og.webp')).value;
 
-	const event = nuxtApp.ssrContext?.event;
-	if (!event?.context) {
-		return;
-	}
+	head.hooks.hook('tags:resolve', (ctx) => {
+		const ogOptions = event.context._og_options;
+		const isOGImageEnabled = ogOptions?.disabledOGImage !== true;
 
-	const ogOptions = event.context._og_options;
+		let pageTitle: string | undefined;
+		let pageDescription: string | undefined;
 
-	if (ogOptions?.disable === true) {
-		return;
-	}
-
-	let pageTitle: string | undefined;
-	let pageDescription: string | undefined;
-
-	head.hooks.hook('tags:resolve', async (ctx) => {
+		// 从现有标签提取 title 与 description
 		for (const tag of ctx.tags) {
 			if (tag.tag === 'title') {
 				pageTitle = tag.textContent;
@@ -38,54 +61,44 @@ export default defineNuxtPlugin(() => {
 			if (pageTitle !== undefined && pageDescription !== undefined) break;
 		}
 
-		const newTags: (typeof ctx.tags)[number][] = [
-			// Twitter
-			{ tag: 'meta', props: { name: 'twitter:image', content: ogImageURL } },
-			{ tag: 'meta', props: { name: 'twitter:image:width', content: '1200' } },
-			{ tag: 'meta', props: { name: 'twitter:image:height', content: '600' } },
-			{ tag: 'meta', props: { name: 'twitter:card', content: 'summary_large_image' } },
+		if (isOGImageEnabled) {
+			ctx.tags.push(
+				// Twitter
+				{ tag: 'meta', props: { name: 'twitter:image', content: ogImageURL } },
+				{ tag: 'meta', props: { name: 'twitter:image:width', content: '1200' } },
+				{ tag: 'meta', props: { name: 'twitter:image:height', content: '630' } },
 
-			// Open Graph
-			{ tag: 'meta', props: { property: 'og:url', content: canonicalURL } },
-			{ tag: 'meta', props: { property: 'og:image', content: ogImageURL } },
-			{ tag: 'meta', props: { property: 'og:image:width', content: '1200' } },
-			{ tag: 'meta', props: { property: 'og:image:height', content: '600' } },
-			{ tag: 'meta', props: { property: 'og:image:type', content: 'image/webp' } },
-			{ tag: 'meta', props: { property: 'og:locale', content: appConfig.site.lang } },
-			{ tag: 'meta', props: { property: 'og:type', content: ogOptions?.type || 'website' } },
-		];
-
-		if (appConfig.site.name !== undefined) {
-			newTags.push({ tag: 'meta', props: { property: 'og:site_name', content: appConfig.site.name } });
+				// Open Graph
+				{ tag: 'meta', props: { property: 'og:image', content: ogImageURL } },
+				{ tag: 'meta', props: { property: 'og:image:width', content: '1200' } },
+				{ tag: 'meta', props: { property: 'og:image:height', content: '630' } },
+				{ tag: 'meta', props: { property: 'og:image:type', content: 'image/webp' } },
+			);
 		}
-		if (pageTitle !== undefined) {
-			newTags.push({ tag: 'meta', props: { property: 'og:title', content: pageTitle } });
-		}
-		if (pageDescription !== undefined) {
-			newTags.push({ tag: 'meta', props: { property: 'og:description', content: pageDescription } });
-		}
-
-		ctx.tags.push(...newTags);
 
 		// 预渲染请求
-		if (import.meta.server && import.meta.prerender && event !== undefined) {
-			void nuxtApp.runWithContext(() => {
-				prerenderRoutes(joinURL('/_og-image', route.path, 'og.webp'));
-			});
+		if (isOGImageEnabled && ((import.meta.server && import.meta.prerender) || import.meta.dev)) {
+			void nuxtApp.runWithContext(() => prerenderRoutes(joinURL('/_og-image', route.path, 'og.webp')));
 
 			import('nitro/storage')
-				.then(({ useStorage }) => {
+				.then(async ({ useStorage }) => {
 					const storage = useStorage('og-data');
-					void storage.setItem(route.path, {
-						...ogOptions?.sysInputs,
-
-						title: pageTitle,
+					return storage.setItem(route.path, {
+						title: pageTitle ?? siteName,
 						description: pageDescription,
-						template: ogOptions?.imageTemplate,
+						template: ogOptions?.ogImageTemplate,
+						...ogOptions?.props,
 					});
 				})
 				.catch((error) => {
-					throw error;
+					showError(
+						createError({
+							fatal: true,
+							cause: error,
+							statusCode: 500,
+							statusMessage: 'og-image 的数据无法存储到 Nitro Storage',
+						}),
+					);
 				});
 		}
 	});

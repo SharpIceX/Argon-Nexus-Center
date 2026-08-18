@@ -3,20 +3,18 @@ import { addImports, addPlugin, addServerHandler, createResolver, defineNuxtModu
 
 const resolver = createResolver(import.meta.url);
 
-// TODO 写的太屎了
-
 const module: NuxtModule = defineNuxtModule({
 	meta: {
 		name: '@anc/nuxt-seo-og',
 	},
 	moduleDependencies: {
-		'@anc/nuxt-site-config': {},
+		'nuxt-site-config': {},
 	},
 	setup(_options, _nuxt) {
 		addImports({
-			name: 'defineOg',
-			as: 'defineOg',
-			from: resolver.resolve('./runtime/composables/defineOg.ts'),
+			name: 'defineOG',
+			as: 'defineOG',
+			from: resolver.resolve('./runtime/composables/defineOG.ts'),
 		});
 
 		addPlugin({

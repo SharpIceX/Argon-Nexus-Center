@@ -16,10 +16,10 @@ const navData: NavItemType[] = [
 	// TODO
 
 	{ label: '首页', path: '/', icon: houseIcon },
-	{ label: '艺术图库', path: '/gallery', icon: clapperboardIcon },
-	// { label: '博客', path: '/blog', icon: bookIcon },
-	// { label: '架空世界观', path: '/ts', icon: atomIcon },
-	{ label: '朋友们', path: '/friends', icon: heartIcon },
+	{ label: '艺术图库', path: '/gallery/', icon: clapperboardIcon },
+	// { label: '博客', path: '/blog/', icon: bookIcon },
+	// { label: '架空世界观', path: '/ts/', icon: atomIcon },
+	{ label: '朋友们', path: '/friends/', icon: heartIcon },
 ];
 
 export default navData;
