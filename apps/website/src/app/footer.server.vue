@@ -7,16 +7,29 @@
 			</a>
 		</p>
 		<div :class="$style.buildInfo">
-			<p>
-				<span>构建日期：</span>
-				<time :datetime="runtimeConfig.public.buildTimestamp">
-					{{ formatDateTime(runtimeConfig.public.buildTimestamp) }}
-				</time>
-			</p>
-			<p>
-				<span>构建版本：</span>
-				<code>{{ runtimeConfig.app.buildId.substring(0, 7) }}</code>
-			</p>
+			<div :class="$style['buildRow']">
+				<p>
+					<span>构建日期：</span>
+					<time :datetime="runtimeConfig.public.buildTimestamp">
+						{{ formatDateTime(runtimeConfig.public.buildTimestamp) }}
+					</time>
+				</p>
+				<p>
+					<span>构建版本：</span>
+					<code>{{ runtimeConfig.app.buildId.substring(0, 7) }}</code>
+				</p>
+			</div>
+
+			<div :class="$style['buildRow']">
+				<p v-if="nuxtApp.versions['nuxt']">
+					<span>Nuxt 版本：</span>
+					<code>{{ nuxtApp.versions['nuxt'] }}</code>
+				</p>
+				<p v-if="nuxtApp.versions['vue']">
+					<span>Vue 版本：</span>
+					<code>{{ nuxtApp.versions['vue'] }}</code>
+				</p>
+			</div>
 		</div>
 	</footer>
 </template>
@@ -24,13 +37,8 @@
 <script lang="ts" setup>
 defineOptions({ name: 'AppFooter' });
 
+const nuxtApp = useNuxtApp();
 const runtimeConfig = useRuntimeConfig();
-
-declare module 'nitro/types' {
-	interface NitroRuntimeConfigApp {
-		buildId: string;
-	}
-}
 
 function formatDateTime(isoString: string): string {
 	const date = new Date(isoString);
@@ -67,7 +75,12 @@ function formatDateTime(isoString: string): string {
 
 .buildInfo {
 	display: flex;
-	column-gap: 1rem;
-	justify-content: center;
+	flex-direction: column;
+
+	.buildRow {
+		display: flex;
+		column-gap: 1rem;
+		justify-content: center;
+	}
 }
 </style>

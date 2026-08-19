@@ -33,6 +33,9 @@ const config = antfu(
 			'perfectionist/sort-imports': 'off',
 			'perfectionist/sort-named-exports': 'off',
 			'perfectionist/sort-named-imports': 'off',
+
+			// 采用 TypeScript 的校验替代
+			'vue/dot-notation': 'off',
 		},
 	},
 ).append(eslintConfigPrettier);
