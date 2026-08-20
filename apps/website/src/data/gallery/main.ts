@@ -16,7 +16,7 @@ interface galleryType {
 	/** 图片标题 */
 	title: string;
 
-	/** 图片纯文本内容&描述 */
+	/** 图片描述 */
 	description?: string | undefined;
 }
 
