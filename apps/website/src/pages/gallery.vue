@@ -3,12 +3,15 @@
 		<h1>艺术图库</h1>
 		<RekaTooltipProvider :delay-duration="100" :skip-delay-duration="300">
 			<ul :class="$style['gallery-list']">
-				<li v-for="item in galleryData" :key="item.title" :class="$style['gallery-item']">
+				<li v-for="item in galleryList" :key="item.urlName" :class="$style['gallery-item']">
 					<RekaTooltipRoot>
 						<RekaTooltipTrigger as-child>
-							<NuxtLink :to="`/gallery/${item.title}/`" @dragstart="handleDragStart($event, item)">
+							<NuxtLink
+								:title="item.title"
+								:to="`/gallery/${item.urlName}/`"
+								@dragstart="handleDragStart($event, item)">
 								<figure>
-									<img :src="item.thumb" :alt="item.title" loading="lazy" />
+									<img :src="item.thumb" :aria-hidden="true" loading="lazy" />
 								</figure>
 							</NuxtLink>
 						</RekaTooltipTrigger>
@@ -30,19 +33,13 @@
 			<span :class="$style['drag-preview-ghost-text']"></span>
 		</div>
 
-		<ImageLightbox
-			v-if="currentItem"
-			:url="currentItem.image"
-			:title="currentItem.title"
-			:description="currentItem.description"
-			@close="onLightboxClose" />
+		<NuxtPage />
 	</div>
 </template>
 
 <script lang="ts" setup>
-import galleryData from '~/data/gallery/main';
+import { galleryList } from '~/data/gallery/main';
 import type { galleryType } from '~/data/gallery/main';
-import ImageLightbox from '~/components/ImageLightbox/index.vue';
 
 /**
  * TODO: 「外面的缩略图」和「灯箱内图片」都需要改成手动懒加载
@@ -54,18 +51,10 @@ definePageMeta({
 	pageTransition: false,
 });
 
-const route = useRoute();
-const router = useRouter();
 const $style = useCssModule();
 
-const currentItem = computed(() => {
-	const title = route.params.title?.[0];
-	if (!title) return undefined;
-	return galleryData.find((item) => item.title === title);
-});
-
 useSeoMeta({
-	title: () => (currentItem.value ? `艺术图库 / ${currentItem.value.title}` : '艺术图库'),
+	title: '艺术图库',
 	description: '这里有我做的CG渲染图之类的东西~',
 });
 
@@ -81,11 +70,6 @@ const handleDragStart = (e: DragEvent, item: galleryType) => {
 
 		e.dataTransfer.setDragImage(dragPreview.value, 24, dragPreview.value.offsetHeight / 2);
 	}
-};
-
-// 灯箱
-const onLightboxClose = () => {
-	router.push('/gallery');
 };
 </script>
 

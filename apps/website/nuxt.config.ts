@@ -169,7 +169,6 @@ export default defineNuxtConfig({
 		enabled: false,
 		zeroRuntime: true,
 	},
-	// TODO：可能需要禁止爬取任何图片
 	robots: {
 		credits: false,
 		blockAiBots: true,
