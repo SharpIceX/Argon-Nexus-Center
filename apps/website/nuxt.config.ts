@@ -30,7 +30,7 @@ function getBuildTimestamp(): string {
 	return `${formatted.replace(' ', 'T')}+08:00`;
 }
 
-// TODO：预渲染和 sitemap 中会出现重复的`/friends/`页面
+// TODO：预渲染中会出现重复的`/friends/`页面，可能其他页面也会重复渲染，需要排查
 
 export default defineNuxtConfig({
 	telemetry: false,
@@ -49,7 +49,6 @@ export default defineNuxtConfig({
 		'@nuxt/eslint',
 		'@anc/nuxt-seo-og',
 		'@anc/nuxt-svg-static',
-		'@anc/nuxt-seo-sitemap',
 		'@anc/nuxt-page-meta-dates',
 	],
 	alias: {
@@ -154,9 +153,6 @@ export default defineNuxtConfig({
 		},
 	},
 	sitemap: {
-		// TODO：存在`Cannot read properties of undefined (reading 'raw')`问题，By <https://github.com/nuxt-modules/sitemap/issues/658>
-		enabled: false,
-
 		// TODO：之后可能要关闭 xsl
 		// xsl: fallse,
 		credits: false,
@@ -166,8 +162,6 @@ export default defineNuxtConfig({
 		discoverVideos: false,
 	},
 	linkChecker: {
-		// TODO：开发模式下启用有问题
-		enabled: isProduction,
 		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
 	},
 	ogImage: {
