@@ -6,6 +6,7 @@
 
 - Node.js (参考 package.json 内的版本)
 - pnpm (参考 package.json 内的版本)
+- Git (最新)
 
 ## 许可证
 

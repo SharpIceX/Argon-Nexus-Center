@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          filter: blob:none
 
       - name: 安装 pnpm
         uses: pnpm/setup@v2

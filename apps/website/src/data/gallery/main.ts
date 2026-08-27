@@ -45,6 +45,12 @@ const galleryMap: Record<string, galleryType> = {
 		thumb: getURL('./data/渲染测试—可怜的Avali/thumb.jxl'),
 		description: '这只 Avali 演员要领盒饭了吗？',
 	},
+	立绘渲染: {
+		title: '立绘渲染',
+		image: getURL('./data/立绘渲染/image.jxl'),
+		thumb: getURL('./data/立绘渲染/thumb.jxl'),
+		description: '立绘画师By 骨头',
+	},
 };
 
 const galleryList = Object.entries(galleryMap).map(([urlName, item]) => ({
