@@ -18,12 +18,12 @@
 		"runtime": {
 			"name": "node",
 			"onFail": "error",
-			"version": ">=24.18"
+			"version": ">=24.19"
 		},
 		"packageManager": {
 			"name": "pnpm",
 			"onFail": "error",
-			"version": ">=11.22"
+			"version": ">=11.24"
 		}
 	},
 	"scripts": {
@@ -32,12 +32,12 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^9.3.0",
-		"@types/node": "^26.2.0",
-		"eslint": "^10.9.0",
+		"@types/node": "^26.3.0",
+		"eslint": "^10.9.1",
 		"eslint-config-prettier": "^10.1.8",
 		"jiti": "^2.7.0",
 		"prettier": "^3.9.6",
 		"typescript": "^6.0.3",
-		"wrangler": "^4.125.0"
+		"wrangler": "^4.126.0"
 	}
 }

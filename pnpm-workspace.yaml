@@ -20,6 +20,6 @@ updateConfig:
     - typescript
 
 catalog:
-  nuxt: 'npm:nuxt-nightly@5.0.0-29789807.4e009983'
+  nuxt: 'npm:nuxt-nightly@5.0.0-29794788.935b503a'
   '@nuxt/module-builder': ^1.0.3
-  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5.0.0-29789807.4e009983'
+  '@nuxt/kit': 'npm:@nuxt/kit-nightly@5.0.0-29794788.935b503a'
