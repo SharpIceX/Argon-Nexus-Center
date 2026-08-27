@@ -173,36 +173,6 @@ export default defineNuxtConfig({
 		credits: false,
 		blockAiBots: true,
 		blockNonSeoBots: true,
-		groups: [
-			{
-				userAgent: [
-					// 搜索引擎
-					'Bingbot',
-					'Applebot',
-					'Googlebot',
-					'YandexBot',
-					'DuckDuckBot',
-
-					// 社交媒体
-					'Slackbot',
-					'redditbot',
-					'Twitterbot',
-					'Discordbot',
-					'LinkedInBot',
-					'TelegramBot',
-					'facebookexternalhit',
-
-					// 互联网档案馆
-					'ia_archiver',
-					'archive.org_bot',
-
-					// 秋云思
-					'Curasea',
-					'CuraseaCarbon',
-				],
-				allow: ['/'],
-			},
-		],
 	},
 	app: {
 		buildAssetsDir: '_nexus',
