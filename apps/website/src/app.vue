@@ -1,7 +1,7 @@
 <template>
 	<AppCursor />
 	<AppHeader />
-	<main>
+	<main :class="$style['main-container']">
 		<NuxtLayout>
 			<NuxtPage :transition="{ name: 'page-fade', mode: 'out-in' }" />
 		</NuxtLayout>
@@ -47,5 +47,16 @@ defineOG({
 .page-fade-leave-to {
 	opacity: 0;
 	transform: translateY(0);
+}
+</style>
+
+<style lang="less" module>
+.main-container {
+	flex: 1 0 auto;
+
+	/** 消除 Nuxt Island 的代理包装层干扰  */
+	& > div:not([class]) {
+		display: contents;
+	}
 }
 </style>
