@@ -13,7 +13,7 @@
 		"@myriaddreamin/typst-ts-node-compiler": "0.7.0",
 		"@nuxt/kit": "catalog:",
 		"nuxt-site-config-kit": "^4.2.3",
-		"sharp": "^0.35.3",
+		"sharp": "^0.35.4",
 		"ufo": "^1.6.4"
 	},
 	"devDependencies": {
