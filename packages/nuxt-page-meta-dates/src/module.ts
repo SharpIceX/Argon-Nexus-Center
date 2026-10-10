@@ -1,5 +1,5 @@
 import os from 'node:os';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 import { defineNuxtModule } from '@nuxt/kit';
 
 interface RouteMetaTime {

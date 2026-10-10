@@ -23,7 +23,7 @@
 		"packageManager": {
 			"name": "pnpm",
 			"onFail": "error",
-			"version": ">=12.4.2"
+			"version": ">=12.10"
 		}
 	},
 	"scripts": {
@@ -32,12 +32,12 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^9.5.1",
-		"@types/node": "^26.5.1",
-		"eslint": "^10.10.0",
+		"@types/node": "^26.6.4",
+		"eslint": "^10.12.0",
 		"eslint-config-prettier": "^10.1.8",
 		"jiti": "^2.7.0",
-		"prettier": "^3.9.6",
+		"prettier": "^3.9.9",
 		"typescript": "^6.0.3",
-		"wrangler": "^4.131.2"
+		"wrangler": "^4.149.0"
 	}
 }

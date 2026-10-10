@@ -112,7 +112,14 @@ export default defineNuxtConfig({
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
-			include: ['gsap', 'reka-ui', '@vue/devtools-kit', '@unhead/schema-org/vue', '@lucide/vue'],
+			include: [
+				'@vue/devtools-core',
+				'gsap',
+				'reka-ui',
+				'@vue/devtools-kit',
+				'@unhead/schema-org/vue',
+				'@lucide/vue',
+			],
 		},
 	},
 	eslint: {

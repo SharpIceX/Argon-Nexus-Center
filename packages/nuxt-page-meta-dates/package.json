@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "catalog:",
-		"simple-git": "^3.36.0"
+		"simple-git": "^4.0.2"
 	},
 	"devDependencies": {
 		"@anc/strict-tsconfig": "workspace:*",
