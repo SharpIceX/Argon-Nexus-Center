@@ -222,14 +222,14 @@ export default defineNuxtConfig({
 				},
 			],
 			script: isProduction
-				? []
-				: [
+				? [
 						{
 							defer: true,
 							src: 'https://cloud.umami.is/script.js',
 							'data-website-id': 'a8a9cc46-6080-47f5-bc52-ad4319b8763f',
 						},
-					],
+					]
+				: [],
 		},
 	},
 });
