@@ -138,6 +138,7 @@ onUnmounted(() => {
 	window.removeEventListener('pointerup', onUp);
 	document.documentElement.removeEventListener('pointerleave', onLeave);
 	window.removeEventListener('blur', onLeave);
+	gsap.killTweensOf([dotRef.value, ringRef.value]);
 });
 </script>
 
