@@ -1,7 +1,7 @@
 <template>
 	<div :class="$style['home-container']">
 		<div :class="$style['home-content']">
-			<img src="/avatar.jxl" width="64" height="64" :class="$style['avatar-content']" aria-hidden="true" />
+			<canvas :class="$style['avatar-content']" aria-hidden="true" @contextmenu.prevent></canvas>
 
 			<div>
 				<h1>关于我</h1>
@@ -70,8 +70,13 @@ const connectList = [
 	.avatar-content {
 		width: 100%;
 		aspect-ratio: 1;
-		object-fit: contain;
+		user-select: none;
 		image-rendering: pixelated;
+
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-image: url('/avatar.jxl');
 	}
 
 	@media (max-width: 1024px) {
