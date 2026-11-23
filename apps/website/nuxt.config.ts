@@ -33,6 +33,7 @@ function getBuildTimestamp(): string {
 // TODO：预渲染中会出现重复的`/friends/`页面，可能其他页面也会重复渲染，需要排查
 
 export default defineNuxtConfig({
+	aiReady: false,
 	telemetry: false,
 	appId: 'Argon-Nexus-Center',
 	compatibilityDate: 'latest',
@@ -45,9 +46,9 @@ export default defineNuxtConfig({
 		'@nuxt/a11y',
 		'nuxt-nexus',
 		'@nuxtjs/seo',
+		'@nuxt/fonts',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
-		'@anc/nuxt-seo-og',
 		'@anc/nuxt-svg-static',
 		'@anc/nuxt-page-meta-dates',
 	],
@@ -73,17 +74,53 @@ export default defineNuxtConfig({
 	experimental: {
 		typedPages: true,
 		typescriptPlugin: true,
-
-		// TODO：会引起<https://github.com/nuxt/nuxt/issues/36023>这个问题
-		// eslint-disable-next-line ts/ban-ts-comment
-		// @ts-ignore
-		nitroViteEnvironment: false,
 	},
 	devtools: {
 		enabled: !isProduction,
 	},
 	build: {
 		analyze: process.env['ANALYZE'] === 'true' ? { analyzerMode: 'server', analyzerPort: 8601 } : false,
+	},
+	fonts: {
+		provider: 'npm',
+		defaults: {
+			formats: ['woff2'],
+		},
+		experimental: {
+			disableLocalFallbacks: true,
+		},
+		families: [
+			{
+				name: 'LXGW WenKai',
+				global: true,
+				preload: false,
+				weights: [300, 500, 700],
+			},
+			{
+				name: 'Noto Serif SC Variable',
+				global: true,
+				preload: false,
+				weights: ['200 900'],
+			},
+			{
+				name: 'Noto Sans SC Variable',
+				global: true,
+				preload: false,
+				weights: ['100 900'],
+			},
+			{
+				name: 'JetBrains Mono Variable',
+				global: true,
+				weights: ['100 800'],
+				preload: { subsets: ['latin'], styles: ['normal'] },
+			},
+			{
+				name: 'Noto Color Emoji',
+				global: true,
+				preload: false,
+				weights: [400],
+			},
+		],
 	},
 	nitro: {
 		preset: 'cloudflare-pages-static',
@@ -112,14 +149,7 @@ export default defineNuxtConfig({
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
-			include: [
-				'@vue/devtools-core',
-				'gsap',
-				'reka-ui',
-				'@vue/devtools-kit',
-				'@unhead/schema-org/vue',
-				'@lucide/vue',
-			],
+			include: ['gsap', 'reka-ui', '@lucide/vue', '@unhead/schema-org/vue'],
 		},
 	},
 	eslint: {
@@ -172,9 +202,10 @@ export default defineNuxtConfig({
 		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
 	},
 	ogImage: {
-		// TODO：目前 Nuxt V5 的 DevTool 存在 Bug 导致调试不方便，而且 nuxt-og-image 限制较多，之后在考虑换回
-		enabled: false,
 		zeroRuntime: true,
+		defaults: {
+			extension: 'webp',
+		},
 	},
 	robots: {
 		credits: false,

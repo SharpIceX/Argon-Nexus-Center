@@ -1,0 +1,2 @@
+exclude:
+  - '**/apps/website/src/components/OgImage/**/*.vue'

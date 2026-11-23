@@ -143,7 +143,7 @@ onUnmounted(() => {
 </script>
 
 <style lang="less" module>
-@import (reference) '@anc/fantasy-design/src/color.less';
+@import (reference) '@anc/fantasy-design/src/colors.less';
 
 .cursor-container-raw {
 	inset: 0;

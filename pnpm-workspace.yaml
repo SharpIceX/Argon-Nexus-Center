@@ -17,9 +17,28 @@ allowBuilds:
 
 updateConfig:
   ignoreDependencies:
+    - node
     - typescript
 
+overrides:
+  # TODO：nuxt-og-image 下次发布新版本后要删除！
+  # TODO：包括 apps/website/package.json 里面的依赖
+  '@nuxtjs/seo>nuxt-og-image': '-'
+
 catalog:
-  nuxt: npm:nuxt-nightly@^5.0.0-2610082216-48412f7
-  '@nuxt/module-builder': ^1.0.3
-  '@nuxt/kit': npm:@nuxt/kit-nightly@^5.0.0-2610082216-48412f7
+  nuxt: npm:nuxt-nightly@^5.0.0-2611211809-63ab9cc
+  '@nuxt/module-builder': ^1.0.4
+  '@nuxt/kit': npm:@nuxt/kit-nightly@^5.0.0-2611211809-63ab9cc
+
+minimumReleaseAgeExclude:
+  - '@devframes/hub@1.3.5'
+  - '@devframes/plugin-assets@1.3.5'
+  - '@devframes/plugin-code-server@1.3.5'
+  - '@devframes/plugin-data-inspector@1.3.5'
+  - '@devframes/plugin-og@1.3.5'
+  - '@devframes/service-open@1.3.5'
+  - '@devframes/vite@1.3.5'
+  - '@nuxt/devtools-assets@4.2.0'
+  - '@nuxt/devtools-kit@4.2.0'
+  - '@nuxt/devtools@4.2.0'
+  - devframe@1.3.5
