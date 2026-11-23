@@ -37,7 +37,7 @@ const isOpen = ref(false);
 </script>
 
 <style lang="less" module>
-@import (reference) '@anc/fantasy-design/src/color.less';
+@import (reference) '@anc/fantasy-design/src/colors.less';
 @import (reference) '@anc/fantasy-design/src/utils/radius.less';
 
 .menu-trigger {

@@ -48,7 +48,7 @@ const handleDragStart = (e: DragEvent, title: string) => {
 </script>
 
 <style lang="less" module>
-@import (reference) '@anc/fantasy-design/src/color.less';
+@import (reference) '@anc/fantasy-design/src/colors.less';
 
 .title {
 	width: 1px;

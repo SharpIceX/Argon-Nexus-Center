@@ -35,7 +35,7 @@ if (!props.title?.trim()) {
 </script>
 
 <style lang="less" scoped>
-@import (reference) '@anc/fantasy-design/src/color.less';
+@import (reference) '@anc/fantasy-design/src/colors.less';
 
 .og-container {
 	width: 100%;

@@ -4,7 +4,7 @@
 			<canvas :class="$style['avatar-content']" aria-hidden="true" @contextmenu.prevent></canvas>
 
 			<div>
-				<h1>关于我</h1>
+				<h1 :class="$style.title">关于我</h1>
 				<p :class="$style.bio">
 					我是一名独立开发者、开源志愿者，目前主要维护一些开源项目。我平常也喜欢创作架空世界观、看科幻小说和可爱的艺术作品。
 				</p>
@@ -46,6 +46,8 @@ const connectList = [
 </script>
 
 <style lang="less" module>
+@import (reference) '@anc/fantasy-design/src/fonts.less';
+
 .home-container {
 	width: 40%;
 	height: 100%;
@@ -53,6 +55,7 @@ const connectList = [
 	margin: 0 auto;
 	flex-direction: column;
 	justify-content: center;
+	font-family: @font-lxgw;
 
 	/* 小屏幕 */
 	@media (max-width: 1024px) {
@@ -89,6 +92,16 @@ const connectList = [
 	}
 }
 
+.title {
+	font-size: 1.75rem;
+	margin-bottom: 0.5rem;
+	letter-spacing: 0.06em;
+
+	@media (max-width: 1024px) {
+		text-align: center;
+	}
+}
+
 .hr-line {
 	width: 100%;
 	margin-block: 1rem;
@@ -96,7 +109,15 @@ const connectList = [
 }
 
 .bio {
-	text-indent: 2em;
+	font-weight: 500;
+	line-height: 1.85;
+	text-align: start;
+	font-size: 1.05rem;
+}
+
+.bio {
+	line-height: 1.75;
+	text-align: start;
 }
 
 .connect-list {

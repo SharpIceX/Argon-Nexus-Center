@@ -48,7 +48,7 @@ function formatDateTime(isoString: string): string {
 </script>
 
 <style lang="less" module>
-@import (reference) '@anc/fantasy-design/src/color.less';
+@import (reference) '@anc/fantasy-design/src/colors.less';
 
 .footer-container {
 	flex-shrink: 0;

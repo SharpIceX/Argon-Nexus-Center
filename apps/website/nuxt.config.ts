@@ -46,6 +46,7 @@ export default defineNuxtConfig({
 		'@nuxt/a11y',
 		'nuxt-nexus',
 		'@nuxtjs/seo',
+		'@nuxt/fonts',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
 		'@anc/nuxt-svg-static',
@@ -86,6 +87,47 @@ export default defineNuxtConfig({
 	},
 	build: {
 		analyze: process.env['ANALYZE'] === 'true' ? { analyzerMode: 'server', analyzerPort: 8601 } : false,
+	},
+	fonts: {
+		provider: 'npm',
+		defaults: {
+			formats: ['woff2'],
+		},
+		experimental: {
+			disableLocalFallbacks: true,
+		},
+		families: [
+			{
+				name: 'LXGW WenKai',
+				global: true,
+				preload: false,
+				weights: [300, 500, 700],
+			},
+			{
+				name: 'Noto Serif SC Variable',
+				global: true,
+				preload: false,
+				weights: ['200 900'],
+			},
+			{
+				name: 'Noto Sans SC Variable',
+				global: true,
+				preload: false,
+				weights: ['100 900'],
+			},
+			{
+				name: 'JetBrains Mono Variable',
+				global: true,
+				weights: ['100 800'],
+				preload: { subsets: ['latin'], styles: ['normal'] },
+			},
+			{
+				name: 'Noto Color Emoji',
+				global: true,
+				preload: false,
+				weights: [400],
+			},
+		],
 	},
 	nitro: {
 		preset: 'cloudflare-pages-static',
