@@ -18,9 +18,8 @@ defineOptions({
 	name: 'App',
 });
 
-defineOG({
-	ogImageTemplate: 'default',
-});
+const route = useRoute();
+defineOgImage('Default.takumi', route.meta as Record<string, unknown>);
 
 // TODO: 添加检查是否 JPEG XL，不支持就弹窗，要包裹在 ClientOnly运行
 </script>

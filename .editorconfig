@@ -6,22 +6,38 @@ charset = utf-8
 end_of_line = lf
 indent_size = tab
 indent_style = tab
-quote_type = single
-max_line_length = 120
-indent_brace_style = K&R
-spelling_language = zh-CN
+spelling_language = en-US
 insert_final_newline = true
-continuation_indent_size = 4
-spaces_around_brackets = both
-spaces_around_operators = true
 trim_trailing_whitespace = true
-curly_bracket_next_line = false
 
 [*.{yml,yaml}]
 indent_size = 2
 indent_style = space
 
+[*.{md,typ,tex}]
+spelling_language = zh-CN
+
 [*.md]
 indent_size = 2
 indent_style = space
 trim_trailing_whitespace = false
+
+[*.lua]
+quote_style = single
+max_line_length = 120
+align_call_args = false
+continuation_indent = 4
+align_array_table = true
+space_after_comma = true
+align_function_params = true
+call_arg_parentheses = always
+trailing_table_separator = always
+space_around_math_operator = true
+space_around_concat_operator = true
+space_around_table_field_list = true
+space_after_comma_in_for_statement = true
+space_before_closure_open_parenthesis = true
+space_before_function_open_parenthesis = false
+space_inside_function_call_parentheses = false
+space_before_function_call_open_parenthesis = false
+space_inside_function_param_list_parentheses = false

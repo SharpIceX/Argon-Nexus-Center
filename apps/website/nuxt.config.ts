@@ -33,6 +33,7 @@ function getBuildTimestamp(): string {
 // TODO：预渲染中会出现重复的`/friends/`页面，可能其他页面也会重复渲染，需要排查
 
 export default defineNuxtConfig({
+	aiReady: false,
 	telemetry: false,
 	appId: 'Argon-Nexus-Center',
 	compatibilityDate: 'latest',
@@ -47,7 +48,6 @@ export default defineNuxtConfig({
 		'@nuxtjs/seo',
 		'reka-ui/nuxt',
 		'@nuxt/eslint',
-		'@anc/nuxt-seo-og',
 		'@anc/nuxt-svg-static',
 		'@anc/nuxt-page-meta-dates',
 	],
@@ -80,7 +80,9 @@ export default defineNuxtConfig({
 		nitroViteEnvironment: false,
 	},
 	devtools: {
-		enabled: !isProduction,
+		enabled: false,
+		// TODO: 当前版本的 Nuxt DevTools 在退出时未正确恢复终端 TTY 属性，导致终端输入行为异常。
+		// enabled: !isProduction,
 	},
 	build: {
 		analyze: process.env['ANALYZE'] === 'true' ? { analyzerMode: 'server', analyzerPort: 8601 } : false,
@@ -112,14 +114,7 @@ export default defineNuxtConfig({
 			drop: isProduction ? ['console', 'debugger'] : [],
 		},
 		optimizeDeps: {
-			include: [
-				'@vue/devtools-core',
-				'gsap',
-				'reka-ui',
-				'@vue/devtools-kit',
-				'@unhead/schema-org/vue',
-				'@lucide/vue',
-			],
+			include: ['gsap', 'reka-ui', '@lucide/vue', '@unhead/schema-org/vue'],
 		},
 	},
 	eslint: {
@@ -172,9 +167,10 @@ export default defineNuxtConfig({
 		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars'],
 	},
 	ogImage: {
-		// TODO：目前 Nuxt V5 的 DevTool 存在 Bug 导致调试不方便，而且 nuxt-og-image 限制较多，之后在考虑换回
-		enabled: false,
 		zeroRuntime: true,
+		defaults: {
+			extension: 'webp',
+		},
 	},
 	robots: {
 		credits: false,
