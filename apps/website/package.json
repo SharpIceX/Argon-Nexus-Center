@@ -6,10 +6,10 @@
 	"description": "网站和 Wiki 等内容",
 	"scripts": {
 		"dev": "nuxt dev --no-tui",
+		"postinstall": "nuxt prepare",
 		"build": "nuxt build --no-tui",
 		"preview": "nuxt preview --no-tui",
 		"generate": "nuxt generate --no-tui",
-		"postinstall": "nuxt prepare --no-tui",
 		"analyze": "ANALYZE=true nuxt generate",
 		"clean": "rimraf dist .nuxt/cache node_modules/.cache"
 	},
@@ -42,6 +42,7 @@
 		"less": "^4.9.1",
 		"nuxt-nexus": "^1.0.3",
 		"nuxt-og-image": "https://pkg.pr.new/nuxt-modules/og-image/nuxt-og-image@c98fc8a",
+		"nuxtseo-devtools-host": "^1.0.3",
 		"rimraf": "^6.1.4"
 	}
 }

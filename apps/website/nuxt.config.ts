@@ -74,16 +74,9 @@ export default defineNuxtConfig({
 	experimental: {
 		typedPages: true,
 		typescriptPlugin: true,
-
-		// TODO：会引起<https://github.com/nuxt/nuxt/issues/36023>这个问题
-		// eslint-disable-next-line ts/ban-ts-comment
-		// @ts-ignore
-		nitroViteEnvironment: false,
 	},
 	devtools: {
-		enabled: false,
-		// TODO: 当前版本的 Nuxt DevTools 在退出时未正确恢复终端 TTY 属性，导致终端输入行为异常。
-		// enabled: !isProduction,
+		enabled: !isProduction,
 	},
 	build: {
 		analyze: process.env['ANALYZE'] === 'true' ? { analyzerMode: 'server', analyzerPort: 8601 } : false,
